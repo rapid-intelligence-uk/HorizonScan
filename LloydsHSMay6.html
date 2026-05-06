@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lloyds Banking Group Horizon Scan</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f5f7; color: #1d1d1f; font-size: 14px; line-height: 1.6; }
+.header { background: #006A4D; padding: 40px 48px 28px; color: white; position: relative; overflow: hidden; }
+.header::after { content: ''; position: absolute; top: -60px; right: -60px; width: 300px; height: 300px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+.header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 10px; }
+.header h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+.header-date { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 4px; }
+.header-byline { font-size: 12px; color: rgba(255,255,255,0.5); }
+.horizon-stage { position: relative; height: 50px; background: linear-gradient(to bottom, #006A4D 0%, #f5f5f7 100%); overflow: visible; z-index: 10; }
+.rays-svg { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 320px; pointer-events: none; overflow: visible; }
+.ray-path { stroke: rgba(255,210,60,0.35); stroke-width: 12; stroke-linecap: round; fill: none; stroke-dasharray: 320; stroke-dashoffset: 320; animation: rayDraw 0.7s ease forwards; }
+.ray-path:nth-child(1) { animation-delay: 0.05s; }
+.ray-path:nth-child(2) { animation-delay: 0.10s; }
+.ray-path:nth-child(3) { animation-delay: 0.15s; }
+.ray-path:nth-child(4) { animation-delay: 0.20s; }
+.ray-path:nth-child(5) { animation-delay: 0.25s; }
+.ray-path:nth-child(6) { animation-delay: 0.30s; }
+.ray-path:nth-child(7) { animation-delay: 0.35s; }
+.ray-path:nth-child(8) { animation-delay: 0.40s; }
+.ray-path:nth-child(9) { animation-delay: 0.45s; }
+.ray-path:nth-child(10) { animation-delay: 0.50s; }
+.ray-path:nth-child(11) { animation-delay: 0.55s; }
+@keyframes rayDraw { to { stroke-dashoffset: 0; } }
+.horizon-glow { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 220px; height: 60px; background: radial-gradient(ellipse at center bottom, rgba(255,210,60,0.7) 0%, rgba(255,180,30,0.3) 40%, transparent 70%); border-radius: 50%; animation: glowFade 0.5s ease 0.3s both; opacity: 0; pointer-events: none; }
+@keyframes glowFade { to { opacity: 1; } }
+.horizon-line { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: linear-gradient(to right, transparent, rgba(255,210,60,0.9) 30%, rgba(255,210,60,0.9) 70%, transparent); animation: lineSpreads 0.8s ease 0.4s forwards; }
+@keyframes lineSpreads { to { width: 600px; } }
+.horse-wrap { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); animation: horseRise 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.6s both; opacity: 0; z-index: 20; }
+@keyframes horseRise { from { opacity: 0; transform: translateX(-50%) translateY(20px) scale(0.85); } to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+.horse-img { width: 130px; height: auto; display: block; filter: brightness(0); }
+.container { max-width: 960px; margin: 0 auto; padding: 60px 24px 80px; }
+.overview { background: white; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 8px 24px rgba(0,0,0,0.05); border-left: 4px solid #006A4D; }
+.overview-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #006A4D; margin-bottom: 10px; }
+.overview p { color: #3a3a3c; line-height: 1.65; font-size: 15px; }
+.lane { background: white; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+.lane-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; cursor: pointer; user-select: none; background: #fff; border-bottom: 2px solid transparent; transition: background 0.15s; }
+.lane-header:hover { background: #f9fafb; }
+.lane-header.open { border-bottom-color: #e8eaed; }
+.lane-header-left { display: flex; align-items: center; gap: 14px; }
+.lane-emoji { font-size: 22px; line-height: 1; }
+.lane-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.lane-subtitle { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.lane-count { background: #006A4D; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.03em; }
+.lane-count.empty { background: #d1d5db; color: #6b7280; }
+.lane-chevron { font-size: 12px; color: #9ca3af; margin-left: 6px; transition: transform 0.2s; }
+.lane-header.open .lane-chevron { transform: rotate(180deg); }
+.lane-body { display: none; padding: 0 20px 4px; }
+.lane-body.open { display: block; }
+.event { padding: 16px 0; border-bottom: 1px solid #f0f1f3; }
+.event:last-child { border-bottom: none; }
+.event-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 5px; }
+.priority-flag { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.event-name { font-size: 14px; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+.event-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 7px; flex-wrap: wrap; }
+.event-institution { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #006A4D; background: #e8f5ee; padding: 2px 8px; border-radius: 4px; }
+.event-date { font-size: 12px; color: #6b7280; font-weight: 600; }
+.event-desc { font-size: 13px; color: #374151; line-height: 1.65; margin-bottom: 7px; }
+.event-source { font-size: 11px; color: #9ca3af; }
+.event-source a { color: #006A4D; text-decoration: none; }
+.event-source a:hover { text-decoration: underline; }
+.empty-lane { padding: 18px 0; color: #9ca3af; font-size: 13px; font-style: italic; }
+.watch-table, .comp-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0 8px; }
+.watch-table th, .comp-table th { background: #f3f4f6; color: #374151; font-weight: 700; text-align: left; padding: 8px 10px; border-bottom: 2px solid #e5e7eb; }
+.watch-table td, .comp-table td { padding: 8px 10px; border-bottom: 1px solid #f0f1f3; vertical-align: top; color: #374151; }
+.watch-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #b45309; background: #fef3c7; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+.subsection-heading { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #b45309; margin: 16px 0 8px; padding-top: 12px; border-top: 1px dashed #e5e7eb; }
+.comp-note { font-size: 12px; color: #6b7280; font-style: italic; margin-top: 10px; padding: 10px; background: #f9fafb; border-radius: 4px; border-left: 3px solid #d1d5db; }
+.analyst-notes { background: #1a1a2e; color: #e5e7eb; border-radius: 8px; padding: 20px 24px; margin-top: 8px; }
+.analyst-notes-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 14px; }
+.note-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.6; color: #d1d5db; }
+.note-dot { width: 6px; height: 6px; background: #006A4D; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.notes-subsection-heading { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #b45309; background: #fef3c7; padding: 2px 8px; border-radius: 4px; display: inline-block; margin: 14px 0 8px; }
+.distribution-hold { margin-top: 16px; background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.3); border-radius: 6px; padding: 12px 16px; font-size: 13px; color: #fca5a5; display: flex; gap: 8px; align-items: flex-start; }
+.footer { text-align: center; font-size: 11px; color: #9ca3af; padding: 20px; border-top: 1px solid #e5e7eb; margin-top: 8px; }
+.footer span { color: #006A4D; font-weight: 600; }
+@media print { .horizon-stage { display: none; } .lane-body { display: block !important; } .lane-chevron { display: none; } * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="header-meta">Rapid Intelligence UK · Cision</div>
+<h1>Lloyds Banking Group Horizon Scan</h1>
+<div class="header-date">11–16 May 2026</div>
+<div class="header-byline">Prepared for Group Corporate Affairs, Lloyds Banking Group · Confidential</div>
+</div>
+
+<div class="horizon-stage">
+<svg class="rays-svg" viewBox="0 0 700 320" preserveAspectRatio="xMidYMax meet">
+<line class="ray-path" x1="350" y1="320" x2="350" y2="10"/>
+<line class="ray-path" x1="350" y1="320" x2="430" y2="30"/>
+<line class="ray-path" x1="350" y1="320" x2="510" y2="90"/>
+<line class="ray-path" x1="350" y1="320" x2="270" y2="30"/>
+<line class="ray-path" x1="350" y1="320" x2="190" y2="90"/>
+<line class="ray-path" x1="350" y1="320" x2="490" y2="50"/>
+<line class="ray-path" x1="350" y1="320" x2="210" y2="50"/>
+<line class="ray-path" x1="350" y1="320" x2="650" y2="0"/>
+<line class="ray-path" x1="350" y1="320" x2="50" y2="0"/>
+<line class="ray-path" x1="350" y1="320" x2="700" y2="120"/>
+<line class="ray-path" x1="350" y1="320" x2="0" y2="120"/>
+</svg>
+<div class="horizon-glow"></div>
+<div class="horizon-line"></div>
+<div class="horse-wrap">
+<img class="horse-img" src=" https://raw.githubusercontent.com/NafeJonze/assets/a99548788a4fcf6e590632d3071340b34f3ec73b/blackhorse.gif" alt="Lloyds Black Horse">
+</div>
+</div>
+
+<div class="container">
+
+  <div class="overview">
+<div class="overview-label">Executive Overview</div>
+<p>The week of 11–16 May 2026 is one of the most consequential in the near-term calendar, combining a dense schedule of Lloyds Banking Group activity — including the Annual General Meeting in Edinburgh, the Retirement Report publication, the Stripe partnership launch, and the Financial Empowerment campaign — with a politically charged external environment dominated by the King's Speech and State Opening of Parliament on Wednesday. Communications teams should be alert to the risk of client announcements being overshadowed by parliamentary coverage mid-week, and should ensure AGM messaging is prepared well in advance of the Thursday event. Competitor and regulatory developments, including ongoing FCA Consumer Duty scrutiny and broader mortgage market activity, add further complexity to an already busy news landscape.</p>
+</div>
+
+  <!-- POLITICAL & GOVERNMENTAL LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">🏛️</span>
+<div>
+<div class="lane-title">Political &amp; Governmental</div>
+<div class="lane-subtitle">Parliamentary activity, government announcements &amp; policy statements · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">3 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">King's Speech &amp; State Opening of Parliament</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">UK Parliament / HM Government</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The State Opening of Parliament and King's Speech is expected to dominate the national news agenda on Wednesday. The Speech will set out the government's legislative programme and is likely to include measures touching on financial services, housing, and economic growth. This is the noisiest external event of the week and will significantly compress available media space for any corporate announcements made on the same day. Communications teams should factor this into timing decisions for the Retirement Report and National Wealth Fund University launch, both of which are currently scheduled for Wednesday. <strong>⚠️ CLASH ALERT: See Analyst Notes.</strong></div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">UK Finance Growth Summit — Jas Singh Speaking Engagement</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">UK Finance</span>
+      <span class="event-date">Monday, 11 May 2026</span>
+    </div>
+    <div class="event-desc">Jas Singh is speaking at the UK Finance Growth Summit on Monday, with a LinkedIn post planned for Tuesday to amplify the engagement. The summit brings together senior figures from across the financial services sector to discuss growth strategy and the UK's economic outlook. This provides a useful platform for the Group's broader Financial Empowerment messaging being launched the same week.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Westminster Drop-In on Digital — GPA</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Government &amp; Public Affairs (GPA)</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The Group's Government and Public Affairs team has a Westminster drop-in session on digital scheduled for Wednesday. Given the King's Speech is also on Wednesday, parliamentary access and attention may be limited. Teams should confirm whether this session remains viable in light of the State Opening schedule.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- REGULATORY LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">⚖️</span>
+<div>
+<div class="lane-title">Regulatory</div>
+<div class="lane-subtitle">FCA, PRA, Bank of England &amp; regulatory pipeline · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">2 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">FCA Consumer Duty — Ongoing Supervisory Focus</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Financial Conduct Authority</span>
+      <span class="event-date">Week of 11 May 2026</span>
+    </div>
+    <div class="event-desc">The FCA continues its active supervisory programme under Consumer Duty, with particular scrutiny on retail banking, savings products, and mortgage advice. Any communications referencing customer outcomes, product value, or financial wellbeing — including the Financial Empowerment campaign and the Retirement Report — should be reviewed for Consumer Duty alignment before publication. The regulator has signalled it will be monitoring how firms communicate with customers during periods of financial stress.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Mortgage Market Regulatory Environment</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">FCA / PRA</span>
+      <span class="event-date">Week of 11 May 2026</span>
+    </div>
+    <div class="event-desc">The £5,000 deposit mortgage product launch planned for Tuesday operates in a closely watched regulatory environment. Regulators and consumer groups have been attentive to high loan-to-value lending and affordability standards. Communications around this product should be carefully calibrated to address responsible lending messaging and avoid triggering regulatory or media scrutiny around mortgage risk.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- ECONOMIC DATA RELEASES LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">📊</span>
+<div>
+<div class="lane-title">Economic Data Releases</div>
+<div class="lane-subtitle">ONS, Bank of England &amp; key economic indicators · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">2 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">ONS Labour Market Statistics</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Office for National Statistics</span>
+      <span class="event-date">Week of 11 May 2026</span>
+    </div>
+    <div class="event-desc">ONS labour market data — including unemployment, wage growth, and economic inactivity figures — is expected during this window. These figures will shape the economic backdrop against which the Group's Financial Empowerment campaign and Retirement Report will be received. Strong wage growth data could reinforce the Group's messaging around financial resilience; weaker data may prompt media to contextualise the Retirement Report within a broader picture of financial insecurity.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">UK GDP &amp; Growth Data</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Office for National Statistics</span>
+      <span class="event-date">Week of 11 May 2026</span>
+    </div>
+    <div class="event-desc">GDP and growth data releases during this period will provide important context for the AGM on Thursday, where the Board is expected to provide a business update. Analysts and shareholders will be attentive to how the Group's performance and outlook aligns with the broader macroeconomic picture. Communications teams should ensure AGM messaging is stress-tested against a range of economic data scenarios.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- INDUSTRY & MARKET EVENTS LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">🏦</span>
+<div>
+<div class="lane-title">Industry &amp; Market Events</div>
+<div class="lane-subtitle">Financial services sector events &amp; market developments · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">3 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">UK Finance Growth Summit</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">UK Finance</span>
+      <span class="event-date">Monday, 11 May 2026</span>
+    </div>
+    <div class="event-desc">The UK Finance Growth Summit convenes senior banking and financial services leaders to discuss the sector's contribution to UK economic growth. The event provides a useful backdrop for the Group's Financial Empowerment campaign launch and Jas Singh's speaking engagement. Media coverage of the summit may create opportunities to amplify the Group's messaging around financial inclusion and economic participation.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">CBI North East Industrial Strategy Roadshow</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Confederation of British Industry (CBI)</span>
+      <span class="event-date">Thursday, 14 May 2026</span>
+    </div>
+    <div class="event-desc">The CBI's North East Industrial Strategy Roadshow takes place on Thursday, the same day as the Group's AGM in Edinburgh. This event is relevant to the Group's Business and Commercial Banking (BCB) division and may generate regional business media coverage. Teams should monitor for any overlap in messaging or media interest between the roadshow and AGM coverage.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">National Wealth Fund University Launch — Retrofit Finance</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">National Wealth Fund / HM Government</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The National Wealth Fund University launch, covering retrofit finance, is scheduled for Wednesday and is supported by a press release and social activity. This is an area of growing policy and market interest, particularly in the context of the government's net zero commitments. The King's Speech on the same day may overshadow coverage; teams should consider whether pre-briefing journalists ahead of Wednesday would help secure coverage.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- COMPETITOR WATCH LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">🔭</span>
+<div>
+<div class="lane-title">Competitor Watch</div>
+<div class="lane-subtitle">Peer bank activity &amp; sector positioning · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">2 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Peer Bank AGM Season &amp; Shareholder Scrutiny</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Sector-Wide</span>
+      <span class="event-date">Week of 11 May 2026</span>
+    </div>
+    <div class="event-desc">AGM season is underway across the major UK banks. Shareholder and media scrutiny of executive pay, climate commitments, and strategic direction is heightened during this period. The Group's AGM on Thursday will be assessed in the context of how peer institutions have handled similar questions. Communications teams should monitor competitor AGM coverage closely in the days preceding Thursday for emerging themes or shareholder concerns that may be directed at the Group.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Fintech &amp; Payments Sector — Stripe Partnership Context</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Fintech / Payments Sector</span>
+      <span class="event-date">Tuesday, 12 May 2026</span>
+    </div>
+    <div class="event-desc">The Group's Stripe partnership launch on Tuesday takes place in a competitive fintech and payments landscape where several major banks and challengers are actively announcing similar collaborations. The communications team should be prepared to differentiate the Group's Stripe partnership clearly, emphasising what is distinctive about the proposition for business customers. Monitor competitor fintech announcements in the days surrounding the launch.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- POLICY PIPELINE LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">📋</span>
+<div>
+<div class="lane-title">Policy Pipeline</div>
+<div class="lane-subtitle">Upcoming legislation, consultations &amp; policy developments · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">2 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">King's Speech — Financial Services &amp; Housing Legislation</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">HM Government</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The King's Speech on Wednesday is expected to include legislative proposals relevant to financial services, housing, and economic growth. Any new Bills touching on mortgage regulation, financial inclusion, savings, or pensions will be directly relevant to the Group's business lines and communications positioning. The GPA team should be prepared to respond rapidly to the Speech content, particularly given the Group's own Retirement Report and £5,000 deposit mortgage product are both in the public domain this week.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Industrial Strategy — North East Roadshow</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">CBI / HM Government</span>
+      <span class="event-date">Thursday, 14 May 2026</span>
+    </div>
+    <div class="event-desc">The government's Industrial Strategy is being taken on the road via the CBI North East Roadshow on Thursday. This is relevant to the Group's BCB division and its support for regional business growth. The Group may wish to consider whether there is an opportunity to align BCB messaging with the Industrial Strategy narrative during this period.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- LLOYDS BANKING GROUP STANDING PUBLICATIONS LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">📰</span>
+<div>
+<div class="lane-title">Lloyds Banking Group — Standing Publications &amp; Data</div>
+<div class="lane-subtitle">Scheduled Group research, reports &amp; data releases · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">2 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">Retirement Report — Annual Publication (IP&amp;I)</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Insurance, Pensions &amp; Investments (IP&amp;I)</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The annual Retirement Report is one of the Group's flagship research publications and typically generates multiple press releases and significant media coverage. This year's publication is scheduled for Wednesday — the same day as the King's Speech and State Opening of Parliament. The communications team should assess whether the report's launch timing should be adjusted, or whether pre-briefing key journalists and broadcast outlets ahead of Wednesday would help protect coverage. Kim to provide further detail on the full scope of planned activity. <strong>⚠️ CLASH ALERT: See Analyst Notes.</strong></div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Financial Empowerment Campaign — Research Launch &amp; Explainer Content</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Monday, 11 May 2026</span>
+    </div>
+    <div class="event-desc">The Financial Empowerment campaign launches on Monday with related Group News, research publication, and explainer content across channels. This is the opening salvo of a busy week of Group communications activity and sets the tone for the week's broader narrative around financial inclusion and customer support.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- CLIENT INTELLIGENCE LANE -->
+<div class="lane">
+<div class="lane-header open" onclick="toggleLane(this)">
+<div class="lane-header-left">
+<span class="lane-emoji">📣</span>
+<div>
+<div class="lane-title">Lloyds Banking Group — Client Intelligence</div>
+<div class="lane-subtitle">Confirmed client activity · 11–16 May 2026</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span class="lane-count">9 items</span>
+<span class="lane-chevron">▼</span>
+</div>
+</div>
+<div class="lane-body open">
+
+  <!-- BIG THREE: DO NOT MISS -->
+  <div class="subsection-heading">⭐ Three Big Do Not Miss</div>
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">Lloyds Banking Group Annual General Meeting (AGM)</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Thursday, 14 May 2026 — 11:00am, Edinburgh</span>
+    </div>
+    <div class="event-desc">The Group's AGM takes place from 11am on Thursday, 14 May in Edinburgh. The Board will provide a business update and answer shareholder questions. The event will be broadcast live. Transcripts of the key speeches and a summary of the Q&amp;A (excluding specific customer or personal information) will be made available by the end of May. This is the highest-profile corporate event of the week and will attract significant media, analyst, and shareholder attention. Keywords and monitoring parameters should be set up in advance; note that this is not a standard press release format and will require bespoke handling. <strong>This is a DO NOT MISS event.</strong></div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">Retirement Report Publication — IP&amp;I Annual Flagship</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Insurance, Pensions &amp; Investments (IP&amp;I)</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The annual Retirement Report is a major annual publication for IP&amp;I and is typically the source of more than one press release. Full scope of planned activity to be confirmed by Kim. This publication is scheduled on the same day as the King's Speech — the noisiest external news day of the week — and the communications team should urgently review whether timing adjustments or pre-briefing strategies are needed to protect coverage. <strong>This is a DO NOT MISS event. ⚠️ CLASH ALERT: See Analyst Notes.</strong></div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <span class="priority-flag">⚠️</span>
+      <div class="event-name">Financial Empowerment Campaign Launch</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Monday, 11 May 2026</span>
+    </div>
+    <div class="event-desc">The Financial Empowerment campaign launches Monday with Group News, research publication, and explainer content across channels. This is the anchor narrative for the week and underpins several other planned activities. <strong>This is a DO NOT MISS event.</strong></div>
+  </div>
+
+  <!-- OTHER CONFIRMED ACTIVITY -->
+  <div class="subsection-heading">Other Confirmed Activity</div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Consumer Press Release — World Cup Ticket Scams</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group — Consumer</span>
+      <span class="event-date">Monday, 11 May 2026</span>
+    </div>
+    <div class="event-desc">A consumer-facing press release on World Cup ticket scams is planned for Monday. This is a timely fraud awareness piece that aligns with the Group's broader financial empowerment and consumer protection messaging. Likely to attract consumer media and broadcast interest.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Jas Singh — UK Finance Growth Summit Speaking Engagement</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Monday, 11 May 2026 (LinkedIn post: Tuesday, 12 May)</span>
+    </div>
+    <div class="event-desc">Jas Singh is speaking at the UK Finance Growth Summit on Monday. A LinkedIn post is planned for Tuesday to amplify the engagement. This provides a senior voice for the Group at a high-profile industry event and should be coordinated with the Financial Empowerment campaign messaging.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">Stripe Partnership Launch</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Tuesday, 12 May 2026</span>
+    </div>
+    <div class="event-desc">The Stripe partnership launch has press, LinkedIn, and internal activity planned for Tuesday. This is a significant fintech partnership announcement and should generate strong business and technology media coverage. Further detail on the proposition is being sought from Gregor and Risha.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">£5,000 Deposit Mortgage Product — Media Launch</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group</span>
+      <span class="event-date">Tuesday, 12 May 2026</span>
+    </div>
+    <div class="event-desc">A media launch around a £5,000 deposit mortgage product is planned for Tuesday. Further detail is being sought from Gregor and Risha. This product is likely to attract significant consumer and housing media interest, and communications should be prepared for questions around affordability, responsible lending, and regulatory compliance.</div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">National Wealth Fund University Launch — Retrofit Finance</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Lloyds Banking Group / National Wealth Fund</span>
+      <span class="event-date">Wednesday, 13 May 2026</span>
+    </div>
+    <div class="event-desc">The National Wealth Fund University launch covering retrofit finance is supported by a press release and social activity on Wednesday. This is a green finance initiative with strong policy relevance. As with the Retirement Report, the King's Speech on the same day poses a risk to media coverage. Pre-briefing is recommended. <strong>⚠️ CLASH ALERT: See Analyst Notes.</strong></div>
+  </div>
+
+  <div class="event">
+    <div class="event-top">
+      <div class="event-name">IP&amp;I — Potential Lloyds Wealth Adviser Slot on Martin Lewis (TBC)</div>
+    </div>
+    <div class="event-meta">
+      <span class="event-institution">Insurance, Pensions &amp; Investments (IP&amp;I)</span>
+      <span class="event-date">Wednesday, 13 May 2026 (TBC)</span>
+    </div>
+    <div class="event-desc">There is a potential slot for a Lloyds Wealth adviser on the Martin Lewis programme on Wednesday. This is still to be confirmed. If secured, this would be a high-reach broadcast opportunity aligned with the Retirement Report launch. Teams should monitor confirmation and prepare appropriate briefing materials.</div>
+  </div>
+    </div>
+</div>
+
+  <!-- ANALYST NOTES -->
+<div class="analyst-notes">
+<div class="analyst-notes-label">📌 Analyst Notes</div>
+
+<div class="notes-subsection-heading">⚠️ Clash Alerts</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>⚠️ CLASH ALERT — Retirement Report vs King's Speech:</strong> The IP&amp;I Retirement Report publication on Wednesday, 13 May coincides with the King's Speech and State Opening of Parliament, which is expected to dominate the national news agenda. This is the Group's most significant standing research publication of the year and risks being substantially overshadowed. The communications team should urgently consider pre-briefing key journalists and broadcast outlets ahead of Wednesday, or explore whether the publication can be moved to Tuesday or Thursday. Kim to confirm full scope of planned activity as a priority.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>⚠️ CLASH ALERT — National Wealth Fund University Launch vs King's Speech:</strong> The National Wealth Fund University launch (retrofit finance) on Wednesday, 13 May also coincides with the King's Speech. Press release and social activity planned for this day may receive significantly reduced media pickup. Pre-briefing or timing adjustment is recommended.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>⚠️ CLASH ALERT — GPA Westminster Drop-In vs State Opening:</strong> The GPA Westminster drop-in on digital is scheduled for Wednesday, 13 May — the same day as the State Opening of Parliament. Parliamentary access and attention will be severely constrained. Teams should confirm whether this session should be rescheduled.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>⚠️ CLASH ALERT — AGM vs CBI North East Industrial Strategy Roadshow:</strong> The Group's AGM in Edinburgh on Thursday, 14 May coincides with the CBI North East Industrial Strategy Roadshow, which is relevant to BCB. Media and stakeholder attention may be split. BCB teams should monitor roadshow coverage and ensure AGM messaging is not inadvertently conflated with regional industrial strategy narratives.</div>
+</div>
+
+<div class="notes-subsection-heading">General Notes</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>AGM Handling:</strong> The AGM on Thursday, 14 May is not a standard press release event. Keywords and monitoring parameters should be configured in advance via Cision. Transcripts of key speeches and a Q&amp;A summary will be made available by end of May. The event will be broadcast live. Teams should prepare holding lines for anticipated shareholder questions on strategy, executive pay, and climate commitments.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>Stripe Launch — Detail Pending:</strong> Further detail on the Stripe partnership proposition is being sought from Gregor and Risha. Communications materials should not be finalised until this information is received.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>£5,000 Deposit Mortgage — Detail Pending:</strong> As above, further detail on the £5,000 deposit mortgage product is being sought from Gregor and Risha. Regulatory and responsible lending messaging should be prepared in advance of the Tuesday launch.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>Martin Lewis Slot (TBC):</strong> The potential IP&amp;I slot for a Lloyds Wealth adviser on the Martin Lewis programme on Wednesday remains unconfirmed. If confirmed, this is a high-priority broadcast opportunity. Briefing materials should be prepared now so they are ready if the slot is secured at short notice.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>Retirement Report — Kim to Elaborate:</strong> The full scope of planned activity around the Retirement Report publication has not yet been confirmed. Kim has been asked to provide further detail. Given the clash with the King's Speech, this is a time-sensitive planning item.</div>
+</div>
+
+<div class="note-item">
+  <div class="note-dot"></div>
+  <div><strong>Week Summary:</strong> This is an exceptionally busy week combining a high volume of Group announcements with a politically charged external environment. Wednesday, 13 May is the highest-risk day for communications, with the King's Speech likely to dominate all available media space. Thursday, 14 May is the highest-profile day for the Group, with the AGM in Edinburgh. Planning and pre-briefing activity should begin immediately.</div>
+</div>
+    <div class="distribution-hold">
+⚠️ <span>This briefing must not be distributed to Lloyds Banking Group client contacts (Emma Fairhurst, Matt Smith) until all flagged items have been verified.</span>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+Prepared by <span>Rapid Intelligence UK, Cision</span> · For Group Corporate Affairs, Lloyds Banking Group · Confidential
+</div>
+
+<script>
+function toggleLane(header) {
+header.classList.toggle('open');
+const body = header.nextElementSibling;
+body.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
