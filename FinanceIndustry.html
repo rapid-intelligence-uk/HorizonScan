@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RI Finance Industry Horizon Scan</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f5f7; color: #1d1d1f; font-size: 14px; line-height: 1.6; }
+.header { background: #c00000; padding: 40px 48px 28px; color: white; position: relative; overflow: hidden; }
+.header-meta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 10px; }
+.header h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; }
+.header-date { font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 4px; }
+.header-byline { font-size: 12px; color: rgba(255,255,255,0.5); }
+.resource-alert { margin: 24px 48px 0; padding: 12px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; display: inline-block; }
+.alert-high { background: rgba(220,38,38,0.15); color: #dc2626; border: 1px solid rgba(220,38,38,0.3); }
+.alert-medium { background: rgba(251,146,60,0.15); color: #ea580c; border: 1px solid rgba(251,146,60,0.3); }
+.alert-low { background: rgba(34,197,94,0.15); color: #16a34a; border: 1px solid rgba(34,197,94,0.3); }
+.container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+.overview { background: white; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); border-left: 4px solid #c00000; }
+.overview-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #c00000; margin-bottom: 10px; }
+.overview p { color: #3a3a3c; line-height: 1.65; font-size: 15px; }
+.lane { background: white; border-radius: 8px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+.lane-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; cursor: pointer; user-select: none; background: #fff; border-bottom: 2px solid transparent; transition: background 0.15s; }
+.lane-header:hover { background: #f9fafb; }
+.lane-header.open { border-bottom-color: #e8eaed; }
+.lane-header-left { display: flex; align-items: center; gap: 14px; }
+.lane-emoji { font-size: 22px; line-height: 1; }
+.lane-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+.lane-subtitle { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.lane-count { background: #c00000; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+.lane-count.empty { background: #d1d5db; color: #6b7280; }
+.lane-chevron { font-size: 12px; color: #9ca3af; margin-left: 6px; transition: transform 0.2s; }
+.lane-header.open .lane-chevron { transform: rotate(180deg); }
+.lane-body { display: none; padding: 0 20px 4px; }
+.lane-body.open { display: block; }
+.event { padding: 16px 0; border-bottom: 1px solid #f0f1f3; }
+.event:last-child { border-bottom: none; }
+.event-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 5px; }
+.priority-flag { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.event-name { font-size: 14px; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+.event-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 7px; flex-wrap: wrap; }
+.event-institution { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #c00000; background: #fff0f0; padding: 2px 8px; border-radius: 4px; }
+.event-date { font-size: 12px; color: #6b7280; font-weight: 600; }
+.event-sectors { font-size: 11px; color: #6b7280; margin-bottom: 6px; }
+.event-desc { font-size: 13px; color: #374151; line-height: 1.65; margin-bottom: 7px; }
+.event-source { font-size: 11px; color: #9ca3af; }
+.event-source a { color: #c00000; text-decoration: none; }
+.empty-lane { padding: 18px 0; color: #9ca3af; font-size: 13px; font-style: italic; }
+.analyst-notes { background: #1a1a2e; color: #e5e7eb; border-radius: 8px; padding: 20px 24px; margin-top: 8px; }
+.analyst-notes-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-bottom: 14px; }
+.note-item { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.6; color: #d1d5db; }
+.note-dot { width: 6px; height: 6px; background: #c00000; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.footer { text-align: center; font-size: 11px; color: #9ca3af; padding: 20px; border-top: 1px solid #e5e7eb; margin-top: 8px; }
+.footer span { color: #c00000; font-weight: 600; }
+@media print { .lane-body { display: block !important; } .lane-chevron { display: none; } * { animation: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">Rapid Intelligence UK · Cision · Internal Use Only</div>
+  <h1>Finance Industry Horizon Scan</h1>
+  <div class="header-date">[Next 4 Weeks]</div>
+  <div class="header-byline">For internal use by RI UK analysts and management · Week commencing [Current Date]</div>
+</div>
+
+<div class="container">
+
+  <div class="overview">
+    <div class="overview-label">Executive Overview & Resource Planning</div>
+    <p>Resource intensity is <span class="alert-medium">🟧 MEDIUM</span> — upcoming Bank of England MPC decision and key ONS data releases will require monitoring, but no major political or regulatory shocks confirmed. Results season is light this period.</p>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">🏛</span>
+        <div>
+          <div class="lane-title">Political & Governmental</div>
+          <div class="lane-subtitle">UK Parliament · HM Treasury · OBR</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count empty">0 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="empty-lane">No confirmed events this window — monitor for announcements.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">⚖️</span>
+        <div>
+          <div class="lane-title">Regulatory</div>
+          <div class="lane-subtitle">FCA · Bank of England · PRA</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count empty">0 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="empty-lane">No confirmed events this window — monitor for announcements.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">📊</span>
+        <div>
+          <div class="lane-title">Economic Data</div>
+          <div class="lane-subtitle">ONS · Bank of England</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count">3 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="event">
+        <div class="event-top">
+          <div class="event-name">Bank of England MPC Decision</div>
+        </div>
+        <div class="event-meta">
+          <span class="event-institution">Bank of England</span>
+          <span class="event-date">[Confirmed Date: 1 February 2024]</span>
+        </div>
+        <div class="event-sectors">🏦 Banking · 🏗 Building Societies · 💰 Wealth · 🛡 Insurance</div>
+        <div class="event-desc">Monetary policy decision on interest rates; critical for lending, mortgage pricing, and market sentiment.</div>
+        <div class="event-source">Source: <a href="https://www.bankofengland.co.uk/monetary-policy" target="_blank">bankofengland.co.uk</a></div>
+      </div>
+      <div class="event">
+        <div class="event-top">
+          <div class="event-name">ONS CPI Inflation Release</div>
+        </div>
+        <div class="event-meta">
+          <span class="event-institution">ONS</span>
+          <span class="event-date">[Confirmed Date: 17 January 2024]</span>
+        </div>
+        <div class="event-sectors">🏦 Banking · 🏗 Building Societies · 💰 Wealth · 🛡 Insurance</div>
+        <div class="event-desc">Latest inflation data will influence BoE policy expectations and market forecasts.</div>
+        <div class="event-source">Source: <a href="https://www.ons.gov.uk/releasecalendar" target="_blank">ons.gov.uk</a></div>
+      </div>
+      <div class="event">
+        <div class="event-top">
+          <div class="event-name">ONS Labour Market Statistics</div>
+        </div>
+        <div class="event-meta">
+          <span class="event-institution">ONS</span>
+          <span class="event-date">[Confirmed Date: 16 January 2024]</span>
+        </div>
+        <div class="event-sectors">🏦 Banking · 🏗 Building Societies · 💰 Wealth · 🛡 Insurance</div>
+        <div class="event-desc">Employment and wage growth data will shape economic outlook and credit risk assessments.</div>
+        <div class="event-source">Source: <a href="https://www.ons.gov.uk/releasecalendar" target="_blank">ons.gov.uk</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">🏦</span>
+        <div>
+          <div class="lane-title">Industry & Market</div>
+          <div class="lane-subtitle">UK Finance · Major Banks</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count empty">0 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="empty-lane">No confirmed events this window — monitor for announcements.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">🔍</span>
+        <div>
+          <div class="lane-title">Competitor & Sector Watch</div>
+          <div class="lane-subtitle">Challenger Banks · Wealth Managers</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count empty">0 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="empty-lane">No confirmed events this window — monitor for announcements.</div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lane-header open" onclick="toggleLane(this)">
+      <div class="lane-header-left">
+        <span class="lane-emoji">🧠</span>
+        <div>
+          <div class="lane-title">Policy Pipeline</div>
+          <div class="lane-subtitle">Think Tanks · Industry Bodies</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="lane-count empty">0 items</span>
+        <span class="lane-chevron">▼</span>
+      </div>
+    </div>
+    <div class="lane-body open">
+      <div class="empty-lane">No confirmed events this window — monitor for announcements.</div>
+    </div>
+  </div>
+
+  <div class="analyst-notes">
+    <div class="analyst-notes-label">📌 Analyst Notes</div>
+    <div class="note-item"><div class="note-dot"></div>Focus on BoE MPC decision and ONS data for signals on interest rate trajectory.</div>
+    <div class="note-item"><div class="note-dot"></div>Regulatory and political calendars are currently light; monitor for sudden consultations or Treasury statements.</div>
+    <div class="note-item"><div class="note-dot"></div>Prepare briefing for clients on inflation and labour market trends ahead of MPC meeting.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Prepared by <span>Rapid Intelligence UK, Cision</span> · Internal Use Only · [Current Date]
+</div>
+
+<script>
+function toggleLane(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
