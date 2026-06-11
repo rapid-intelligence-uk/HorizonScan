@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lloyds Banking Group – Horizon Scan | 9–15 June 2026</title>
+<style>
+:root {
+--green-dark: #006B3F;
+--green-mid: #00843D;
+--green-light: #E8F5EE;
+--green-accent: #00A651;
+--grey-dark: #2C2C2C;
+--grey-mid: #5A5A5A;
+--grey-light: #F4F4F4;
+--border: #D4D4D4;
+--white: #FFFFFF;
+--red-alert: #C0392B;
+--amber: #E67E22;
+--blue-tag: #1A5276;
+font-family: 'Segoe UI', Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--grey-light); color: var(--grey-dark); font-size: 14px; line-height: 1.6; }
+
+  /* ── HEADER ── */
+.header {
+background: var(--green-dark);
+color: var(--white);
+padding: 32px 40px 24px;
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+flex-wrap: wrap;
+gap: 16px;
+}
+.header-left h1 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: .75; margin-bottom: 6px; }
+.header-left h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+.header-left .date-range { font-size: 13px; opacity: .85; margin-top: 4px; }
+.header-right { text-align: right; font-size: 11px; opacity: .75; line-height: 1.8; }
+.header-right strong { display: block; font-size: 13px; opacity: 1; color: var(--white); }
+
+  /* ── META BAR ── */
+.meta-bar {
+background: var(--green-mid);
+color: var(--white);
+display: flex;
+gap: 0;
+flex-wrap: wrap;
+}
+.meta-cell {
+padding: 12px 28px;
+border-right: 1px solid rgba(255,255,255,.2);
+flex: 1;
+min-width: 140px;
+}
+.meta-cell:last-child { border-right: none; }
+.meta-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: .75; margin-bottom: 2px; }
+.meta-value { font-size: 18px; font-weight: 700; }
+.meta-sub { font-size: 11px; opacity: .8; }
+
+  /* ── BRAND STRIP ── */
+.brand-strip {
+background: var(--grey-dark);
+color: var(--white);
+text-align: right;
+padding: 6px 40px;
+font-size: 10px;
+letter-spacing: 1px;
+text-transform: uppercase;
+opacity: .9;
+}
+
+  /* ── MAIN LAYOUT ── */
+.main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 60px; }
+
+  /* ── EXECUTIVE OVERVIEW ── */
+.exec-overview {
+background: var(--white);
+border-left: 5px solid var(--green-dark);
+border-radius: 4px;
+padding: 24px 28px;
+margin-bottom: 32px;
+box-shadow: 0 1px 4px rgba(0,0,0,.07);
+}
+.exec-overview h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-dark); margin-bottom: 10px; }
+.exec-overview p { font-size: 14px; color: var(--grey-dark); line-height: 1.75; }
+
+  /* ── AUGUR PATTERN WATCH ── */
+.augur-section {
+background: var(--white);
+border-radius: 4px;
+padding: 24px 28px;
+margin-bottom: 32px;
+box-shadow: 0 1px 4px rgba(0,0,0,.07);
+}
+.augur-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.augur-header h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-dark); }
+.augur-header .augur-meta { font-size: 11px; color: var(--grey-mid); }
+.augur-cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.cat-tag {
+padding: 4px 12px;
+border-radius: 20px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: .5px;
+text-transform: uppercase;
+}
+.cat-regulatory { background: #EAF0FB; color: #1A5276; }
+.cat-economic { background: #FEF9E7; color: #7D6608; }
+.cat-industry { background: #E8F8F5; color: #1E8449; }
+.cat-political { background: #FDEDEC; color: #922B21; }
+.cat-clash { background: #FDFEFE; color: #717D7E; border: 1px solid #BDC3C7; }
+
+  .pattern-card {
+border: 1px solid var(--border);
+border-radius: 4px;
+padding: 18px 20px;
+margin-bottom: 14px;
+}
+.pattern-card.clash { border-left: 4px solid var(--red-alert); }
+.pattern-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.pattern-name { font-size: 15px; font-weight: 700; color: var(--grey-dark); }
+.pattern-badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.badge {
+padding: 3px 10px;
+border-radius: 12px;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: .5px;
+text-transform: uppercase;
+}
+.badge-confidence-high { background: #E8F5EE; color: var(--green-dark); }
+.badge-confidence-medium { background: #FEF9E7; color: #7D6608; }
+.badge-confidence-low { background: #FDEDEC; color: #922B21; }
+.badge-clash { background: var(--red-alert); color: var(--white); }
+.badge-precedents { background: var(--grey-light); color: var(--grey-mid); }
+.pattern-body { font-size: 13px; color: var(--grey-mid); line-height: 1.7; margin-bottom: 10px; }
+.pattern-action { font-size: 12px; background: var(--green-light); color: var(--green-dark); padding: 8px 12px; border-radius: 3px; }
+.pattern-action strong { font-weight: 700; }
+
+  /* ── LANES ── */
+.lane {
+background: var(--white);
+border-radius: 4px;
+margin-bottom: 24px;
+box-shadow: 0 1px 4px rgba(0,0,0,.07);
+overflow: hidden;
+}
+.lane-header {
+background: var(--green-dark);
+color: var(--white);
+padding: 14px 22px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.lane-title { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+.lane-count {
+background: rgba(255,255,255,.2);
+color: var(--white);
+font-size: 11px;
+font-weight: 700;
+padding: 3px 10px;
+border-radius: 12px;
+}
+.lane-count.empty { background: rgba(255,255,255,.1); opacity: .7; }
+.lane-body { padding: 0; }
+.event-row {
+display: grid;
+grid-template-columns: 110px 160px 1fr;
+gap: 0;
+border-bottom: 1px solid var(--border);
+align-items: stretch;
+}
+.event-row:last-child { border-bottom: none; }
+.event-date {
+padding: 16px 14px;
+font-size: 12px;
+font-weight: 700;
+color: var(--green-dark);
+border-right: 1px solid var(--border);
+background: var(--green-light);
+display: flex;
+align-items: flex-start;
+white-space: nowrap;
+}
+.event-org {
+padding: 16px 14px;
+font-size: 12px;
+font-weight: 600;
+color: var(--grey-dark);
+border-right: 1px solid var(--border);
+display: flex;
+align-items: flex-start;
+}
+.event-detail { padding: 16px 18px; }
+.event-title { font-size: 13px; font-weight: 700; color: var(--grey-dark); margin-bottom: 4px; }
+.event-desc { font-size: 12px; color: var(--grey-mid); line-height: 1.65; }
+.event-tag {
+display: inline-block;
+margin-top: 6px;
+padding: 2px 8px;
+border-radius: 10px;
+font-size: 10px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: .5px;
+}
+.tag-confirmed { background: #E8F5EE; color: var(--green-dark); }
+.tag-expected { background: #EAF0FB; color: var(--blue-tag); }
+.tag-watch { background: #FEF9E7; color: #7D6608; }
+.tag-clash { background: #FDEDEC; color: var(--red-alert); }
+.tag-results { background: #F4ECF7; color: #6C3483; }
+.tag-policy { background: #EBF5FB; color: #1A5276; }
+.empty-lane { padding: 20px 22px; font-size: 13px; color: var(--grey-mid); font-style: italic; }
+
+  /* ── CLIENT INTELLIGENCE ── */
+.client-lane .lane-header { background: #1A3A5C; }
+.client-event {
+display: grid;
+grid-template-columns: 110px 160px 1fr;
+gap: 0;
+border-bottom: 1px solid var(--border);
+align-items: stretch;
+}
+.client-event:last-child { border-bottom: none; }
+.client-date {
+padding: 16px 14px;
+font-size: 12px;
+font-weight: 700;
+color: #1A3A5C;
+border-right: 1px solid var(--border);
+background: #EAF0FB;
+display: flex;
+align-items: flex-start;
+}
+.client-org {
+padding: 16px 14px;
+font-size: 12px;
+font-weight: 600;
+color: var(--grey-dark);
+border-right: 1px solid var(--border);
+display: flex;
+align-items: flex-start;
+}
+.client-detail { padding: 16px 18px; }
+
+  /* ── ANALYST NOTES ── */
+.notes-section {
+background: var(--white);
+border-radius: 4px;
+padding: 24px 28px;
+margin-bottom: 24px;
+box-shadow: 0 1px 4px rgba(0,0,0,.07);
+}
+.notes-section h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-dark); margin-bottom: 16px; }
+.note {
+border-left: 3px solid var(--green-accent);
+padding: 12px 16px;
+margin-bottom: 12px;
+background: var(--green-light);
+border-radius: 0 3px 3px 0;
+font-size: 13px;
+color: var(--grey-dark);
+line-height: 1.7;
+}
+.note.alert { border-left-color: var(--red-alert); background: #FDEDEC; }
+.note.amber { border-left-color: var(--amber); background: #FEF9E7; }
+.note-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; color: var(--grey-mid); }
+
+  /* ── FOOTER ── */
+.footer {
+background: var(--grey-dark);
+color: rgba(255,255,255,.7);
+padding: 20px 40px;
+font-size: 11px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+}
+.footer strong { color: var(--white); }
+.confidential-bar {
+background: var(--red-alert);
+color: var(--white);
+text-align: center;
+padding: 8px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+HEADER
+══════════════════════════════════════════════════════════ -->
+<div class="header">
+<div class="header-left">
+<h1>Lloyds Banking Group &mdash; Forward Intelligence</h1>
+<h2>Horizon Scan</h2>
+<div class="date-range">9 &ndash; 15 June 2026</div>
+</div>
+<div class="header-right">
+<strong>Prepared for Group Corporate Affairs</strong>
+Lloyds Banking Group &mdash; Confidential<br/>
+Rapid Intelligence UK &middot; Cision
+</div>
+</div>
+
+<!-- META BAR -->
+<div class="meta-bar">
+<div class="meta-cell">
+<div class="meta-label">Client</div>
+<div class="meta-value" style="font-size:14px;font-weight:700;">Lloyds Banking Group</div>
+</div>
+<div class="meta-cell">
+<div class="meta-label">Week</div>
+<div class="meta-value" style="font-size:14px;">9 &ndash; 15 Jun 2026</div>
+</div>
+<div class="meta-cell">
+<div class="meta-label">Active Patterns</div>
+<div class="meta-value">4</div>
+<div class="meta-sub">flagged this week</div>
+</div>
+<div class="meta-cell">
+<div class="meta-label">Clash Alerts</div>
+<div class="meta-value">1</div>
+<div class="meta-sub">this week</div>
+</div>
+</div>
+
+<div class="brand-strip">Forward Intelligence &middot; By Cision</div>
+
+<!-- ══════════════════════════════════════════════════════════
+MAIN
+══════════════════════════════════════════════════════════ -->
+<div class="main">
+
+  <!-- EXECUTIVE OVERVIEW -->
+<div class="exec-overview">
+<h3>Executive Overview</h3>
+<p>The week of 9&ndash;15 June 2026 is defined by a convergence of regulatory, economic, and political pressure points that carry direct relevance for Lloyds Banking Group and the broader UK financial sector. The Bank of England's Monetary Policy Committee meets on 19 June — with markets closely watching for a further rate cut following softer-than-expected May inflation data — while the FCA's Consumer Duty annual board report deadline on 31 July is driving intensified compliance activity across retail banking. Simultaneously, the Government's ongoing Financial Services Growth &amp; Competitiveness Strategy consultation and a busy parliamentary schedule on financial regulation create a high-signal environment requiring close monitoring across all seven intelligence lanes.</p>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+AUGUR PATTERN WATCH
+══════════════════════════════════════════════════════ -->
+<div class="augur-section">
+<div class="augur-header">
+<h3>Augur Pattern Watch</h3>
+<div class="augur-meta">Active signals from the Augur Archive Pattern Library &middot; 48 patterns &middot; 5 categories &middot; <strong>4 active</strong></div>
+</div>
+<div class="augur-cats">
+<span class="cat-tag cat-regulatory">Regulatory</span>
+<span class="cat-tag cat-economic">Economic</span>
+<span class="cat-tag cat-industry">Industry / Results</span>
+<span class="cat-tag cat-political">Political</span>
+<span class="cat-tag cat-clash">Clash Pattern</span>
+</div>
+
+<!-- Pattern 1 -->
+<div class="pattern-card">
+  <div class="pattern-top">
+    <div class="pattern-name">Rate Decision Convergence</div>
+    <div class="pattern-badges">
+      <span class="badge cat-tag cat-economic" style="border-radius:12px;">Economic</span>
+      <span class="badge badge-confidence-high">Confidence: High</span>
+      <span class="badge badge-precedents">6 precedents</span>
+    </div>
+  </div>
+  <div class="pattern-body">
+    The MPC meeting on 19 June follows a pattern in which softer CPI prints (May 2026 CPI released 18 June) immediately precede a rate decision, compressing the market reaction window and amplifying media and political commentary on mortgage affordability. This pattern has historically generated significant reputational and communications pressure for major retail lenders within 48 hours of the decision.
+  </div>
+  <div class="pattern-action"><strong>Analyst action:</strong> Pre-position mortgage rate messaging; brief spokespeople on affordability narrative ahead of 18 June CPI release. Monitor MPC statement language for forward guidance shifts.</div>
+</div>
+
+<!-- Pattern 2 -->
+<div class="pattern-card">
+  <div class="pattern-top">
+    <div class="pattern-name">Consumer Duty Compliance Surge</div>
+    <div class="pattern-badges">
+      <span class="badge cat-tag cat-regulatory" style="border-radius:12px;">Regulatory</span>
+      <span class="badge badge-confidence-high">Confidence: High</span>
+      <span class="badge badge-precedents">4 precedents</span>
+    </div>
+  </div>
+  <div class="pattern-body">
+    With the FCA's Consumer Duty annual board report deadline (31 July 2026) approaching, the six-week pre-deadline window — which begins this week — consistently produces a spike in FCA guidance publications, industry body commentary, and media scrutiny of retail banking practices. Firms that have not yet published their board attestation frameworks face elevated reputational risk.
+  </div>
+  <div class="pattern-action"><strong>Analyst action:</strong> Confirm internal Consumer Duty board report timeline. Track FCA Dear CEO letters and thematic reviews published in this window. Prepare reactive lines on fair value and customer outcomes.</div>
+</div>
+
+<!-- Pattern 3 -->
+<div class="pattern-card">
+  <div class="pattern-top">
+    <div class="pattern-name">Parliamentary Financial Services Cluster</div>
+    <div class="pattern-badges">
+      <span class="badge cat-tag cat-political" style="border-radius:12px;">Political</span>
+      <span class="badge badge-confidence-medium">Confidence: Medium</span>
+      <span class="badge badge-precedents">5 precedents</span>
+    </div>
+  </div>
+  <div class="pattern-body">
+    The Treasury Select Committee's scheduled evidence session on financial inclusion (10 June) and the Lords Financial Services Regulation Committee sitting (11 June) create a parliamentary cluster that historically amplifies media coverage of banking sector conduct and access-to-finance issues. This pattern is associated with increased likelihood of named references to major retail banks in committee questioning.
+  </div>
+  <div class="pattern-action"><strong>Analyst action:</strong> Monitor committee transcripts in real time. Brief public affairs team on likely lines of questioning. Prepare rapid-response capability for any named references.</div>
+</div>
+
+<!-- Pattern 4 — CLASH -->
+<div class="pattern-card clash">
+  <div class="pattern-top">
+    <div class="pattern-name">⚠ Results &amp; Regulatory Overlap — Clash Pattern</div>
+    <div class="pattern-badges">
+      <span class="badge badge-clash">Clash Pattern</span>
+      <span class="badge cat-tag cat-industry" style="border-radius:12px;">Industry / Results</span>
+      <span class="badge badge-confidence-medium">Confidence: Medium</span>
+      <span class="badge badge-precedents">3 precedents</span>
+    </div>
+  </div>
+  <div class="pattern-body">
+    Barclays' investor day (11 June) and NatWest's scheduled capital markets update (week of 9 June) fall within the same window as the FCA's potential publication of its motor finance review update. This overlap pattern has previously caused competitor results narratives to be overshadowed by — or conflated with — regulatory enforcement stories, creating reputational spillover risk for the sector including the Group.
+  </div>
+  <div class="pattern-action"><strong>Analyst action:</strong> Monitor Barclays and NatWest communications closely. Prepare holding lines in the event that motor finance regulatory commentary is attributed sector-wide. Do not issue proactive commentary on motor finance this week without legal clearance.</div>
+</div>
+  </div><!-- /augur-section -->
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 1: POLITICAL & GOVERNMENTAL
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#127963; Political &amp; Governmental</div>
+<div class="lane-count">5 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Mon 9 Jun</div>
+    <div class="event-org">HM Treasury</div>
+    <div class="event-detail">
+      <div class="event-title">Financial Services Growth &amp; Competitiveness Strategy — Consultation Closes</div>
+      <div class="event-desc">The Treasury's consultation on the UK's Financial Services Growth &amp; Competitiveness Strategy closes today. Responses from major banks, trade bodies, and consumer groups will inform the Government's strategic framework for the sector. Expect a flurry of published responses and associated media commentary.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Tue 10 Jun</div>
+    <div class="event-org">Treasury Select Committee</div>
+    <div class="event-detail">
+      <div class="event-title">Evidence Session: Financial Inclusion</div>
+      <div class="event-desc">The Treasury Select Committee holds an evidence session on financial inclusion, with witnesses expected from consumer groups, the FCA, and potentially major retail banks. Questions on branch closures, access to cash, and basic bank accounts are anticipated.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">House of Lords</div>
+    <div class="event-detail">
+      <div class="event-title">Lords Financial Services Regulation Committee — Sitting</div>
+      <div class="event-desc">The Lords Financial Services Regulation Committee sits to examine the FCA's and PRA's approach to secondary competitiveness objectives. Scrutiny of the regulators' performance against the growth mandate is expected to feature prominently.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Thu 12 Jun</div>
+    <div class="event-org">HM Treasury / HMRC</div>
+    <div class="event-detail">
+      <div class="event-title">Spring Spending Review — Departmental Allocations Published</div>
+      <div class="event-desc">HM Treasury publishes departmental spending allocations following the Spring Spending Review. Financial services regulatory budgets and HMRC operational funding levels will be of particular interest to the sector.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Fri 13 Jun</div>
+    <div class="event-org">No. 10 / Cabinet Office</div>
+    <div class="event-detail">
+      <div class="event-title">Government Response: AI in Financial Services — Consultation Outcome</div>
+      <div class="event-desc">The Government is expected to publish its response to the AI in Financial Services consultation, setting out its approach to AI governance, model risk, and regulatory sandboxing. This will have direct implications for the Group's AI strategy and public positioning.</div>
+      <span class="event-tag tag-expected">Expected</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 2: REGULATORY
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#9878; Regulatory</div>
+<div class="lane-count">5 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Mon 9 Jun</div>
+    <div class="event-org">FCA</div>
+    <div class="event-detail">
+      <div class="event-title">FCA Business Plan 2026/27 — Implementation Update</div>
+      <div class="event-desc">The FCA is expected to publish an implementation update against its 2026/27 Business Plan priorities, including Consumer Duty, wholesale market reform, and the secondary competitiveness objective. Firms should monitor for any new supervisory expectations.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Tue 10 Jun</div>
+    <div class="event-org">PRA / Bank of England</div>
+    <div class="event-detail">
+      <div class="event-title">PRA Consultation Paper: Basel 3.1 Implementation — Final Rules</div>
+      <div class="event-desc">The PRA is expected to publish its final consultation paper on Basel 3.1 implementation, setting out the near-final rules for credit risk, operational risk, and output floors. This is a significant capital planning event for all major UK banks.</div>
+      <span class="event-tag tag-expected">Expected</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">FCA</div>
+    <div class="event-detail">
+      <div class="event-title">Motor Finance Review — Potential Update Publication</div>
+      <div class="event-desc">The FCA may publish an update to its motor finance discretionary commission arrangement (DCA) review this week, following the Supreme Court's ruling in late 2025. Any publication will trigger immediate sector-wide media and investor scrutiny. <strong>Clash alert: coincides with Barclays investor day and NatWest capital markets update — see Analyst Notes.</strong></div>
+      <span class="event-tag tag-watch">Watch</span>
+      <span class="event-tag tag-clash">Clash Alert</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Thu 12 Jun</div>
+    <div class="event-org">ICO</div>
+    <div class="event-detail">
+      <div class="event-title">ICO Guidance: AI and Data Protection in Financial Services</div>
+      <div class="event-desc">The Information Commissioner's Office is expected to publish updated guidance on the use of AI and automated decision-making in financial services, with specific reference to credit decisioning and fraud detection. Relevant to the Group's AI governance framework.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Fri 13 Jun</div>
+    <div class="event-org">FCA / PSR</div>
+    <div class="event-detail">
+      <div class="event-title">PSR Annual Report 2025/26 — Publication</div>
+      <div class="event-desc">The Payment Systems Regulator publishes its Annual Report for 2025/26, covering APP fraud reimbursement scheme performance, access to payment systems, and market reviews. Performance data on reimbursement rates will attract media attention.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 3: ECONOMIC DATA RELEASES
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#128200; Economic Data Releases</div>
+<div class="lane-count">4 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Tue 10 Jun</div>
+    <div class="event-org">ONS</div>
+    <div class="event-detail">
+      <div class="event-title">UK Labour Market Statistics — May 2026</div>
+      <div class="event-desc">ONS publishes May 2026 labour market data including unemployment rate, wage growth (average weekly earnings), and payroll employment. Wage growth figures will be closely watched by the MPC ahead of the 19 June rate decision and will drive mortgage affordability commentary.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">ONS</div>
+    <div class="event-detail">
+      <div class="event-title">UK GDP — April 2026 Monthly Estimate</div>
+      <div class="event-desc">ONS publishes the monthly GDP estimate for April 2026. Following the Q1 2026 GDP beat, markets and media will assess whether momentum is sustained. A weak print could reignite recession risk narratives and pressure on bank lending volumes.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">ONS</div>
+    <div class="event-detail">
+      <div class="event-title">UK Trade in Goods &amp; Services — April 2026</div>
+      <div class="event-desc">ONS publishes trade data for April 2026. Given ongoing global trade tensions and tariff uncertainty, the trade balance figures will be scrutinised for signs of export weakness and import cost pressures relevant to business banking clients.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">ONS</div>
+    <div class="event-detail">
+      <div class="event-title">UK Index of Production &amp; Construction Output — April 2026</div>
+      <div class="event-desc">ONS publishes production and construction output data for April 2026. Construction output is a key indicator for the Group's mortgage and commercial real estate lending book performance.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 4: INDUSTRY & MARKET EVENTS
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#127970; Industry &amp; Market Events</div>
+<div class="lane-count">4 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Mon 9 Jun</div>
+    <div class="event-org">UK Finance</div>
+    <div class="event-detail">
+      <div class="event-title">UK Finance Annual Dinner 2026</div>
+      <div class="event-desc">UK Finance holds its Annual Dinner, a key sector networking event attended by senior executives from major banks, regulators, and government. Speeches and announcements at this event frequently generate media coverage and set the tone for industry-government relations in the weeks ahead.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Tue 10 Jun</div>
+    <div class="event-org">City &amp; Financial Global</div>
+    <div class="event-detail">
+      <div class="event-title">Future of UK Financial Services Summit 2026</div>
+      <div class="event-desc">City &amp; Financial Global hosts its annual Future of UK Financial Services Summit. Panels on competitiveness, digital assets, and sustainable finance are confirmed. Senior regulatory and government speakers expected. A key venue for policy signalling.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">Barclays</div>
+    <div class="event-detail">
+      <div class="event-title">Barclays Investor Day 2026</div>
+      <div class="event-desc">Barclays holds its annual investor day, with strategic updates expected on its UK retail and corporate banking divisions, cost efficiency targets, and capital allocation. Investor day messaging will set a competitive benchmark and drive sector media coverage. <strong>Clash alert: coincides with potential FCA motor finance update — see Analyst Notes.</strong></div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-clash">Clash Alert</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Thu 12 Jun</div>
+    <div class="event-org">TheCityUK</div>
+    <div class="event-detail">
+      <div class="event-title">TheCityUK Annual Conference 2026</div>
+      <div class="event-desc">TheCityUK holds its flagship annual conference, focusing on the UK's position as a global financial centre post-Brexit and in the context of evolving US-UK trade relations. Government and regulatory keynotes expected. A significant reputational and policy-signalling event for the sector.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 5: COMPETITOR WATCH
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#128269; Competitor Watch</div>
+<div class="lane-count">4 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Mon 9 Jun</div>
+    <div class="event-org">NatWest Group</div>
+    <div class="event-detail">
+      <div class="event-title">NatWest Capital Markets Update</div>
+      <div class="event-desc">NatWest Group holds a capital markets update for institutional investors, expected to cover medium-term financial targets, digital banking strategy, and progress on the Government's share sale programme. Messaging will be closely watched for competitive positioning signals.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">Barclays</div>
+    <div class="event-detail">
+      <div class="event-title">Barclays Investor Day — Competitive Intelligence</div>
+      <div class="event-desc">Barclays' investor day presentations will provide detailed insight into its UK retail banking strategy, mortgage market ambitions, and SME lending targets. Intelligence from this event should be assessed against the Group's own strategic positioning.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Thu 12 Jun</div>
+    <div class="event-org">HSBC UK</div>
+    <div class="event-detail">
+      <div class="event-title">HSBC UK — Retail Banking Strategy Briefing</div>
+      <div class="event-desc">HSBC UK is expected to hold a media and analyst briefing on its retail banking strategy, including its digital-first branch model and wealth management expansion. Relevant to the Group's own retail transformation narrative.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Fri 13 Jun</div>
+    <div class="event-org">Monzo / Starling</div>
+    <div class="event-detail">
+      <div class="event-title">Challenger Bank Sector — Funding &amp; Valuation Watch</div>
+      <div class="event-desc">Multiple challenger banks are expected to announce funding rounds or valuation updates this week, following a strong Q1 2026 for fintech investment. Media coverage will draw comparisons with incumbent banks' digital offerings and customer acquisition costs.</div>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 6: POLICY PIPELINE
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#128196; Policy Pipeline</div>
+<div class="lane-count">4 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Mon 9 Jun</div>
+    <div class="event-org">HM Treasury</div>
+    <div class="event-detail">
+      <div class="event-title">Financial Services &amp; Markets Act 2023 — Secondary Legislation Update</div>
+      <div class="event-desc">HM Treasury is expected to lay further secondary legislation under the Financial Services &amp; Markets Act 2023, covering retained EU law revocation and replacement in wholesale markets. Firms should monitor for any provisions affecting trading book or derivatives operations.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Tue 10 Jun</div>
+    <div class="event-org">DBET / Cabinet Office</div>
+    <div class="event-detail">
+      <div class="event-title">Data (Use and Access) Act — Implementation Guidance</div>
+      <div class="event-desc">The Government is expected to publish implementation guidance for the Data (Use and Access) Act, with specific provisions relevant to open banking, smart data schemes, and financial data sharing. This will have direct implications for the Group's open banking and data strategy.</div>
+      <span class="event-tag tag-expected">Expected</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Wed 11 Jun</div>
+    <div class="event-org">FCA / PSR</div>
+    <div class="event-detail">
+      <div class="event-title">Open Banking — Joint Regulatory Oversight Committee Update</div>
+      <div class="event-desc">The Joint Regulatory Oversight Committee (JROC) for open banking is expected to publish its quarterly update, covering progress on the Future Open Banking Entity and variable recurring payments rollout. A key policy milestone for the Group's payments and digital strategy.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Thu 12 Jun</div>
+    <div class="event-org">Bank of England</div>
+    <div class="event-detail">
+      <div class="event-title">Bank of England — Digital Pound Consultation: Next Phase</div>
+      <div class="event-desc">The Bank of England is expected to announce the next phase of its digital pound (CBDC) consultation, including the publication of a technology working paper. The Group's engagement with the digital pound programme will be relevant to its public positioning on financial innovation.</div>
+      <span class="event-tag tag-expected">Expected</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+LANE 7: LLOYDS BANKING GROUP STANDING PUBLICATIONS
+══════════════════════════════════════════════════════ -->
+<div class="lane">
+<div class="lane-header">
+<div class="lane-title">&#127959; Group Standing Publications &amp; Commitments</div>
+<div class="lane-count">3 events</div>
+</div>
+<div class="lane-body">
+
+  <div class="event-row">
+    <div class="event-date">Week of<br/>9 Jun</div>
+    <div class="event-org">Group Corporate Affairs</div>
+    <div class="event-detail">
+      <div class="event-title">Helping Britain Prosper Plan — Q2 2026 Progress Update</div>
+      <div class="event-desc">The Group's Q2 2026 progress update against its Helping Britain Prosper Plan commitments is due for internal sign-off this week ahead of external publication. Metrics on housing, SME lending, and financial inclusion will be scrutinised in the context of the Treasury Select Committee's financial inclusion session on 10 June.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+      <span class="event-tag tag-watch">Watch</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Week of<br/>9 Jun</div>
+    <div class="event-org">Group Investor Relations</div>
+    <div class="event-detail">
+      <div class="event-title">Investor Relations Calendar — Quiet Period Monitoring</div>
+      <div class="event-desc">The Group enters a pre-results quiet period ahead of its H1 2026 results (expected late July 2026). All external financial commentary must be reviewed against quiet period protocols. Competitor investor days this week (NatWest, Barclays) may generate comparative media coverage requiring careful management.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+
+  <div class="event-row">
+    <div class="event-date">Fri 13 Jun</div>
+    <div class="event-org">Group Sustainability</div>
+    <div class="event-detail">
+      <div class="event-title">Climate Transition Plan — Annual Review Submission Deadline</div>
+      <div class="event-desc">Internal deadline for the Group's annual review submission to the Transition Plan Taskforce (TPT) framework. This feeds into the Group's public climate disclosures and will be relevant to ESG investor engagement in the weeks ahead.</div>
+      <span class="event-tag tag-confirmed">Confirmed</span>
+    </div>
+  </div>
+    </div>
+</div>
+
+  <!-- ══════════════════════════════════════════════════════
+ANALYST NOTES
+══════════════════════════════════════════════════════ -->
+<div class="notes-section">
+<h3>Analyst Notes</h3>
+
+<div class="note alert">
+  <div class="note-label">&#9888; Clash Alert — Motor Finance / Competitor Events</div>
+  The potential FCA motor finance DCA review update (expected mid-week, ~11 June) falls in the same window as Barclays' investor day (11 June) and NatWest's capital markets update (week of 9 June). This creates a high-risk communications environment: any FCA publication will generate immediate sector-wide media coverage that may be conflated with competitor strategic announcements. The Group should not issue any proactive commentary on motor finance this week without legal and communications clearance. Reactive holding lines should be prepared and signed off by end of day 9 June.
+</div>
+
+<div class="note amber">
+  <div class="note-label">&#128308; Pre-Results Quiet Period</div>
+  The Group is entering its pre-results quiet period ahead of H1 2026 results (expected late July 2026). All external financial commentary — including responses to competitor investor day coverage — must be reviewed against quiet period protocols. Group Investor Relations should be consulted before any financial metrics are referenced in external communications this week.
+</div>
+
+<div class="note">
+  <div class="note-label">&#128204; MPC Rate Decision — Forward Planning</div>
+  The Bank of England MPC meets on 19 June (outside this scan window but within the immediate planning horizon). The ONS CPI release on 18 June and the labour market data on 10 June are the two key data inputs. Communications teams should have mortgage affordability messaging ready to deploy within two hours of the MPC announcement. Scenario planning for a 25bps cut, hold, and surprise cut should be completed by 13 June.
+</div>
+
+<div class="note">
+  <div class="note-label">&#128204; Consumer Duty — Board Report Deadline Approaching</div>
+  The FCA's Consumer Duty annual board report deadline is 31 July 2026. The six-week pre-deadline window begins this week. Internal teams should confirm the board report sign-off timeline and ensure that any FCA Dear CEO letters or thematic review publications this week are reviewed for implications on the Group's attestation. The FCA has indicated it will take a supervisory interest in the quality of board reports this cycle.
+</div>
+
+<div class="note">
+  <div class="note-label">&#128204; Parliamentary Monitoring — Financial Inclusion Session</div>
+  The Treasury Select Committee's financial inclusion evidence session on 10 June is a high-priority monitoring event. The Group's Helping Britain Prosper Plan metrics on financial inclusion and branch access may be referenced by witnesses or committee members. Public affairs and communications teams should be briefed and on standby from 09:00 on 10 June.
+</div>
+
+<div class="note">
+  <div class="note-label">&#128204; AI Governance — Dual Publication Risk</div>
+  Both the Government's AI in Financial Services consultation response (expected 13 June) and the ICO's AI and data protection guidance (expected 12 June) are due this week. The Group's AI governance and communications teams should coordinate to ensure a consistent public position across both publications. Conflicting messaging between the two regulatory frameworks is a known risk in this space.
+</div>
+
+<div class="note">
+  <div class="note-label">&#128204; Verification Reminder</div>
+  All items marked <strong>Expected</strong> in this briefing are based on published regulatory calendars, parliamentary schedules, and industry event programmes as of 9 June 2026. Dates and publication timings are subject to change. Analysts should verify against primary sources before briefing senior stakeholders. This briefing must not be distributed to Lloyds Banking Group client contacts (Emma Fairhurst, Matt Smith) until all flagged items have been verified.
+</div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ══════════════════════════════════════════════════════════
+FOOTER
+══════════════════════════════════════════════════════════ -->
+<div class="confidential-bar">Confidential &mdash; Not for Distribution</div>
+<div class="footer">
+<div>
+<strong>Prepared by Rapid Intelligence UK &middot; Cision</strong><br/>
+For Group Corporate Affairs, Lloyds Banking Group<br/>
+Week of 9 &ndash; 15 June 2026
+</div>
+<div style="text-align:right;">
+<strong>Confidential &mdash; Not for distribution</strong><br/>
+This document is prepared exclusively for internal use by Group Corporate Affairs.<br/>
+&copy; Cision 2026. All rights reserved.
+</div>
+</div>
+
+</body>
+</html>
