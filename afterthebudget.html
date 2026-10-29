@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="glean-artifact-type" content="tracker_tables">
+<meta name="glean-artifact-type" content="data_analysis">
+<title>augur Horizon Scan · Finance Industry · Edition 02 · After the Budget, 30 Oct – 11 Dec 2026</title>
+<style>
+:root{
+  --artifact-background: var(--theme-background, #ffffff);
+  --artifact-surface: var(--theme-background-light, #f5f6fa);
+  --artifact-text-primary: var(--theme-text-primary, #141a33);
+  --artifact-text-secondary: #55597a;
+  --artifact-border: #dcdfeb;
+  --artifact-accent: #16215b;
+  --artifact-accent-text: #ffffff;
+  --artifact-accent-soft: #e6e9f7;
+  --artifact-signal: #c2410c;
+  --artifact-signal-soft: #fdeee4;
+  --artifact-st-p: #14703f;
+  --artifact-st-p-soft: #e1f3e8;
+  --artifact-st-s: #1d4f9c;
+  --artifact-st-s-soft: #e3ecfa;
+  --artifact-st-r: #8a5a00;
+  --artifact-st-r-soft: #fbf0d6;
+  --artifact-st-w: #5b4a9a;
+  --artifact-st-w-soft: #ebe7f7;
+  --artifact-st-x: #a32626;
+  --artifact-st-x-soft: #fbe5e5;
+  --artifact-load-none: #eef0f7;
+  --artifact-load-low: #c9d3ee;
+  --artifact-load-med: #7f93d6;
+  --artifact-load-high: #3f55b3;
+  --artifact-load-peak: #c2410c;
+  --artifact-tip-bg: #141a33;
+  --artifact-tip-text: #f2f3fa;
+  --artifact-hit: #14703f;
+  --artifact-miss: #a32626;
+  --artifact-part: #8a5a00;
+}
+html[data-theme='dark']{
+  --artifact-text-secondary: #a7abc9;
+  --artifact-border: #333a63;
+  --artifact-accent: #9fb0ff;
+  --artifact-accent-text: #0e1330;
+  --artifact-accent-soft: #232a54;
+  --artifact-signal: #ff8a55;
+  --artifact-signal-soft: #3b2418;
+  --artifact-st-p: #6fd9a0;
+  --artifact-st-p-soft: #17382a;
+  --artifact-st-s: #8fb8ff;
+  --artifact-st-s-soft: #1b2e50;
+  --artifact-st-r: #f1c25a;
+  --artifact-st-r-soft: #3a2f12;
+  --artifact-st-w: #b9a9ff;
+  --artifact-st-w-soft: #2c2650;
+  --artifact-st-x: #ff8f8f;
+  --artifact-st-x-soft: #402020;
+  --artifact-load-none: #1b2146;
+  --artifact-load-low: #2b3466;
+  --artifact-load-med: #4a5cae;
+  --artifact-load-high: #7f93f0;
+  --artifact-load-peak: #ff8a55;
+  --artifact-tip-bg: #e9ebff;
+  --artifact-tip-text: #141a33;
+  --artifact-hit: #6fd9a0;
+  --artifact-miss: #ff8f8f;
+  --artifact-part: #f1c25a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--artifact-background);color:var(--artifact-text-primary);line-height:1.55;font-size:15px}
+a{color:var(--artifact-accent)}
+.layout{max-width:1320px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:196px minmax(0,1fr);gap:40px}
+nav.toc{position:sticky;top:0;align-self:start;padding:32px 0;max-height:100vh;overflow:auto}
+nav.toc .brand{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:24px;color:var(--artifact-accent);letter-spacing:-.5px}
+nav.toc .sub{font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--artifact-text-secondary);margin:2px 0 18px}
+nav.toc a{display:block;font-size:12.5px;color:var(--artifact-text-secondary);text-decoration:none;padding:4px 0 4px 12px;border-left:2px solid var(--artifact-border)}
+nav.toc a:hover{color:var(--artifact-text-primary)}
+nav.toc a.on{color:var(--artifact-accent);border-left-color:var(--artifact-signal);font-weight:600}
+nav.toc .grp{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--artifact-text-secondary);margin:14px 0 4px;opacity:.8}
+main{padding:36px 0 80px;min-width:0}
+.eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--artifact-signal)}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:42px;line-height:1.1;letter-spacing:-1px;font-weight:700;margin:10px 0 12px}
+.lede{font-size:18px;line-height:1.5;max-width:820px}
+.mock{display:inline-block;margin-top:14px;border:1px dashed var(--artifact-signal);color:var(--artifact-signal);background:var(--artifact-signal-soft);border-radius:8px;padding:8px 12px;font-size:12.5px;max-width:860px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:16px;font-size:12.5px;color:var(--artifact-text-secondary);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.meta b{color:var(--artifact-text-primary);font-weight:600}
+section{margin-top:56px}
+section>h2{font-family:Georgia,"Times New Roman",serif;font-size:27px;letter-spacing:-.4px;font-weight:700;margin-bottom:6px;display:flex;align-items:baseline;gap:10px}
+section>h2 .n{font-family:ui-monospace,monospace;font-size:13px;color:var(--artifact-signal);font-weight:600}
+.kicker{font-size:14.5px;color:var(--artifact-text-secondary);margin-bottom:18px;max-width:820px}
+h3{font-size:15px;font-weight:700;margin:22px 0 8px}
+p{margin-bottom:10px;max-width:820px}
+.tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:26px 0 6px}
+.tile{border:1px solid var(--artifact-border);border-radius:10px;padding:14px 14px 12px;background:var(--artifact-background)}
+.tile .big{font-family:Georgia,serif;font-size:32px;line-height:1.05;color:var(--artifact-accent);font-weight:700}
+.tile .big.sig{color:var(--artifact-signal)}
+.tile .lab{font-size:12px;color:var(--artifact-text-secondary);margin-top:6px;line-height:1.4}
+.info{display:inline-block;width:15px;height:15px;line-height:14px;text-align:center;border-radius:50%;border:1px solid var(--artifact-border);font-size:10px;color:var(--artifact-text-secondary);cursor:help;position:relative;margin-left:5px;vertical-align:middle;font-style:normal;font-weight:400;background:var(--artifact-background)}
+.info .tip{display:none;position:absolute;z-index:30;left:50%;bottom:150%;transform:translateX(-50%);width:250px;background:var(--artifact-tip-bg);color:var(--artifact-tip-text);font-size:12px;line-height:1.45;padding:9px 11px;border-radius:6px;text-align:left;text-transform:none;letter-spacing:0}
+.info:hover .tip,.info:focus .tip{display:block}
+.tag{display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.4px;white-space:nowrap}
+.tag.CONFIRMED{background:var(--artifact-st-p-soft);color:var(--artifact-st-p)}
+.tag.REPORTED{background:var(--artifact-st-s-soft);color:var(--artifact-st-s)}
+.tag.EXPECTED{background:var(--artifact-st-r-soft);color:var(--artifact-st-r)}
+.tag.WINDOW{background:var(--artifact-st-w-soft);color:var(--artifact-st-w)}
+.tag.WATCH{background:var(--artifact-st-x-soft);color:var(--artifact-st-x)}
+.tag.NEUTRAL{background:var(--artifact-accent-soft);color:var(--artifact-accent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--artifact-text-secondary);margin:10px 0 0;align-items:center}
+.legend span.i{display:inline-flex;gap:6px;align-items:center}
+.read{display:grid;gap:0;border:1px solid var(--artifact-border);border-radius:12px;overflow:hidden}
+.read .item{display:grid;grid-template-columns:86px minmax(0,1fr);gap:18px;padding:16px 20px;border-bottom:1px solid var(--artifact-border)}
+.read .item:last-child{border-bottom:none}
+.read .lv{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:1.2px;font-weight:700;text-transform:uppercase;padding-top:3px}
+.read .lv.act{color:var(--artifact-signal)}
+.read .lv.watch{color:var(--artifact-st-x)}
+.read .lv.note{color:var(--artifact-text-secondary)}
+.read h4{font-family:Georgia,serif;font-size:18px;line-height:1.3;margin-bottom:4px}
+.read p{font-size:14px;margin-bottom:4px}
+.read .brief{font-size:13px;color:var(--artifact-text-secondary)}
+.read .brief b{color:var(--artifact-text-primary)}
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.wk{border:1px solid var(--artifact-border);border-radius:10px;padding:12px 14px 14px}
+.wk .wd{font-family:ui-monospace,monospace;font-size:11px;color:var(--artifact-text-secondary);letter-spacing:.5px}
+.wk .barwrap{height:10px;background:var(--artifact-load-none);border-radius:5px;margin:8px 0 8px;overflow:hidden}
+.wk .bar{height:100%;border-radius:5px}
+.wk .wl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.wk p{font-size:12.5px;color:var(--artifact-text-secondary);margin:6px 0 0}
+.lv-low{background:var(--artifact-load-low)}.lv-med{background:var(--artifact-load-med)}.lv-high{background:var(--artifact-load-high)}.lv-peak{background:var(--artifact-load-peak)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 12px}
+.pill{appearance:none;-webkit-appearance:none;border:1px solid var(--artifact-border);background:var(--artifact-background);color:var(--artifact-text-secondary);font:inherit;font-size:12.5px;height:30px;padding:0 12px;border-radius:15px;cursor:pointer}
+.pill:hover{border-color:var(--artifact-accent);color:var(--artifact-text-primary)}
+.pill[aria-pressed="true"]{background:var(--artifact-accent);border-color:var(--artifact-accent);color:var(--artifact-accent-text)}
+input.search{appearance:none;-webkit-appearance:none;border:1px solid var(--artifact-border);background:var(--artifact-background);color:var(--artifact-text-primary);font:inherit;font-size:13px;height:30px;padding:0 12px;border-radius:15px;min-width:200px}
+input.search:focus,.pill:focus-visible,.chip:focus-visible{outline:2px solid var(--artifact-accent);outline-offset:1px}
+.cal-week{margin-top:16px}
+.cal-week h3{margin:0 0 8px;font-family:ui-monospace,monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--artifact-text-secondary);font-weight:600}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.day{border:1px solid var(--artifact-border);border-top:4px solid var(--artifact-load-none);border-radius:8px;padding:8px 8px 8px;min-height:92px;background:var(--artifact-background)}
+.day.l1{border-top-color:var(--artifact-load-low)}.day.l2{border-top-color:var(--artifact-load-med)}.day.l3{border-top-color:var(--artifact-load-high)}.day.l4{border-top-color:var(--artifact-load-peak)}
+.day .dh{display:flex;justify-content:space-between;font-size:11px;color:var(--artifact-text-secondary);font-family:ui-monospace,monospace;margin-bottom:6px}
+.day .dh b{color:var(--artifact-text-primary);font-size:13px}
+.chip{display:block;width:100%;text-align:left;appearance:none;-webkit-appearance:none;font:inherit;font-size:12px;line-height:1.3;padding:3px 6px;margin-bottom:3px;border-radius:5px;border:1px solid transparent;cursor:pointer;color:var(--artifact-text-primary);background:var(--artifact-surface)}
+.chip:hover{border-color:var(--artifact-accent)}
+.chip.CONFIRMED{border-left:3px solid var(--artifact-st-p)}
+.chip.REPORTED{border-left:3px solid var(--artifact-st-s)}
+.chip.EXPECTED{border-left:3px solid var(--artifact-st-r)}
+.chip.WINDOW{border-left:3px solid var(--artifact-st-w)}
+.chip.WATCH{border-left:3px solid var(--artifact-st-x)}
+.chip.w3{font-weight:700}
+.chip .tm{font-family:ui-monospace,monospace;font-size:10.5px;color:var(--artifact-text-secondary);margin-right:4px}
+.chip.dim{opacity:.22}
+.wknd{font-size:12px;color:var(--artifact-text-secondary);margin-top:6px}
+.tscroll{overflow:auto;border:1px solid var(--artifact-border);border-radius:10px}
+.tscroll.tall{max-height:72vh}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--artifact-border);vertical-align:top}
+th{font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--artifact-text-secondary);background:var(--artifact-surface);font-weight:700;white-space:nowrap;position:sticky;top:0;z-index:2}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{color:var(--artifact-text-primary)}
+th .arr{display:inline-block;width:10px;margin-left:4px;color:var(--artifact-signal)}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--artifact-surface)}
+tbody tr.flash td{background:var(--artifact-signal-soft)}
+td.nw{white-space:nowrap}
+td .sub{display:block;font-size:12px;color:var(--artifact-text-secondary);margin-top:2px}
+td a{font-size:12px;word-break:break-all}
+.num{font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--artifact-border);border-radius:10px;padding:16px 18px;background:var(--artifact-background)}
+.card h3{margin-top:0}
+.card ul{margin-left:18px;font-size:13.5px}
+.card li{margin-bottom:5px}
+.card.acc{background:var(--artifact-accent-soft);border-color:var(--artifact-accent)}
+.rule{margin-top:14px;border:1px solid var(--artifact-signal);background:var(--artifact-signal-soft);border-radius:10px;padding:12px 16px;max-width:860px;font-size:13.5px}
+.rule b{color:var(--artifact-signal)}
+.seq{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border:1px solid var(--artifact-border);border-radius:12px;overflow:hidden}
+.seq .st{padding:12px 12px 14px;border-right:1px solid var(--artifact-border);font-size:12.5px}
+.seq .st:last-child{border-right:none}
+.seq .st .sd{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.8px;color:var(--artifact-signal);font-weight:700;text-transform:uppercase}
+.seq .st ul{margin:6px 0 0 14px;font-size:12px;color:var(--artifact-text-secondary)}
+.seq .st.key{background:var(--artifact-accent-soft)}
+.hit{color:var(--artifact-hit);font-weight:700}.miss{color:var(--artifact-miss);font-weight:700}.part{color:var(--artifact-part);font-weight:700}.pend{color:var(--artifact-text-secondary);font-weight:700}
+.chk{font-weight:700}
+.chk.ok{color:var(--artifact-st-p)}.chk.no{color:var(--artifact-st-x)}.chk.pt{color:var(--artifact-st-r)}
+.score{display:flex;gap:18px;flex-wrap:wrap;margin:6px 0 14px}
+.score div{font-size:13px;color:var(--artifact-text-secondary)}
+.score b{font-family:Georgia,serif;font-size:26px;color:var(--artifact-text-primary);margin-right:4px}
+pre.csv{border:1px solid var(--artifact-border);border-radius:10px;padding:14px 16px;font-size:11.5px;line-height:1.5;overflow:auto;max-height:340px;background:var(--artifact-surface);color:var(--artifact-text-primary);white-space:pre}
+.btn{appearance:none;-webkit-appearance:none;font:inherit;font-size:13px;height:32px;padding:0 14px;border-radius:16px;border:1px solid var(--artifact-accent);background:var(--artifact-accent);color:var(--artifact-accent-text);cursor:pointer}
+.btn:hover{opacity:.9}
+details{border:1px solid var(--artifact-border);border-radius:10px;padding:10px 14px;margin-top:10px}
+summary{cursor:pointer;font-weight:600;font-size:14px}
+ul.plain{margin-left:18px;font-size:13.5px}
+ul.plain li{margin-bottom:5px}
+.small{font-size:12.5px;color:var(--artifact-text-secondary)}
+footer{margin-top:70px;padding-top:18px;border-top:1px solid var(--artifact-border);font-size:12.5px;color:var(--artifact-text-secondary)}
+@media screen and (max-width:1100px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  nav.toc{display:none}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .weeks,.two,.three{grid-template-columns:minmax(0,1fr)}
+  .days{grid-template-columns:minmax(0,1fr)}
+  .seq{grid-template-columns:minmax(0,1fr)}
+  .seq .st{border-right:none;border-bottom:1px solid var(--artifact-border)}
+  .read .item{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+@media print{
+  @page { size: auto !important; }
+  body{margin:0;padding:.4in .5in;background:#fff;color:#000;print-color-adjust:exact;-webkit-print-color-adjust:exact;font-size:12px}
+  .layout{display:block;max-width:100%;padding:0}
+  nav.toc,.filters,.btn,.info{display:none !important}
+  main{max-width:100%}
+  section{margin-top:28px}
+  section,.card,.item,.wk,.day,.seq{break-inside:avoid}
+  .tscroll,.tscroll.tall{max-height:none !important;overflow:visible !important}
+  tr{break-inside:avoid}
+  th{position:static}
+  pre.csv{max-height:none;white-space:pre-wrap}
+  .days{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .chip.dim{opacity:1}
+}
+@media print{ @page { size: auto !important; } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="brand">augur</div>
+  <div class="sub">Horizon Scan · Finance</div>
+  <a href="#s-read" data-sec="s-read">The Read</a>
+  <a href="#s-pressure" data-sec="s-pressure">Pressure map</a>
+  <a href="#s-calendar" data-sec="s-calendar">Calendar</a>
+  <div class="grp">Since the Budget</div>
+  <a href="#s-budget" data-sec="s-budget">Budget landed</a>
+  <a href="#s-results" data-sec="s-results">Results</a>
+  <a href="#s-rates" data-sec="s-rates">Rates and data</a>
+  <div class="grp">Reference</div>
+  <a href="#s-register" data-sec="s-register">Event register</a>
+  <a href="#s-pipeline" data-sec="s-pipeline">Regulatory pipeline</a>
+  <a href="#s-watch" data-sec="s-watch">Unscheduled watch</a>
+  <a href="#s-pattern" data-sec="s-pattern">Pattern watch</a>
+  <div class="grp">For analysts</div>
+  <a href="#s-desk" data-sec="s-desk">Briefing desk</a>
+  <a href="#s-lens" data-sec="s-lens">Client Lens preview</a>
+  <div class="grp">Assurance</div>
+  <a href="#s-changes" data-sec="s-changes">Changes since Ed. 01</a>
+  <a href="#s-health" data-sec="s-health">Retrieval health</a>
+  <a href="#s-csv" data-sec="s-csv">Almanac records</a>
+  <a href="#s-beyond" data-sec="s-beyond">Beyond the window</a>
+</nav>
+<main>
+
+<header data-glean-id="masthead">
+  <div class="eyebrow">augur Horizon Scan · Finance Industry · Edition 02</div>
+  <h1>After the Budget</h1>
+  <p class="lede">Six weeks, Friday 30 October to Friday 11 December 2026. The Budget has landed: a temporary 6% bank surcharge from 1 January. Next come NatWest tomorrow, the Commons votes on 3 November, the Bank of England's expected rise on 5 November, and a long run of data, forecasts, consultations and conference dates. Every dated item carries a status and its own source.</p>
+  <div class="mock"><b>Internal working edition, not client-ready.</b> Built from public sources read on 29 October 2026. Most pages were read as search extracts of the publisher's page, so dates marked CONFIRMED should be re-checked on the day. Edition 01 (10 October) is scored against what happened in section 13, including where it was wrong.</div>
+  <div class="meta">
+    <span>Edition <b>02</b></span>
+    <span>As at <b>Thu 29 Oct 2026</b></span>
+    <span>Window <b>30 Oct – 11 Dec</b></span>
+    <span>Next delta <b>Fri 30 Oct 07:30</b></span>
+    <span>Next full edition <b>Fri 6 Nov 13:00</b></span>
+    <span>Audience <b>Rapid Intelligence analysts, banking accounts</b></span>
+  </div>
+
+  <div class="tiles" data-glean-id="status-tiles">
+    <div class="tile" data-glean-id="tile-days-to-mpc"><div class="big sig">7</div><div class="lab">days to the Bank of England decision, Thu 5 Nov<i class="info" tabindex="0">i<span class="tip">Counted from Thu 29 Oct 2026. Date and 12:00 time are on the Bank of England's upcoming MPC dates page. Bank Rate is 3.75%.</span></i></div></div>
+    <div class="tile" data-glean-id="tile-dated-items"><div class="big" id="kpi-items">–</div><div class="lab">dated items in the window<i class="info" tabindex="0">i<span class="tip">Count of entries in the event register that have a specific day, including a few WATCH entries tied to a weekly pattern. Windows and unscheduled risks are listed separately and not counted here.</span></i></div></div>
+    <div class="tile" data-glean-id="tile-confirmed-share"><div class="big" id="kpi-conf">–</div><div class="lab">of dated items CONFIRMED at the publisher<i class="info" tabindex="0">i<span class="tip">CONFIRMED means the date appears on the publisher's own page, or on a verbatim mirror of the firm's own filing. REPORTED means a secondary source only. Computed from the register below.</span></i></div></div>
+    <div class="tile" data-glean-id="tile-hike-priced"><div class="big">94%</div><div class="lab">market-implied chance of a 25bp rise on 5 Nov, to 4.00%<i class="info" tabindex="0">i<span class="tip">OIS-implied, 28 Oct (BlueGamma). A priced rise is not a decision. One outlet (Investing.com, 29 Oct) says markets expect a hold; every other source found points the other way, so it is treated as an outlier.</span></i></div></div>
+    <div class="tile" data-glean-id="tile-run-quality"><div class="big sig" style="font-size:26px;padding-top:6px">PARTIAL</div><div class="lab">run quality: anchors read, nine gaps listed<i class="info" tabindex="0">i<span class="tip">Rule from the build pack: if an anchor source cannot be read, the run is flagged. This run read the Budget document, OBR, Bank of England, ONS release pages and the FCA statement. Gaps: NatWest page, BoE quoted-rates date, Finance Bill timetable and others. See Retrieval health.</span></i></div></div>
+  </div>
+  <div class="legend" data-glean-id="status-legend">
+    <span><b>Status words</b></span>
+    <span class="i"><span class="tag CONFIRMED">CONFIRMED</span> publisher's own page</span>
+    <span class="i"><span class="tag REPORTED">REPORTED</span> secondary source only</span>
+    <span class="i"><span class="tag EXPECTED">EXPECTED</span> projected from the Pattern Library</span>
+    <span class="i"><span class="tag WINDOW">WINDOW</span> period only, no day</span>
+    <span class="i"><span class="tag WATCH">WATCH</span> unscheduled or live</span>
+  </div>
+</header>
+
+<section id="s-read" data-glean-id="sec-read">
+  <h2><span class="n">01</span>The Read</h2>
+  <p class="kicker">Six things to carry into daily executive briefings, ordered by consequence for banking clients rather than by date.</p>
+  <div class="read">
+    <div class="item" data-glean-id="read-mpc">
+      <div class="lv act">Act</div>
+      <div>
+        <h4>The Bank of England is expected to raise Bank Rate to 4.00% on Thursday 5 November</h4>
+        <p>Markets price a 25bp rise at about 94% and 16 of 17 research houses expect it, but the MPC has not decided. In September it held at 3.75% by 6–3, with three members already voting for 4% (the Bank's page; the three names are from secondary sources). September CPI came in at 3.5%, core 2.8% and services 3.7%, above the 3.4% poll. The OBR assumes a rising Bank Rate. Parliament is in recess from 5 to 9 November, so there is no Commons reaction until Tuesday 10 November. Chief Economist Huw Pill and Fergal Shortall brief on Friday 6 November at 12:15.</p>
+        <p class="brief"><b>Brief as:</b> priced, not decided. Pre-build a hike and a hold. The story is the vote split and the guidance for February, not the direction. See <a href="#s-rates">Rates and data</a>.</p>
+      </div>
+    </div>
+    <div class="item" data-glean-id="read-bank-tax">
+      <div class="lv act">Act</div>
+      <div>
+        <h4>The bank tax is a temporary 6% surcharge, and the argument about extending it has started</h4>
+        <p>The Budget raises the bank corporation tax surcharge from 3% to 6% for 15 months, from 1 January 2027 to 31 March 2028, a 31% headline rate on in-scope profits. The OBR scores it at about £1.5bn net over three years. It is smaller and shorter than the 8% that had been feared. Lloyds, NatWest and Barclays closed 1.6% to 2.0% higher on the day (reported), after intraday gains of 3% to 4%. The Treasury says the end date will be written into Finance Bill 2026-27; UK Finance, the CBI and TheCityUK want that honoured, while the TUC wants it extended or raised. The Commons votes the Budget resolutions on Tuesday 3 November. No Finance Bill date is published.</p>
+        <p class="brief"><b>Brief as:</b> "the Treasury says it is temporary". Do not write that it will end in March 2028. See <a href="#s-budget">Budget landed</a>.</p>
+      </div>
+    </div>
+    <div class="item" data-glean-id="read-leak">
+      <div class="lv watch">Watch</div>
+      <div>
+        <h4>A possible leak of the surcharge decision is now a Treasury Committee question</h4>
+        <p>Bloomberg reported at 10:45 on Budget day that the surcharge would be below 8% and temporary, ahead of the statement at about 12:30. Committee chair Meg Hillier wrote that day to the Treasury's permanent secretary and the FCA's chief executive asking whether this was an improper release of inside information. Replies are requested "as soon as possible" with no date. Healey is expected to be questioned in November; no date is published. The Committee takes Budget evidence on Tuesday 3 November and from the OBR on Wednesday 4 November at 14:15.</p>
+        <p class="brief"><b>Brief as:</b> "the chair has asked whether". Do not say banks were tipped off or that a leak occurred.</p>
+      </div>
+    </div>
+    <div class="item" data-glean-id="read-results">
+      <div class="lv watch">Watch</div>
+      <div>
+        <h4>NatWest reports tomorrow at 07:00; Lloyds has already reported and its shares fell</h4>
+        <p>Lloyds (29 Oct): nine-month statutory profit before tax £6.6bn (+42%), 2026 guidance maintained, CFO William Chalmers called the doubling "unhelpful" to growth and hopes it is temporary. Shares fell about 4% to 6% in early trading; sources split on whether the cause was slower 2027 net interest income growth or tax. No new motor finance charge. For NatWest the consensus is about £2.2bn operating profit (reported) and its full-year RoTE guidance is above 19%. One outlet estimates about 85% of Lloyds and NatWest profits are in surcharge scope against 33% at Barclays and 20% at HSBC (reported, single source).</p>
+        <p class="brief"><b>Brief as:</b> first NatWest comment on the 6%, NII guidance, deposit competition. Do not attribute Lloyds' share fall to the Budget. See <a href="#s-results">Results</a>.</p>
+      </div>
+    </div>
+    <div class="item" data-glean-id="read-motor-finance">
+      <div class="lv watch">Watch</div>
+      <div>
+        <h4>Motor finance now has a date: the Upper Tribunal hearing is 16–26 February 2027</h4>
+        <p>The FCA's statement of 13 October fixes a nine-day hearing on the four challenges to the redress scheme and drops the December option. A judgment date is not published; the FCA says only "in the following months". The scheme stays partly suspended, and the FCA has told lenders to plan for the scheme being quashed, which would put complaints back on normal handling rules. Q3 results added no new charges: Lloyds says its provision remains its best estimate (about £1.95bn is a June trade-press figure, not restated in the Q3 text), Barclays holds £430m, Santander UK reports roughly £616m to £633m (sources conflict).</p>
+        <p class="brief"><b>Brief as:</b> hearing date confirmed, outcome and judgment date unknown. Never quote a payment date.</p>
+      </div>
+    </div>
+    <div class="item" data-glean-id="read-customers">
+      <div class="lv note">Note</div>
+      <div>
+        <h4>Customers and households: the Halifax shutdown, the Google outage and a consumer squeeze</h4>
+        <p>The Halifax app and online banking stop on Sunday 1 November, with the last day to switch to Lloyds on Saturday 31 October (reported; Lloyds' own page not read). Expect copycat scams and service load on Monday 2 November. The 20 October Google Cloud outage hit Revolut, Lloyds/Halifax and HSBC; the Treasury Committee asked for an initial reply by Wednesday 4 November (reported). GfK consumer confidence fell 11 points to -24, the biggest fall since April 2020. House-purchase approvals fell to 53,443, the lowest since December 2023. The average two-year fixed mortgage rate is about 5.97%.</p>
+        <p class="brief"><b>Brief as:</b> reported, with the date of each report. Check the bank's own statement before quoting any outage or closure story.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s-pressure" data-glean-id="sec-pressure">
+  <h2><span class="n">02</span>Pressure map</h2>
+  <p class="kicker">How heavy each week is for a banking analyst. Load is the sum of item weights (1 minor, 2 material, 3 decisive) for dated items in that week; it is computed from the register below. Seven Monday-to-Sunday blocks; the first holds only Friday 30 October, so its load is naturally small.</p>
+  <div class="weeks" id="weeks" data-glean-id="pressure-weeks"></div>
+  <p class="small" style="margin-top:10px">Peak days: <span id="peakdays"></span></p>
+</section>
+
+<section id="s-calendar" data-glean-id="sec-calendar">
+  <h2><span class="n">03</span>The calendar</h2>
+  <p class="kicker">One governed calendar, six weeks. Each chip shows its status colour; bold chips are decisive items (weight 3). Click a chip to jump to its register row with source. The top bar on each day shows load.</p>
+  <div class="filters" id="lanefilters" role="group" aria-label="Filter calendar by lane" data-glean-id="calendar-filters"></div>
+  <div id="calendar" data-glean-id="calendar-grid"></div>
+</section>
+<section id="s-budget" data-glean-id="sec-budget">
+  <h2><span class="n">04</span>The Budget has landed · Wednesday 28 October</h2>
+  <p class="kicker">Edition 01 carried four scenarios; this is the outcome. The bank-tax facts below come from the gov.uk Budget document and policy paper, the OBR and the Commons Library. Share moves, reactions and exposure claims are press reports and are marked REPORTED.</p>
+
+  <h3>The run of days around it</h3>
+  <div class="seq" data-glean-id="budget-sequence">
+    <div class="st key"><div class="sd">Wed 28 Oct · Budget</div><ul><li>Bloomberg bank-tax report 10:45</li><li>Statement c.12:30, after PMQs</li><li>OBR Economic and Fiscal Outlook</li><li>Standard Chartered and both Santander results</li></ul></div>
+    <div class="st"><div class="sd">Thu 29 Oct</div><ul><li>Lloyds Q3: shares fell</li><li>SJP Q3 flows</li><li>BoE Money and Credit</li><li>Budget debate day 2; IFS and Resolution Foundation events</li></ul></div>
+    <div class="st"><div class="sd">Fri 30 Oct</div><ul><li>NatWest Q3 07:00</li><li>ONS Blue Book revisions 09:30</li><li>Nationwide HPI (reported)</li><li>NIESR Budget webinar 13:00</li></ul></div>
+    <div class="st key"><div class="sd">Mon 2 · Tue 3 Nov</div><ul><li>Debate day 3 (Mon)</li><li>Debate ends and resolutions voted (Tue)</li><li>Treasury Committee Budget session 09:45 (Tue)</li></ul></div>
+    <div class="st"><div class="sd">Wed 4 Nov</div><ul><li>OBR before the Treasury Committee 14:15</li><li>Commons and Lords rise</li><li>Google outage: initial reply requested</li></ul></div>
+    <div class="st key"><div class="sd">Thu 5 Nov · MPC</div><ul><li>Decision, minutes and Monetary Policy Report, 12:00</li><li>Commons in recess until Tue 10 Nov</li></ul></div>
+  </div>
+
+  <h3>Bank tax: what is known and what is not</h3>
+  <div class="two" data-glean-id="bank-tax-known-unknown">
+    <div class="card">
+      <h3>Known (with status)</h3>
+      <ul>
+        <li><span class="tag CONFIRMED">CONFIRMED</span> The surcharge rises from 3% to 6% for 15 months, 1 January 2027 to 31 March 2028, then reverts to 3% from 1 April 2028. With 25% corporation tax the headline rate on in-scope profits is 31%, up from 28%. <a href="https://www.gov.uk/government/publications/budget-2026-document/budget-2026-html" target="_blank" rel="noopener">Budget document</a></li>
+        <li><span class="tag CONFIRMED">CONFIRMED</span> Yield in Table 6.1: £305m in 2026-27, £950m in 2027-28, £220m in 2028-29, about £1.475bn in total. The OBR and Commons Library say "around £1.5bn". <a href="https://commonslibrary.parliament.uk/content/uploads/2026/10/CBP-12252.pdf" target="_blank" rel="noopener">Commons Library</a></li>
+        <li><span class="tag CONFIRMED">CONFIRMED</span> The measure is in Finance Bill 2026-27 (measure 1.37, "Increase in Rate of Banking Surcharge for Temporary Period"). Accounting periods that straddle 1 January 2027 are split. <a href="https://www.gov.uk/government/publications/increase-in-the-banking-surcharge-rate-for-a-temporary-period/increase-in-rate-of-banking-surcharge-for-temporary-period" target="_blank" rel="noopener">Policy paper</a></li>
+        <li><span class="tag REPORTED">REPORTED</span> The Treasury says the rise "will not be extended". One research strand read this in the Budget document; another found it only quoted by the Guardian. Treat as REPORTED until the Finance Bill text is out.</li>
+        <li><span class="tag REPORTED">REPORTED</span> Allowance of £100m and about 65 banking groups in scope. One reading of the policy paper lists both; another could not confirm the allowance on a publisher page.</li>
+        <li><span class="tag REPORTED">REPORTED</span> The OBR figure is net of about £190m of assumed profit-shifting. <a href="https://britbrief.co.uk/politics/westminster/bank-tax-rises-to-6-in-budget-less-than-feared.html" target="_blank" rel="noopener">Brit Brief</a></li>
+        <li><span class="tag REPORTED">REPORTED</span> No reserves-interest tax or separate windfall levy found in secondary coverage. The full Table 6.1 was not read line by line, so a minor financial-services measure cannot be ruled out.</li>
+        <li><span class="tag REPORTED">REPORTED</span> About 85% of Lloyds and NatWest profits are in scope, against 33% at Barclays and 20% at HSBC (one outlet). <a href="https://www.themarketreporter.co.uk/a/ee4f5397/bank-shares-jump-4-after-budget-surcharge-comes-in-below-feared-8" target="_blank" rel="noopener">The Market Reporter</a></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Not known</h3>
+      <ul>
+        <li>When Finance Bill 2026-27 is introduced and gets its second reading. The Commons votes the resolutions on Tuesday 3 November; the rule is second reading within 30 days (arithmetic: about 3 December, not a published date).</li>
+        <li>Whether building societies are in scope, and the exact allowance.</li>
+        <li>Whether the Treasury and the FCA reply to the Treasury Committee on the 10:45 Bloomberg report, and when Healey appears. Replies are asked for "as soon as possible"; no date.</li>
+        <li>How much of the cost banks pass into mortgage and loan pricing. Lloyds' CFO called the rise "unhelpful" to growth; the Telegraph reports a warning that it will push up borrowing costs.</li>
+        <li>Whether the extension argument gains weight. The TUC wants it extended or raised; UK Finance and the CBI want the end date honoured.</li>
+        <li>How NatWest, the most exposed lender, reads it tomorrow.</li>
+      </ul>
+      <div class="rule"><b>Attribution rule.</b> "Temporary" is the Treasury's word, so write "the Treasury says". On the 10:45 report, write "the Committee chair has asked whether", never "banks were tipped off". Exposure shares, the TUC's views and trade-body estimates belong to their authors.</div>
+    </div>
+  </div>
+
+  <h3>Who said what</h3>
+  <div class="tscroll" data-glean-id="budget-reactions"><table id="tbl-react"></table></div>
+
+  <h3>Fiscal frame (OBR, 28 October)</h3>
+  <div class="tscroll" data-glean-id="budget-fiscal"><table id="tbl-fiscal"></table></div>
+
+  <h3>Other Budget measures banking clients will raise</h3>
+  <div class="tscroll" data-glean-id="budget-other-themes"><table id="tbl-themes"></table></div>
+</section>
+
+<section id="s-results" data-glean-id="sec-results">
+  <h2><span class="n">05</span>Results · what was reported, and NatWest tomorrow</h2>
+  <p class="kicker">Q3 prints from 21 to 29 October, plus the one still to come. Results rows are mostly from RNS mirrors of each firm's own announcement; share moves are press reports and several are intraday only. Where sources disagree the range is shown.</p>
+  <div class="tscroll" data-glean-id="results-grid"><table id="tbl-results"></table></div>
+  <div class="two" style="margin-top:16px">
+    <div class="card" data-glean-id="results-lloyds-fall">
+      <h3>Why did Lloyds' shares fall on 29 October?</h3>
+      <ul>
+        <li><span class="tag REPORTED">REPORTED</span> Investing.com, Reuters via FinChannel and the Market Reporter: slower 2027 net interest income growth and unchanged targets, with a more competitive deposit market.</li>
+        <li><span class="tag REPORTED">REPORTED</span> Saxo suggests tax worries. Business Live notes the shares had risen the day before on Budget relief.</li>
+        <li>Size of fall: "more than 4%" early, "about 5%" (Investors Chronicle), "5% to 6%" (Reuters), ADR down 5.3% pre-market. No close was found.</li>
+        <li><b>Use:</b> report the fall and both explanations; do not attribute it to the Budget alone.</li>
+      </ul>
+    </div>
+    <div class="card" data-glean-id="results-natwest">
+      <h3>NatWest, Friday 30 October, 07:00</h3>
+      <ul>
+        <li>Consensus operating profit about £2.2bn (reported); Q2 attributable profit £1.60bn; H1 RoTE 19.7%; full-year RoTE guidance above 19%.</li>
+        <li>First comment from a most-exposed lender on the 6% surcharge, plus NII guidance and the deposit competition Lloyds flagged.</li>
+        <li>NatWest has withdrawn from its markets business (ad-hoc-news, 27 Oct, reported).</li>
+        <li>The date and time were read on NatWest's results centre for Edition 01 and were not re-read this run.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small" style="margin-top:8px">Still to come in the window: Prudential (5 Nov, reported), Wise (12 Nov, reported), Aviva (13 Nov), Legal &amp; General (16 Nov, reported), Nationwide half-year (19 Nov, reported), Close Brothers AGM (19 Nov), Standard Life capital markets update (30 Nov), Paragon full-year (1 Dec, reported). No dates were found for Metro Bank, Coventry, Yorkshire, Co-op Bank, OSB, Starling, Monzo or Revolut; none is inferred.</p>
+</section>
+
+<section id="s-rates" data-glean-id="sec-rates">
+  <h2><span class="n">06</span>Rates and data · Thursday 5 November and the run after it</h2>
+  <p class="kicker">The MPC decision is the centre of the window. The Bank Rate is 3.75%. The Bank's page confirms the date and 12:00 time; everything about the outcome is market pricing or forecaster opinion.</p>
+
+  <h3>Three versions to pre-build</h3>
+  <p class="small">Scaffolding for drafting, not forecasts. Pricing is a market estimate and can move before the day.</p>
+  <div class="tscroll" data-glean-id="mpc-scenarios"><table id="tbl-mpc"></table></div>
+
+  <h3>What forecasters say</h3>
+  <div class="tscroll" data-glean-id="mpc-forecasters"><table id="tbl-fore"></table></div>
+
+  <h3>The data run after the decision</h3>
+  <div class="tscroll" data-glean-id="data-run"><table id="tbl-data"></table></div>
+  <p class="small" style="margin-top:8px">ONS release times still show 07:00 on every page retrieved. The Office for Statistics Regulation published material on release times in June 2026 that was not read, so a time change cannot be ruled out: WATCH.</p>
+</section>
+
+<section id="s-register" data-glean-id="sec-register">
+  <h2><span class="n">07</span>Event register</h2>
+  <p class="kicker">Every dated item, one row each, with its status and source. This table feeds the Almanac list. Click a column heading to sort; use the filters to narrow.</p>
+  <div class="filters" id="regfilters" data-glean-id="register-filters"></div>
+  <div class="tscroll tall" data-glean-id="register-table"><table id="tbl-register"></table></div>
+  <p class="small" id="regcount" style="margin-top:8px"></p>
+</section>
+
+<section id="s-pipeline" data-glean-id="sec-pipeline">
+  <h2><span class="n">08</span>Regulatory pipeline</h2>
+  <p class="kicker">Items on a lifecycle, listed apart from the dated calendar. The FCA Regulatory Initiatives Grid, 10th edition (19 May 2026), is the only source for "planned" dates and is not updated after publication. Several FCA and PRA documents could not be opened as PDFs, so some rows rest on law-firm summaries.</p>
+  <div class="tscroll" data-glean-id="pipeline-table"><table id="tbl-pipeline"></table></div>
+  <h3>Resolved: targets from Edition 01 that have passed</h3>
+  <p class="small">The resolve step from the build pack: nothing past-dated appears as upcoming. Each is classed as published, slipped, held, narrowed or unknown.</p>
+  <div class="tscroll" data-glean-id="resolved-table"><table id="tbl-resolved"></table></div>
+</section>
+
+<section id="s-watch" data-glean-id="sec-watch">
+  <h2><span class="n">09</span>Unscheduled watch</h2>
+  <p class="kicker">Live issues with no confirmed date. Each has a tripwire: the thing that moves it from WATCH to a dated item. Nothing here is inferred from last year's timing.</p>
+  <div class="tscroll" data-glean-id="watch-table"><table id="tbl-watch"></table></div>
+</section>
+
+<section id="s-pattern" data-glean-id="sec-pattern">
+  <h2><span class="n">10</span>Pattern watch</h2>
+  <p class="kicker">Rows from the Pattern Library (46 rows in the copy used here; the build pack says 48) checked against this cycle's published dates. A published date always outranks a pattern; patterns only fill gaps. Scoring the library as dates arrive is how its weak rows get fixed.</p>
+  <div class="score" id="patscore" data-glean-id="pattern-score"></div>
+  <div class="tscroll" data-glean-id="pattern-table"><table id="tbl-pattern"></table></div>
+  <div class="rule"><b>Library fixes suggested by this scan.</b> ONS monthly GDP did not fall on a Wednesday in either month: Thursday 12 November carries the Q3 first estimate, and Friday 11 December the October estimate. The Financial Stability Report is on 26 November, not December week 2. The Lloyds House Price Index is the renamed Halifax series and did not follow a first-Friday rule for September. The Lloyds Business Barometer has been landing at month end (28 August, 30 September), not on a first Tuesday. The library does not define week-of-month, so scoring uses weekday and month only. None of these rows should be used to infer a date without a publisher check.</div>
+</section>
+
+<section id="s-desk" data-glean-id="sec-desk">
+  <h2><span class="n">11</span>Briefing desk</h2>
+  <p class="kicker">For analysts building daily RI executive briefings for banking clients: reference numbers, wording rules, what to pre-build and what to check each morning.</p>
+
+  <h3>Reference numbers as at 29 October</h3>
+  <div class="tscroll" data-glean-id="reference-numbers"><table id="tbl-refnums"></table></div>
+
+  <div class="two" style="margin-top:20px">
+    <div class="card" data-glean-id="desk-language">
+      <h3>Wording rules for the window</h3>
+      <ul>
+        <li><b>Priced is not decided.</b> Say "markets price", "16 of 17 research houses expect"; never "the Bank will raise".</li>
+        <li><b>Temporary is the Treasury's word.</b> Write "the Treasury says it will not be extended". Do not write that it ends in March 2028 as fact.</li>
+        <li><b>Mention is not event.</b> The Bloomberg 10:45 report is a question from the Committee chair, not a finding.</li>
+        <li><b>Intraday is not close.</b> Budget-day bank moves were 3% to 4% intraday and 1.6% to 2.0% at the close. For Lloyds on 29 October, no close was found.</li>
+        <li><b>Separate voices.</b> Government, the Bank, trade bodies (UK Finance, CBI, TheCityUK), unions (TUC) and think-tanks (IFS, Resolution Foundation) each get their own attribution.</li>
+        <li><b>Motor finance:</b> "hearing 16 to 26 February 2027; judgment date not published; scheme partly suspended". Quote provisions as each firm states them. Never quote a payment date. Santander UK's figure is £616m in press and £633m in the RNS text.</li>
+        <li><b>Use the new names.</b> Lloyds House Price Index (formerly Halifax); Standard Life plc (formerly Phoenix). The Halifax brand is being retired from 1 November (reported).</li>
+        <li><b>Clocks changed on Sunday 25 October.</b> All times in this edition are GMT unless stated.</li>
+        <li><b>Debt measures differ.</b> The Library's PSND is 95.5% to 97.3% of GDP; ONS PSNFL is 82.7%. Name the measure.</li>
+      </ul>
+    </div>
+    <div class="card" data-glean-id="desk-prebuild">
+      <h3>Pre-build checklist</h3>
+      <ul>
+        <li><b>By Fri 30 Oct 06:30:</b> NatWest results template with the 6% surcharge, NII, deposit and RoTE lines, set against Lloyds on 29 October.</li>
+        <li><b>By Fri 30 Oct:</b> a Halifax shutdown and scam-warning note for Monday 2 November.</li>
+        <li><b>By Mon 2 Nov:</b> Tuesday's resolutions vote and the 09:45 Treasury Committee session; vote time not published.</li>
+        <li><b>By Tue 3 Nov:</b> MPC hike, hold and split-vote versions with the Monetary Policy Report lines; the OBR at the Committee on Wednesday 14:15.</li>
+        <li><b>By Mon 9 Nov:</b> data-run templates for 12 Nov GDP, 17 Nov labour market, 18 Nov CPI, 20 Nov public finances and retail sales, with the comparators in the table above.</li>
+        <li><b>By Mon 23 Nov:</b> Financial Stability Report brief for Thursday 26 November.</li>
+        <li><b>By Fri 27 Nov:</b> Black Friday and Cyber Monday scam note.</li>
+        <li><b>By Mon 7 Dec:</b> 11 Dec GDP and the 17 Dec MPC lead-in.</li>
+        <li>Agree cover for the weeks of 2 November and 16 November, the heaviest by register load. Peak days are Friday 30 October, Thursday 12 November and Wednesday 18 November.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px" data-glean-id="desk-morning-checks">
+    <h3>Morning checks (07:00, Monday to Friday)</h3>
+    <ul>
+      <li>Commons business statement: first one after recess is Thursday 12 November; it would carry any Finance Bill or Financial Services and Markets Bill second reading.</li>
+      <li>Votes and Proceedings and bills.parliament.uk for the Finance Bill after the 3 November vote.</li>
+      <li>Treasury Committee page for added sessions and published replies on the Budget report and the Google outage.</li>
+      <li>FCA site and Upper Tribunal listings for a motor finance statement; CMA case page for the strategic review decision.</li>
+      <li>Lloyds, NatWest and Nationwide newsrooms for house-price and barometer release dates.</li>
+      <li>The bank's own statement before quoting an outage, closure or job-cut story.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s-lens" data-glean-id="sec-lens">
+  <h2><span class="n">12</span>Client Lens preview</h2>
+  <p class="kicker">How the same calendar reads for four accounts: the client's own events first, then peers', then sector-wide. Relevance cells are starting hypotheses for the account analyst to correct, in particular motor finance exposure.</p>
+  <div class="tscroll" data-glean-id="lens-table"><table id="tbl-lens"></table></div>
+</section>
+
+<section id="s-changes" data-glean-id="sec-changes">
+  <h2><span class="n">13</span>Changes since Edition 01, and Edition 01 scored</h2>
+  <p class="kicker">Edition 01 (10 October) made calls that can now be checked. Misses are kept in.</p>
+  <div class="score" id="scscore" data-glean-id="edition-score"></div>
+  <div class="tscroll" data-glean-id="edition-scoring"><table id="tbl-score"></table></div>
+  <div class="three" style="margin-top:18px">
+    <div class="card" data-glean-id="changes-upgrades"><h3>Upgraded</h3><ul>
+      <li>Budget date, statement time (c.12:30 after PMQs, Parliament page) and the OBR forecast: CONFIRMED and now past.</li>
+      <li>MPC 5 Nov at 12:00 and the Pill and Shortall briefing on 6 Nov at 12:15: both on Bank of England pages.</li>
+      <li>FCA CP26/34 closing 6 Nov: now CONFIRMED on the FCA page.</li>
+      <li>Treasury Committee Budget sessions (3 and 4 Nov) and the Commons votes on 3 Nov: CONFIRMED.</li>
+      <li>Healey as Chancellor and Burnham as Prime Minister: now on the Budget document and speech.</li>
+    </ul></div>
+    <div class="card" data-glean-id="changes-new"><h3>New to the register</h3><ul>
+      <li>Bank surcharge outcome, Finance Bill 2026-27 and the leak questions.</li>
+      <li>NIESR Budget webinar (30 Oct) and Autumn Outlook (10 Nov).</li>
+      <li>ONS Q3 GDP (12 Nov), UK Finance arrears (12 Nov), RICS (12 Nov, 10 Dec), GfK (20 Nov).</li>
+      <li>FSR and FPC record (26 Nov), FPC meeting (19 Nov), PSR CP26/3 (10 Dec).</li>
+      <li>UK Finance Annual Dinner (18 Nov), TheCityUK conference (19 Nov), FT Global Banking Summit (1 to 3 Dec).</li>
+    </ul></div>
+    <div class="card" data-glean-id="changes-removed"><h3>Removed, narrowed or downgraded</h3><ul>
+      <li>Motor finance hearing: "14 to 18 Dec or 16 to 26 Feb" narrowed to 16 to 26 Feb 2027.</li>
+      <li>Bank of England quoted rates "6 Nov": downgraded from CONFIRMED to WATCH; the page read was last updated in May.</li>
+      <li>Prudential: moved from 4 Nov evening to 5 Nov (Citi preview, still REPORTED).</li>
+      <li>Past items dropped: all results to 29 Oct, the 13 and 14 Oct Committee sessions, ONS releases to 23 Oct.</li>
+    </ul></div>
+  </div>
+  <h3>Source conflicts and what was used</h3>
+  <div class="tscroll" data-glean-id="conflicts-table"><table id="tbl-conflicts"></table></div>
+</section>
+
+<section id="s-health" data-glean-id="sec-health">
+  <h2><span class="n">14</span>Retrieval health</h2>
+  <p class="kicker">Run quality is PARTIAL. The anchor sources were read, but most pages were read as search extracts of the publisher's page rather than by full fetch, and nine gaps are listed below. Bank of England and ONS dates come from each body's own pages.</p>
+  <h3>Anchor checklist</h3>
+  <div class="tscroll" data-glean-id="anchor-checklist"><table id="tbl-anchors"></table></div>
+  <div class="two" style="margin-top:16px">
+    <div class="card" data-glean-id="health-not-reached"><h3>Not reached or not found</h3><ul>
+      <li>NatWest, Prudential, Legal &amp; General, Nationwide, Wise and Paragon own pages for their dates.</li>
+      <li>Bank of England quoted-rates release date (page last updated 27 May).</li>
+      <li>Finance Bill 2026-27 introduction and second-reading dates; Financial Services and Markets Bill second reading; the 29 October Commons business statement.</li>
+      <li>Treasury Committee witness list for 3 November; dates for Healey, the FCA and the Bank before the Committee.</li>
+      <li>Lloyds and Halifax own pages for the brand and app closure; Lloyds Business Barometer October date.</li>
+      <li>FCA and PRA PDFs (CP26/18, CP26/23, CP26/37, Tribunal directions); the full Table 6.1 line by line.</li>
+      <li>29 October closing prices and gilt closes; Bank of England formal Budget reaction (none found).</li>
+    </ul></div>
+    <div class="card" data-glean-id="health-secondary-only"><h3>Secondary-only claims in this edition</h3><ul>
+      <li>The names of the three MPC dissenters (Greene, Mann, Pill); the Bank's page confirms only 6 to 3 with three for a rise.</li>
+      <li>All market pricing and share-price moves, and the exposure shares of 85%, 33% and 20%.</li>
+      <li>The Bloomberg 10:45 report and the Committee letters (the letters are CONFIRMED on the Committee page; the report is press).</li>
+      <li>Lloyds' motor finance provision of about £1.95bn (June trade press); Santander UK £616m or £633m.</li>
+      <li>Halifax closure on 1 November, branch counts, HSBC UK wealth job cuts, Google outage details.</li>
+      <li>Law-firm summaries for several FCA and PRA consultation dates.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="s-csv" data-glean-id="sec-csv">
+  <h2><span class="n">15</span>Almanac records</h2>
+  <p class="kicker">The same register as one record per event, ready to paste into the SharePoint Almanac list. Source URL sits in its own field; verified-at is the date of this run.</p>
+  <button type="button" class="btn" id="copycsv">Copy CSV</button> <span class="small" id="copystate"></span>
+  <pre class="csv" id="csvout" data-glean-id="csv-output"></pre>
+</section>
+
+<section id="s-beyond" data-glean-id="sec-beyond">
+  <h2><span class="n">16</span>Just beyond the window</h2>
+  <p class="kicker">Dated items after 11 December that will shape what analysts say inside it.</p>
+  <div class="tscroll" data-glean-id="beyond-table"><table id="tbl-beyond"></table></div>
+</section>
+
+<footer data-glean-id="footer">
+  augur · Forward Intelligence · By Cision. Internal working document for Rapid Intelligence analysts; not for client distribution. Window 30 October to 11 December 2026, as at 29 October 2026. Status words and rules follow the Finance Horizon Scan Agent Build Pack. Trademark clearance for any client-facing use of "Signscape" is still required.
+</footer>
+</main>
+</div>
+
+<script>
+var AS_AT="2026-10-29";
+var WIN_START="2026-10-30",WIN_END="2026-12-11";
+var LANES={BUD:"Budget and Treasury",MPC:"Monetary policy",DATA:"Data releases",RES:"Bank results",WLTH:"Wealth and insurance",REG:"Regulation and Parliament",IND:"Think-tanks and industry",HSG:"Housing and sentiment"};
+var U={
+ budget:"https://www.gov.uk/government/publications/budget-2026-document/budget-2026-html",
+ surch:"https://www.gov.uk/government/publications/increase-in-the-banking-surcharge-rate-for-a-temporary-period/increase-in-rate-of-banking-surcharge-for-temporary-period",
+ ootlar:"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar",
+ cbp:"https://commonslibrary.parliament.uk/content/uploads/2026/10/CBP-12252.pdf",
+ obr:"https://obr.uk/efo/economic-and-fiscal-outlook-october-2026/",
+ boempc:"https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates",
+ boeev:"https://www.bankofengland.co.uk/events/upcoming-events",
+ boelatest:"https://www.bankofengland.co.uk/news/latest-and-upcoming",
+ boefsr:"https://www.bankofengland.co.uk/financial-stability-report/2026/november-2026",
+ boefpc:"https://www.bankofengland.co.uk/financial-stability/upcoming-fpc-dates",
+ boemc:"https://www.bankofengland.co.uk/statistics/money-and-credit/2026/october-2026",
+ tsc:"https://committees.parliament.uk/committee/158/treasury-committee/",
+ tsccorr:"https://committees.parliament.uk/committee/158/treasury-committee/publications/3/correspondence/",
+ tscinq:"https://committees.parliament.uk/committee/158/treasury-committee/work/inquiries",
+ tscboe:"https://committees.parliament.uk/committee/158/treasury-committee/news/217971/is-the-framework-for-bank-of-england-independence-still-fit-for-purpose-30-years-on-mps-launch-new-inquiry/",
+ recess:"https://www.parliament.uk/about/faqs/house-of-commons-faqs/business-faq-page/recess-dates/",
+ lordsrec:"https://www.parliament.uk/about/faqs/house-of-lords-faqs/lords-recess-dates/",
+ hansard22:"https://hansard.parliament.uk/Commons/2026-10-22/debates/B3153003-E558-4391-9844-FE89EE2971A1/BusinessOfTheHouse",
+ hansard28:"https://hansard.parliament.uk/commons/2026-10-28/debates/3C01A9B5-6F3F-4C82-95F2-21BDCBEBF7AC/FinancialStatementAndBudgetReport",
+ parlbudget:"https://www.parliament.uk/business/news/2026/october-2026/budget-statement-wednesday-28-october/",
+ fsmbill:"https://bills.parliament.uk/bills/4129/stages",
+ onsrel:"https://www.ons.gov.uk/releasecalendar",
+ onsbb:"https://www.ons.gov.uk/releasecalendar?keywords=Blue+Book&release-type=type-upcoming&sort=date-newest",
+ onsgdpq3:"https://www.ons.gov.uk/releases/gdpfirstquarterlyestimateukjulytoseptember2026",
+ onsgdp:"https://www.ons.gov.uk/releasecalendar?keywords=GDP&release-type=type-upcoming&sort=date-newest",
+ onslm:"https://www.ons.gov.uk/releasecalendar?keywords=Labour+market+overview&release-type=type-upcoming&sort=date-newest",
+ onscpi:"https://www.ons.gov.uk/releasecalendar?keywords=Consumer+price+inflation&release-type=type-upcoming&sort=date-newest",
+ onshpi:"https://www.ons.gov.uk/releasecalendar?keywords=Private+rent+and+house+prices&release-type=type-upcoming&sort=date-newest",
+ onspsf:"https://www.ons.gov.uk/releasecalendar?keywords=Public+sector+finances&release-type=type-upcoming&sort=date-newest",
+ onsret:"https://www.ons.gov.uk/releasecalendar?keywords=Retail+sales&release-type=type-upcoming&sort=date-newest",
+ onscpisep:"https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026",
+ natwest:"https://www.ad-hoc-news.de/boerse/news/corporate-news/barclays-raises-target-for-natwest-stock-to-gbp-850/70313907",
+ nwgres:"https://investors.natwestgroup.com/results-centre",
+ pru:"https://www.proactiveinvestors.com/companies/news/1100465/prudential-s-new-business-profit-to-rise-8-as-asian-markets-offset-china-weakness-says-citi-1100465.html",
+ wise:"https://owners.wise.com/",
+ aviva:"https://www.aviva.com/",
+ lgen:"https://kalkine.co.uk/news/financial/legal-general-group-plc-lselgen-edges-higher-as-retirement-demand-asset-management-gains-and-capital-returns-hold-attention",
+ nationwide:"https://www.bundle.app/en/breaking-news/nationwide-to-slash-275-jobs-in-latest-round-of-cuts-since-takeover-of-virgin-money-50942FE3-7397-5171-AB89-6D17C3259333",
+ closebros:"https://www.investegate.co.uk/announcement/rns/close-brothers-group--cbg/notice-of-agm/9828001",
+ stdlife:"https://www.standardlifeplc.com/news-and-views/press-releases/article-page/2026-half-year-results",
+ paragon:"https://www.tipranks.com/stocks/gb:pag/earnings",
+ sanuk:"https://www.stocktitan.net/sec-filings/SAN/6-k-banco-santander-s-a-current-report-foreign-issuer-623701eb6c76.html",
+ hsbcdiv:"https://www.marketscreener.com/news/hsbc-holdings-plc-proposes-dividend-in-respect-of-the-third-quarter-ended-30-september-2026-payable-ce785cdddd8df72c",
+ nwhpi:"https://tradingeconomics.com/united-kingdom/nationwide-housing-prices-yoy",
+ lloydshpi:"https://www.kaeltripton.com/latest/lloyds-house-price-index-annual-growth-flat/",
+ rics:"https://www.rics.org/content/dam/ricsglobal/documents/market-surveys/RICS-UK-Residential-Market-Survey_September-2026.pdf",
+ ukfarrears:"https://cdn.prgloo.com/media/download/41319c9341e84828a06e672b4eb1221a",
+ gfk:"https://nielseniq.com/global/en/news-center/2026/consumer-confidence-plunges-11-points-to-24-in-october/",
+ niesr:"https://niesr.ac.uk/event/autumn-2026-press-conference",
+ niesrhome:"https://niesr.ac.uk/",
+ halifax:"https://www.moneysavingexpert.com/news/2026/09/halifax-lloyds-brand-change-app-deadline/",
+ googleout:"https://www.theguardian.com/business/2026/oct/20/revolut-down-app-cards-service-disruption",
+ talkmoney:"https://www.awarenessdays.com/awareness-days-calendar/talk-money-week/",
+ cp2634:"https://www.fca.org.uk/publications/consultation-papers/cp26-34-preparing-new-transaction-reporting-regime",
+ cp2636:"https://www.fca.org.uk/publications/consultation-papers/cp26-36-cryptoasset-perimeter-guidance",
+ cp2638:"https://www.fca.org.uk/publications/consultation-papers/cp26-38-financial-crime-guide-updates",
+ psrcp:"https://www.psr.org.uk/media/fajjquto/cp26-3-regulatory-framework-for-access-to-payment-systems-oct-2026-v2.pdf",
+ mfstmt:"https://www.fca.org.uk/news/statements/motor-finance-legal-challenge-be-heard-february-2027",
+ mfsusp:"https://www.fca.org.uk/news/statements/motor-finance-scheme-partially-suspended",
+ ukfdinner:"https://www.ukfinance.org.uk/events-training/uk-finance-annual-dinner-2026",
+ ukfmort:"https://www.ukfinance.org.uk/events-training/annual-mortgage-dinner-2026",
+ ukfevents:"https://www.ukfinance.org.uk/events",
+ cityuk:"https://www.thecityuk.com/events/thecityuk-national-conference/",
+ banker:"https://www.thebanker.com/Banker-Events/",
+ obrpsf:"https://obr.uk/",
+ ifs:"https://ifs.org.uk/events/autumn-budget-2026-ifs-analysis",
+ rf:"https://www.resolutionfoundation.org/publications/spread-thin/",
+ rfpress:"https://www.resolutionfoundation.org/press-releases/budget-balancing-act-leaves-families-braced-for-tough-winter-and-four-year-living-standards-downturn/",
+ lbgcal:"https://www.lloydsbankinggroup.com/investors/shareholder-information/financial-calendar.html",
+ ffoundr:"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar"
+};
+var EV=[
+["e01","2026-10-30","07:00","RES","NatWest Group Q3 results","NatWest Group","CONFIRMED",3,U.nwgres,"NatWest results centre (Ed. 01 read)","Confirmed on NatWest's page for Edition 01; not re-read this run. Secondary pieces agree. Consensus operating profit about £2.2bn (reported). Last big-four print and the first from the most surcharge-exposed lender."],
+["e02","2026-10-30","09:30","DATA","ONS Blue Book 2026, GDP revisions, Pink Book","ONS","CONFIRMED",2,U.onsbb,"ONS release calendar","May restate the GDP level and history before the MPC and the 12 Nov GDP release."],
+["e03","2026-10-30","09:30","DATA","BoE Agents' summary and Decision Maker Panel (October)","Bank of England","CONFIRMED",2,U.boeev,"Bank of England upcoming events","Last business-survey reads before the MPC."],
+["e04","2026-10-30","09:00","REG","BoE: Clair Mills speech, Exeter","Bank of England","CONFIRMED",1,U.boeev,"Bank of England upcoming events","Growth and resilience; low priority."],
+["e05","2026-10-30","07:00","HSG","Nationwide House Price Index, October","Nationwide","REPORTED",2,U.nwhpi,"Trading Economics calendar","Secondary calendar only. Consensus 0.6% y/y against 0.8% in September. Nationwide's page gave no date; a 2 Nov date is unsupported."],
+["e06","2026-10-30","13:00","IND","NIESR webinar: What Budget 2026 means for the UK economy","NIESR","CONFIRMED",1,U.niesrhome,"NIESR site","13:00 to 14:00."],
+["e07","2026-10-31","","HSG","Last day to switch from the Halifax app to the Lloyds app (Saturday)","Lloyds Banking Group","REPORTED",1,U.halifax,"MoneySavingExpert","Halifax says it contacts customers only by email, letter, text or in-app message: expect copycat scams. Lloyds' own page not read."],
+["e08","2026-11-01","","HSG","Halifax app and online banking stop (Sunday)","Lloyds Banking Group","REPORTED",2,U.halifax,"MoneySavingExpert","MSE says the app stays live until Sunday 1 Nov; some outlets say it leaves the stores on 31 Oct. Sort codes, account numbers and FSCS limits unchanged. Expect service load on Mon 2 Nov."],
+["e09","2026-11-02","","REG","Commons Budget debate, day 3","House of Commons","CONFIRMED",2,U.hansard22,"Hansard, Business of the House 22 Oct","Airing of the bank surcharge and the financial services growth strategy."],
+["e10","2026-11-02","","RES","Banco Santander interim dividend paid from today (EUR 0.127)","Banco Santander","CONFIRMED",1,U.sanuk,"Santander 6-K (Stocktitan mirror)","Parent of Santander UK."],
+["e11","2026-11-02","","IND","Talk Money Week (2 to 6 Nov)","Money and Pensions Service","REPORTED",1,U.talkmoney,"Awareness Days","Conflict: another listing says 9 to 13 Nov. Check MaPS."],
+["e12","2026-11-03","","REG","Commons: Budget debate ends; Ways and Means resolutions voted (surcharge rise included)","House of Commons","CONFIRMED",3,U.hansard28,"Hansard, 28 Oct (questions put at end of debate on Tue 3 Nov)","Date CONFIRMED; the time of the division is not published (WATCH). Resolutions must pass within 10 sitting days of the Budget. Finance Bill follows."],
+["e13","2026-11-03","09:45","REG","Treasury Committee: Budget 2026 oral evidence (HC 682)","Treasury Committee","CONFIRMED",2,U.tsc,"Treasury Committee page","Witnesses not shown on the page read. First post-Budget scrutiny; expect surcharge and leak questions."],
+["e14","2026-11-04","14:15","REG","Treasury Committee: OBR Budget Responsibility Committee (Haskel, Josephs, Miles)","Treasury Committee","CONFIRMED",2,U.tsc,"Treasury Committee page","OBR on growth 1.0% in 2027, CPI near 4%, £15bn headroom and the surcharge costing."],
+["e15","2026-11-04","","REG","Commons and Lords rise for the November break","Parliament","CONFIRMED",1,U.recess,"parliament.uk recess dates","Commons returns Tue 10 Nov; Lords Mon 9 Nov. The Commons FAQ was not checked for House-approved status."],
+["e16","2026-11-04","11:35","REG","BoE: Ben Martin speech, Data and AI conference Europe","Bank of England","CONFIRMED",1,U.boeev,"Bank of England upcoming events","AI and operational resilience."],
+["e17","2026-11-04","","REG","Treasury Committee: initial reply requested on the 20 Oct Google Cloud outage","Treasury Committee","REPORTED",1,U.googleout,"Guardian","Letter to Governor Bailey and FCA CEO Rathi. Fuller reply 20 Jan 2027 comes from a weaker blog."],
+["e18","2026-11-05","12:00","MPC","Bank of England MPC decision, minutes and Monetary Policy Report","Bank of England","CONFIRMED",3,U.boempc,"Bank of England upcoming MPC dates","Bank Rate 3.75%. A 25bp rise to 4.00% is priced at about 94% (OIS, 28 Oct). Commons in recess."],
+["e19","2026-11-05","","RES","HSBC third interim dividend goes ex ($0.10); paid 17 Dec","HSBC","CONFIRMED",1,U.hsbcdiv,"HSBC announcement (MarketScreener)","Record date Fri 6 Nov."],
+["e20","2026-11-05","","WLTH","Prudential plc Q3 business update","Prudential plc","REPORTED",1,U.pru,"Citi preview via Proactive Investors","Prudential's own page not read. The US Prudential Financial result on 3 Nov is a different company."],
+["e21","2026-11-05","13:50","REG","BoE: Victoria Saporta chairs a session, ECB Money Market Conference","Bank of England","CONFIRMED",1,U.boeev,"Bank of England upcoming events","Liquidity and market infrastructure."],
+["e22","2026-11-06","12:15","MPC","BoE: Huw Pill and Fergal Shortall, National MPC Agency briefing","Bank of England","CONFIRMED",2,U.boeev,"Bank of England upcoming events","The Chief Economist explains the decision the day after; fresh guidance for rates."],
+["e23","2026-11-06","","HSG","Lloyds House Price Index, October (formerly Halifax)","Lloyds Banking Group","REPORTED",1,U.lloydshpi,"Kael Tripton (secondary)","Single secondary source; Lloyds page not read. The September release ran at 06:00; no time is stated for this one."],
+["e24","2026-11-06","","REG","FCA CP26/34 closes (new transaction reporting regime guidance)","FCA","CONFIRMED",1,U.cp2634,"FCA consultation page","Markets-side; banks with trading arms."],
+["e25","2026-11-06","","REG","Treasury Committee: written evidence deadline, Bank of England independence at 30","Treasury Committee","CONFIRMED",1,U.tscboe,"Treasury Committee launch release","Conflict between the Committee's own pages: 6 Nov on the launch release and inquiry list, 13 Nov on the summary page. Planning date 6 Nov."],
+["e26","2026-11-09","","REG","House of Lords returns","House of Lords","CONFIRMED",1,U.lordsrec,"parliament.uk Lords recess dates","One day before the Commons."],
+["e27","2026-11-10","","REG","House of Commons returns","House of Commons","CONFIRMED",2,U.recess,"parliament.uk recess dates","First Commons reaction to the MPC decision and the first Finance Bill opportunities."],
+["e28","2026-11-10","11:00","IND","NIESR UK Economic Outlook, Autumn 2026","NIESR","CONFIRMED",2,U.niesr,"NIESR event page","First independent forecast after the Budget."],
+["e29","2026-11-12","07:00","DATA","ONS GDP first quarterly estimate, July to September; monthly GDP September","ONS","CONFIRMED",3,U.onsgdpq3,"ONS release page","Lands one week after the MPC. The three months to August were +0.7%."],
+["e30","2026-11-12","","DATA","UK Finance mortgage arrears and possessions, Q3","UK Finance","CONFIRMED",2,U.ukfarrears,"UK Finance Q2 release ('Next update: 12 November 2026')","Q2 arrears were 0.89% of homeowner mortgages. First print with the September rate spike."],
+["e31","2026-11-12","","HSG","RICS UK Residential Market Survey, October","RICS","CONFIRMED",2,U.rics,"RICS September survey PDF (embargo dates)","Time not stated. September price balance -32."],
+["e32","2026-11-12","","RES","Wise H1 FY27 results","Wise","REPORTED",1,U.wise,"Wise IR (Stocktitan overview)","The Wise IR page showed 'Nov 12, 2026' under a Q4 FY26 heading; label unclear."],
+["e33","2026-11-12","","REG","Commons business statement (first after the break)","House of Commons","WATCH",1,U.fsmbill,"bills.parliament.uk","Weekly pattern only. Tripwire for Finance Bill and Financial Services and Markets Bill second readings."],
+["e34","2026-11-13","07:00","WLTH","Aviva Q3 trading update (call 08:30)","Aviva","CONFIRMED",1,U.aviva,"Aviva investors page","Insurer read-across."],
+["e35","2026-11-16","","WLTH","Legal & General Q3 trading update","Legal & General","REPORTED",1,U.lgen,"Kalkine (secondary)","L&G page not read."],
+["e36","2026-11-16","","REG","BoE citizens' panels on the cost of living (Bristol, Northern Ireland)","Bank of England","CONFIRMED",1,U.boelatest,"Bank of England latest and upcoming","Times not retrieved. The page footer says last updated March 2025 though content runs to Oct 2026."],
+["e37","2026-11-17","07:00","DATA","ONS Labour market, November","ONS","CONFIRMED",3,U.onslm,"ONS release calendar","Unemployment 4.7% at the last print; payrolls falling."],
+["e38","2026-11-18","07:00","DATA","ONS CPI and PPI, October","ONS","CONFIRMED",3,U.onscpi,"ONS release calendar","First print after the MPC decision. September CPI was 3.5%."],
+["e39","2026-11-18","09:30","DATA","ONS Private rent and house prices, November (HPI)","ONS / HM Land Registry","CONFIRMED",2,U.onshpi,"ONS release calendar","August HPI +0.9% y/y."],
+["e40","2026-11-18","","REG","FCA CP26/36 closes (cryptoasset perimeter guidance)","FCA","CONFIRMED",1,U.cp2636,"FCA consultation page","Final guidance January 2027 per the page. Regime starts 25 Oct 2027."],
+["e41","2026-11-18","18:00","IND","UK Finance Annual Dinner, Guildhall (keynote PRA CEO Katharine Braddick)","UK Finance","CONFIRMED",2,U.ukfdinner,"UK Finance event page","Sold out. The main regulator-to-bank-CEO speech of the season."],
+["e42","2026-11-19","09:30","IND","TheCityUK National Conference, Bristol (FCA's Sarah Pritchard 10:20)","TheCityUK","CONFIRMED",2,U.cityuk,"TheCityUK event page","Post-Budget view from the industry."],
+["e43","2026-11-19","","RES","Nationwide half-year results","Nationwide Building Society","REPORTED",2,U.nationwide,"Bundle news summary (secondary)","Nationwide page not read. Same source says 275 job cuts after the Virgin Money takeover; verify."],
+["e44","2026-11-19","11:00","RES","Close Brothers AGM","Close Brothers","CONFIRMED",1,U.closebros,"Notice of AGM via RNS mirror","Motor finance exposure; provision last seen as £320m (RBC, July), unverified."],
+["e45","2026-11-19","","REG","Financial Policy Committee meeting (record on 26 Nov)","Bank of England","CONFIRMED",1,U.boefpc,"Bank of England FPC dates","Non-public meeting."],
+["e46","2026-11-20","07:00","DATA","ONS Public sector finances, October","ONS","CONFIRMED",2,U.onspsf,"ONS release calendar","First outturn after the OBR re-forecast."],
+["e47","2026-11-20","07:00","DATA","ONS Retail sales, Great Britain, October","ONS","CONFIRMED",2,U.onsret,"ONS release calendar","Consumer demand in the first month under rising rates."],
+["e48","2026-11-20","00:01","HSG","GfK consumer confidence, November","GfK / NIQ","CONFIRMED",2,U.gfk,"NIQ release","First post-Budget, post-MPC consumer read. October was -24. 00:01 is from the calendar, not NIQ."],
+["e49","2026-11-20","","BUD","OBR monthly public sector finances commentary","OBR","CONFIRMED",1,U.obrpsf,"obr.uk","The page shows inconsistent 'last published' dates; verify."],
+["e50","2026-11-23","","REG","Government response due: Treasury Committee report 'The OBR: 15 years on'","HM Treasury","CONFIRMED",1,U.tscinq,"Treasury Committee inquiries page","Due by 23 Nov."],
+["e51","2026-11-26","10:30","MPC","Bank of England Financial Stability Report and FPC record","Bank of England","CONFIRMED",3,U.boefsr,"Bank of England FSR page","Bank resilience, countercyclical buffer, private credit and household debt servicing after the first hike."],
+["e52","2026-11-27","","IND","Black Friday (calendar date)","n/a","WATCH",1,U.ukfevents,"Calendar date, not organiser-published","Purchase scams are the largest APP category by volume. No warning found yet; tripwire is a UK Finance, Take Five or Which? release in the week of 16 Nov."],
+["e53","2026-11-30","09:30","DATA","BoE Money and Credit and Effective interest rates, October","Bank of England","CONFIRMED",2,U.boemc,"Bank of England statistics","Mortgage approvals after the first hike. There is no release between 1 and 11 Dec."],
+["e54","2026-11-30","","BUD","Founders' Relief technical consultation closes","HM Treasury / HMRC","CONFIRMED",1,U.ffoundr,"Overview of tax legislation and rates","Wealth and private-bank clients."],
+["e55","2026-11-30","","WLTH","Standard Life plc capital markets update","Standard Life","CONFIRMED",2,U.stdlife,"Standard Life press release","Guidance refresh expected."],
+["e56","2026-12-01","","RES","Paragon Banking Group full-year results","Paragon Banking Group","REPORTED",1,U.paragon,"TipRanks (aggregator)","Another source says only 'December 2026'."],
+["e57","2026-12-01","","IND","FT Global Banking Summit, London (1 to 3 Dec)","FT Live / The Banker","CONFIRMED",1,U.banker,"The Banker events page","FT's own page not read."],
+["e58","2026-12-03","","IND","UK Finance Economic Crime Congress","UK Finance","CONFIRMED",1,U.ukfevents,"UK Finance events index","The index layout is ambiguous about the date."],
+["e59","2026-12-09","18:30","IND","UK Finance Annual Mortgage Dinner","UK Finance","CONFIRMED",1,U.ukfmort,"UK Finance event page","Lender and broker audience."],
+["e60","2026-12-10","","HSG","RICS UK Residential Market Survey, November","RICS","CONFIRMED",2,U.rics,"RICS September survey PDF (embargo dates)","Last RICS read before Christmas."],
+["e61","2026-12-10","17:00","REG","PSR CP26/3 closes (access to payment systems)","Payment Systems Regulator","CONFIRMED",1,U.psrcp,"PSR consultation PDF","Continuity of access rules ahead of the PSR folding into the FCA."],
+["e62","2026-12-11","07:00","DATA","ONS monthly GDP, October","ONS","CONFIRMED",2,U.onsgdp,"ONS release calendar","Last major ONS macro print before the 17 Dec MPC."]
+];
+
+function T(s){return "<span class='tag "+s+"'>"+s+"</span>";}
+function L(u,t){return "<a href='"+u+"' target='_blank' rel='noopener'>"+t+"</a>";}
+var REACT={cols:["Voice","Position","When","Status","Source"],rows:[
+["UK Finance (David Postings, City AM)","The doubling does not support growth or competitiveness. The Treasury has written the time limit into legislation: “a promise made must be a promise kept”. Cites the Energy Profits Levy as a case of ‘temporary’ taxes that lasted.","Thu 29 Oct","REPORTED",L("https://www.cityam.com/uk-finance-chief-labour-must-keep-its-promise-that-the-bank-tax-is-temporary/","City AM")],
+["CBI (Rain Newton-Smith)","Budget “does not meet the scale” of the growth ambition; financial services already face a higher tax burden than overseas peers; the surcharge “must be time-limited”.","28 to 29 Oct","REPORTED",L("https://news.europawire.eu/cbi-warns-uk-budget-falls-short-of-measures-needed-for-business-investment-and-growth/eu-press-release/2026/10/29/12/06/04/184914/","EuropaWire (CBI release)")],
+["TheCityUK","The time-bound rise “risks weakening UK competitiveness”. Welcomed the £20,000 cash ISA, the new ISA incentive, the First Time Buyer ISA, British Business Bank and National Wealth Fund funding, and Founders' Relief. No stamp duty cut was a “missed opportunity”.","Wed 28 Oct","CONFIRMED",L("https://www.thecityuk.com/our-work/budget-summary-2026/","TheCityUK")],
+["Building Societies Association (Sarah Harrison)","“Delighted” with the cash ISA decision; says it also makes the First Time Buyer ISA simpler to introduce.","Wed 28 Oct","REPORTED",L("https://www.yorkshirepost.co.uk/business/delighted-building-societies-hail-john-healey-scrapping-rachel-reevess-cash-isa-changes-9316682","Yorkshire Post")],
+["TUC (Paul Nowak)","Doubling the surcharge is “common sense”, but Healey should be “prepared to extend it and raise it if profits remain sky high”. The level the TUC had called for differs by outlet (at least 8%, or 16% to 35%).","Wed 28 Oct","REPORTED",L("https://britbrief.co.uk/politics/westminster/bank-tax-rises-to-6-in-budget-less-than-feared.html","Brit Brief")],
+["Institute for Fiscal Studies","“A raft of fiddly measures but very little that will move the dial on growth.” Headroom use was reasonable but not costless; the 2027 Spending Review is the “crunch point”.","28 to 29 Oct","CONFIRMED",L("https://ifs.org.uk/articles/autumn-budget-2026-initial-response","IFS")],
+["Resolution Foundation (Ruth Curtice)","A “scattergun” Budget. Typical disposable income falls £1,050 by 2028-29. Headroom put at £14.5bn. The quote is via the Guardian; the report page is the publisher's.","Thu 29 Oct","CONFIRMED",L(U.rf,"Resolution Foundation")],
+["Institute for Government","“John Healey's underwhelming budget punts big decisions into 2027.” 56% chance of meeting the current-budget rule in 2029-30.","Wed 28 Oct","CONFIRMED",L("https://www.instituteforgovernment.org.uk/comment/john-healeys-underwhelming-budget","IfG")],
+["Quilter Cheviot (via PA)","The time limit “should be taken with a pinch of salt”.","Wed 28 Oct","REPORTED",L("https://britbrief.co.uk/politics/westminster/bank-tax-rises-to-6-in-budget-less-than-feared.html","Brit Brief")],
+["Lloyds CFO William Chalmers","Called the doubling “unhelpful” to growth, “sincerely hopes” it is temporary and saw no “obvious linkage between energy prices and bank taxes”.","Thu 29 Oct","REPORTED",L("https://www.independent.co.uk/news/business/lloyds-john-healey-government-budget-b3075445.html","Independent")]
+]};
+var FISCAL={cols:["Measure","Figure","Status","Source"],rows:[
+["Headroom against the current-budget rule","£15bn in 2029-30 (March: £23.6bn), £22bn in 2030-31. Probability of meeting the rule 56%. Other estimates: IFS £13bn before policy; Resolution Foundation £14.5bn.",T("CONFIRMED"),L(U.obr,"OBR")],
+["Growth","2026 about 1.2%; 2027 cut to 1.0% (from 1.6%); 1.6% to 1.8% a year from 2028 to 2031.",T("CONFIRMED"),L(U.obr,"OBR")],
+["Inflation","CPI averages 3.4% in 2027, peaks at 3.8% in early 2027, about 2% from 2028. The 2026-27 average is 3.3%: a different basis. September outturn 3.5%.",T("CONFIRMED"),L(U.obr,"OBR")],
+["Bank Rate assumption","Average 4.0% in 2026-27 (March: 3.4%); just over 4¼% by mid-2027 and just over 4½% by the end of the forecast. Current rate 3.75%.",T("CONFIRMED"),L(U.obr,"OBR")],
+["Gilt yield assumption","10-year averages 5.0% in 2026-27 (March: 4.6%).",T("CONFIRMED"),L(U.obr,"OBR")],
+["Debt interest","Central government £123.9bn in 2026-27 (£14.5bn above March), rising to £160.0bn in 2031-32.",T("CONFIRMED"),L(U.obr,"OBR")],
+["Gilt remit","Gross gilt sales £250.6bn in 2026-27 (+£4.4bn); net financing requirement £258.6bn (+£7.4bn); gilts of 15 years or more under 7% of issuance. First 12-month T-bill in January 2027 (Reuters).",T("CONFIRMED"),L(U.budget,"Budget document")],
+["Net debt (PSND)","95.5% of GDP in 2027-28, rising to 97.3% and easing to 95.6% by 2031-32 (Library table). A different measure from ONS PSNFL at 82.7% for September.",T("CONFIRMED"),L(U.cbp,"Commons Library")],
+["Market reaction, 28 Oct","10-year gilt about 5.32% (−2bp; 19-year high of 5.527% in early October); sterling about $1.33; FTSE 100 closed 10,694.50 (+0.07%).",T("REPORTED"),L("https://www.marketscreener.com/news/gilt-yields-ease-sterling-falls-slightly-in-muted-reaction-to-u-k-budget-update-ce785cd2de8ff526","MarketScreener")]
+]};
+var THEMES={cols:["Theme","What the Budget did","Effective","Status","Why banking clients care"],rows:[
+["Cash ISA","Limit stays £20,000 for all ages. The planned £12,000 cap for under-65s is scrapped.","Tue 6 Apr 2027","CONFIRMED","Supports deposit funding for banks and building societies."],
+["Tax on savings and property income","Up 2 percentage points from 6 Apr 2027 (savings 24% basic, 44% higher, 49% additional). Some reports say ‘four points’, which is cumulative with Budget 2025.","Tue 6 Apr 2027","CONFIRMED","Pushes savers towards ISAs; pressure on taxable balances."],
+["Starter ISA","Government to work with industry on an incentive for first-time investors. No design, date or rate published.","Undated","WATCH","Product design for platforms, banks and wealth managers."],
+["First Time Buyer ISA","Replaces the Lifetime ISA for new savers: £4,000 a year, 25% bonus, homes up to £450,000. Existing LISA holders cannot transfer directly (Daily Record, reported).","April 2029 (6 Apr per Barclays)","CONFIRMED","Long lead time for providers."],
+["Lifetime ISA charge","Withdrawal charge cut from 25% to 20% for first-home purchases above £450,000.","Thu 29 Oct 2026","CONFIRMED","Immediate system and customer-comms change for LISA providers and mortgage lenders."],
+["Your First Home","£4.7bn equity-loan scheme: 20% equity, 2.5% deposit, five interest-free years, about 70,000 households, new-build, England. Income caps are reported.","First loans April 2027","CONFIRMED","Lender participation and high-LTV product design."],
+["National Wealth Fund and British Business Bank","Extra £20.4bn; British Business Bank commitments to women-led businesses doubled to £200m.","From 2026-27","CONFIRMED","Co-lending and guarantee opportunities."],
+["Financial services regulation (Box 4.E)","Ten-year growth strategy; Financial Services and Markets Bill to cut the SM&CR burden by 50%. These are continuing reforms. No new Basel 3.1, motor finance, FOS or mortgage measure found.","Bill before Parliament","CONFIRMED","Frames the regulatory pipeline; not a new Budget measure."],
+["Household Energy Payment","£100 to up to 20m households in council tax bands A to D in England (about £2.6bn), paid through bank accounts and the council tax system. Gas standing charges to be removed.","Payments from January 2027","CONFIRMED","Payment-fraud and customer-communications risk."],
+["Bank operations from 2029","Mandatory direct debit for VAT and PAYE, mandatory VAT e-invoicing, and a power to recover tax debts from bank accounts.","2029 (year only)","REPORTED","Payments and operations teams."],
+["Securities Transfer Tax","Replaces stamp duty and SDRT. No rate cut.","Late 2027","WINDOW","Broker and platform system change; TheCityUK called it a missed opportunity."],
+["Capital gains and Business Asset Disposal Relief","Headline CGT rates unchanged. BADR lifetime limit cut from £1m to £500,000; new Founders' Relief at 10% on up to £10m.","Tue 6 Apr 2027","CONFIRMED","Business-owner and private-bank clients; disposal timing."],
+["Pensions","No change to the 25% tax-free lump sum reported; pension IHT (April 2027) and the £2,000 salary-sacrifice NI cap (6 Apr 2029) stay scheduled. No explicit Budget-document line found for the lump sum.","Apr 2027; Apr 2029","REPORTED","Wealth and pensions clients get stability."],
+["High Value Council Tax Surcharge","£2,500 for £2m to £2.5m, rising to £7,500 above £5m; previously announced.","From April 2028","REPORTED","Private banking and high-end mortgages."]
+]};
+var RESULTS={cols:["Firm","Reported","Headline","Guidance and capital","Tax, motor finance and other","Shares","Status"],rows:[
+["Barclays Q3","Thu 22 Oct","Profit before tax £2.3bn (+12%), about £0.1bn below consensus. Income £7.4bn. Group RoTE 11.7%.","Guidance held: group RoTE above 12% in 2026; Barclays UK NII around the middle of £8.1bn to £8.3bn. CET1 14.2%. New £500m buyback.","Motor finance provision unchanged at £430m. About 5,000 job cuts in 2026 (Sharecast). Reported PRA probe into private-credit loan descriptions (shares −2.3% to −2.8% on 19 Oct). Reported before the Budget; no bank-tax quote.","About +0.5% intraday (Sharecast); Yahoo's close conflicts.","CONFIRMED"],
+["HSBC Q3","Tue 27 Oct","Profit before tax $9.6bn (+32%, helped by no repeat of $1.4bn of legal provisions). Revenue $18.6bn, about $0.3bn below consensus. RoTE 17.7%.","Guidance held; banking NII at least $46bn for 2026 (reported). CET1 13.9%. New buyback up to $1bn.","CFO Pam Kaur: HSBC will remain UK-domiciled whatever the bank tax (Telegraph, reported). $0.5bn fraud-related UK securitisation exposure in nine-month ECL.","−6% to −7%, to about 1,269p.","CONFIRMED"],
+["Standard Chartered Q3","Wed 28 Oct","Profit before tax $2.25bn; attributable profit $1,504m (+49%). RoTE 15.7%.","Guidance upgraded: 2026 income growth above 5% to 7%, RoTE about 14%. CET1 13.8%.","Not a UK retail lender; no UK Budget or motor finance comment found.","+2.4% at the close on Budget day, a day that also carried the raised targets (PA, reported).","CONFIRMED"],
+["Banco Santander, nine months","Wed 28 Oct","Underlying profit €11.18bn (+16%); Q3 underlying €3.85bn (+19%). Q3 attributable €3.4bn (−2.4%) after M&A charges.","CET1 12.7%. On track to exceed full-year guidance. Interim dividend €0.127 from 2 Nov.","TSB and Webster M&A charges of €666m.","Down on the day; no percentage verified.","CONFIRMED"],
+["Santander UK, nine months","Wed 28 Oct","Profit before tax £1,158m (−6%); Q3 £630m (Q3 2025: £372m). TSB added £96m. NII +17% to £3,854m.","CET1 14.0%. Cost:income 52%. Part VII transfer Q1 2027 and platform migration Q3 2027 (transcript summary, reported).","Motor finance provision £616m (press) or £633m (RNS text); Q1 charge £179m. No further branch closures before 2028.","n/a","CONFIRMED"],
+["Lloyds Banking Group Q3","Thu 29 Oct","Nine-month statutory profit before tax £6.6bn (+42%); Q3 about £2.3bn. Nine-month RoTE 17.9%.","Guidance maintained: NII above £14.9bn, RoTE above 16%, costs below £9.9bn. CET1 13.3%. 2027 NII growth ‘healthy but slower’. ‘Accelerate 2030’ strategy trailed.","No new motor finance charge. CFO called the surcharge ‘unhelpful’. Deposit competition flagged.","Down about 4% to 6% in early trade.","CONFIRMED"],
+["NatWest Group Q3","Fri 30 Oct, 07:00","Not yet out. Consensus operating profit about £2.2bn (reported).","H1 RoTE 19.7%; full-year guidance above 19%.","First comment from the most surcharge-exposed lender.","—","CONFIRMED"],
+["St. James's Place Q3","Thu 29 Oct","Net inflows £570m (−68%); gross inflows £5.15bn; funds under management a record £242.4bn.","Retention 95.1%.","Softer comparator linked to the 2025 charging-structure changes.","Down as much as 5.6%; about −3.8% later.","CONFIRMED"],
+["Quilter Q3","Wed 21 Oct","Core net inflows £2.9bn (+30%); assets £160.5bn.","—","HNW inflows +20% year to date.","About +0.5%.","CONFIRMED"],
+["Rathbones Q3","Thu 22 Oct","Funds £121.1bn. Wealth Management net inflows £24m; group net outflows £401m.","Margin target 28.7% in Q4.","About £60m of FCA remediation costs expected.","—","CONFIRMED"]
+]};
+var MPC={cols:["Version","Why it could happen","What the briefing needs","Tripwire"],rows:[
+["<b>A. Rise to 4.00% with dissent</b> (base case)","About 94% priced; 16 of 17 research houses; September was a 6 to 3 hold with three for 4%; September CPI 3.5% beat the 3.4% poll; the OBR assumes a rising rate.","Vote split; the Monetary Policy Report inflation path (OBR and Bank staff both near 4% in early 2027); guidance for February; read-across to NII guidance and mortgage pricing. Parliament is in recess, so no Commons reaction until 10 Nov.","Move in OIS pricing; any unscheduled MPC comment. No MPC speeches after 6 Nov were found."],
+["<b>B. Rise to 4.00%, unanimous or near-unanimous</b>","Reuters-style roundups see Bailey as the swing vote and ‘harder to avoid a rise the longer the energy shock persists’ (reported). The doves named are Taylor and Dhingra.","A firmer-tone angle: persistence of the energy shock, sterling and gilt reaction, Friday's Pill and Shortall briefing at 12:15.","Pre-meeting pricing; the Governor's last public remarks."],
+["<b>C. Hold at 3.75%</b>","About 6% implied. One outlet (Investing.com, 29 Oct) says markets broadly expect a hold; every other source points to a rise, so it is treated as an outlier. Payrolls and vacancies are weak, retail volumes fell 0.4% and GfK was −24.","Surprise framing; how many members voted for 4%; sterling and gilt reaction; what it means for mortgage pricing and the 17 Dec meeting.","Pricing drifting well away from a rise before 5 Nov."]
+]};
+var FORE={cols:["Source","View","When","Status","Source link"],rows:[
+["OIS-implied pricing","About 94% for a 25bp rise on 5 Nov (BlueGamma); about 96% (Investors' Chronicle 27 Oct; Vantage 28 Oct).","27 to 28 Oct","REPORTED",L("https://www.bluegamma.io/central-banks/central-bank-interest-rate-forecasts/the-bank-of-england-interest-rate-forecast","BlueGamma")],
+["Research houses (FinChiefs tracker)","16 of 17 expect 25bp to 4.00%. The 15 Oct Reuters poll had 54 of 63 economists expecting a rise.","15 to 28 Oct","REPORTED",L("https://finchiefs.com/central-banks/bank-of-england/meetings/2026-11-05","FinChiefs")],
+["Goldman Sachs, Fidelity International, Deutsche Bank, Oxford Economics","25bp in November and again in February, to 4.25%.","Oct","REPORTED",L("https://www.investorschronicle.co.uk/content/65e777e9-5e7b-4d6f-ba94-039069032b56","Investors' Chronicle")],
+["Berenberg; BNP Paribas","‘One hike should suffice’; no prolonged tightening cycle expected.","Oct","REPORTED",L("https://hoa.org.uk/advice/guides-for-homeowners/for-owners/mortgage-rate-forecast/","HomeOwners Alliance")],
+["Money markets, 12-month path","About four rises over 12 months: 4.75% by end-July 2027, possibly 5% by December 2027.","25 Oct","REPORTED",L("https://www.theguardian.com/business/2026/oct/25/interest-rates-bank-of-england-rises-summer-2027","Guardian")],
+["OBR conditioning","Bank Rate just over 4¼% by mid-2027.","28 Oct","CONFIRMED",L(U.obr,"OBR")],
+["Huw Pill (MPC)","‘Sceptical’ the Bank will need four rises; said it should have raised rates early in the Iran war. Speech listed on the Bank's site; characterisation is press.","c.14 Oct","REPORTED",L(U.boelatest,"Bank of England")],
+["Investing.com","Money markets ‘broadly expect the BoE to hold’. Outlier.","29 Oct","REPORTED",L("https://www.investing.com/news/transcripts/earnings-call-transcript-lloyds-banking-group-q3-2026-stock-falls-53-93CH-4982693","Investing.com")]
+]};
+var DATA={cols:["Release","When","Last value","Why it matters","Status"],rows:[
+["Nationwide HPI, October","Fri 30 Oct (reported)","September +0.8% y/y, −0.2% m/m. Consensus for October 0.6%.","A fall adds to the squeeze narrative going into the MPC.","REPORTED"],
+["GDP first Q3 estimate","Thu 12 Nov, 07:00","August +0.1% m/m; three months to August +0.7% (eighth consecutive rise).","Confirms Q3 growth one week after the MPC.","CONFIRMED"],
+["RICS survey, October","Thu 12 Nov","September price balance −32 (from −28); new buyer enquiries −22 (reported).","Key sentiment read after the MPC.","CONFIRMED"],
+["UK Finance arrears, Q3","Thu 12 Nov","Q2: 77,940 homeowner mortgages in arrears (0.89%), the eighth fall in a row.","First print covering the September rate spike.","CONFIRMED"],
+["Labour market","Tue 17 Nov, 07:00","Unemployment 4.7%; vacancies 691k, the lowest outside the pandemic since 2014; payrolls −37k on the quarter.","Feeds the February MPC debate.","CONFIRMED"],
+["CPI, October","Wed 18 Nov, 07:00","September CPI 3.5% (August 3.1%), core 2.8%, services 3.7%. Poll was 3.4%.","First print after the decision; the Bank and OBR see a peak near 4%.","CONFIRMED"],
+["ONS house prices","Wed 18 Nov, 09:30","August +0.9% y/y; average £273,000.","Collateral and mortgage-book signal.","CONFIRMED"],
+["Public finances, October","Fri 20 Nov, 07:00","September borrowing £24.5bn, £1.9bn above the OBR; year to date £97.8bn; net debt 94.0% of GDP.","First outturn after the re-forecast.","CONFIRMED"],
+["Retail sales, October","Fri 20 Nov, 07:00","September volumes −0.4% m/m (August +0.7%).","Demand in the first month under rising rates.","CONFIRMED"],
+["GfK consumer confidence","Fri 20 Nov","October −24, down 11 points: the biggest fall since April 2020.","First post-Budget, post-MPC consumer read.","CONFIRMED"],
+["BoE Money and Credit, October","Mon 30 Nov, 09:30","September approvals 53,443 (lowest since Dec 2023); remortgaging 42,600; effective new mortgage rate 4.63% (values reported).","Does the approvals fall continue after the hike?","CONFIRMED"],
+["RICS survey, November","Thu 10 Dec","—","Last RICS read before Christmas.","CONFIRMED"],
+["Monthly GDP, October","Fri 11 Dec, 07:00","—","Last major ONS macro print before the 17 Dec MPC.","CONFIRMED"]
+]};
+var PIPE={cols:["Item","Body","Stage","Next milestone","Status","Source"],rows:[
+["Motor finance redress scheme PS26/3 (partly suspended)","FCA / Upper Tribunal","Four challenges (VW Financial Services, Mercedes-Benz Financial Services, CA Auto Finance, Consumer Voice). 5 to 6 Oct hearing ordered more FCA disclosure and allowed expert evidence (secondary summary).","Hearing Tue 16 to Fri 26 Feb 2027, nine days. Judgment ‘in the following months’; no date.","CONFIRMED",L(U.mfstmt,"FCA statement, 13 Oct")],
+["FCA warning on a quashed scheme","FCA","Statement 13 Oct","Lenders told to plan for no scheme and no complaint-handling pause: complaints would revert to normal DISP timescales.","CONFIRMED",L(U.mfstmt,"FCA statement, 13 Oct")],
+["Financial Services and Markets Bill [HL] (PSR into FCA, FOS reform, SM&CR, ring-fencing, in-person banking access)","HMT / Parliament","Lords stages complete; Commons first reading 15 Sep","Commons second reading: ‘date to be announced’","WATCH",L(U.fsmbill,"Bill stages")],
+["Finance Bill 2026-27 (surcharge, BADR, Founders' Relief, Securities Transfer Tax)","HMT / Parliament","Not introduced","After the 3 Nov resolutions; second reading within 30 days (about 3 Dec by arithmetic)","WATCH",L(U.ootlar,"Overview of tax legislation")],
+["SM&CR Phase 2 (PRA CP14/26, FCA CP26/37)","PRA / FCA","Consulted from Thu 22 Oct","Closes Fri 22 Jan 2027; FCA policy statement H1 2027","CONFIRMED",L("https://www.bankofengland.co.uk/prudential-regulation/publication/2026/october/review-of-the-smcr-phase-two-consultation-paper","BoE paper")],
+["PRA CP13/26 automatic indexation of 128 thresholds","PRA","Consultation from 7 Oct","Closes Sun 7 Feb 2027","CONFIRMED",L("https://www.bankofengland.co.uk/news/2026/october/regulatory-thresholds-set-to-shift-to-automatic-increases","BoE news")],
+["High loan-to-income lending (FG26/11)","PRA / FCA","Policy statement and guidance 14 Oct; interim measures ended Wed 28 Oct","PRA to publish the Q3 aggregate flow ‘in 2026 Q4’ (window, reported)","CONFIRMED",L("https://www.fca.org.uk/publications/finalised-guidance/fg26-11-high-loan-income-lending","FCA FG26/11")],
+["Mortgage rule review CP26/18","FCA","Consultation closed 28 Jul","Policy statement ‘H2 2026’; no date; none seen by 29 Oct","WINDOW",L("https://www.tlt.com/insights-and-events/insight/fca-consults-on-targeted-mortgage-rule-reforms-to-support-first-time-buyers-and-underserved-consumers","TLT summary")],
+["Basel 3.1 final rules (PS1/26)","PRA","Published 20 Jan 2026","In force Fri 1 Jan 2027; FRTB-IMA 1 Jan 2028. CP9/26 closed 18 Sep; policy statement undated.","CONFIRMED",L("https://www.bankofengland.co.uk/prudential-regulation/publication/2026/january/implementation-of-the-basel-3-1-final-rules-policy-statement","PRA PS1/26")],
+["PRA liquidity framework CP5/26","PRA","Consultation closed 17 Jun","Policy statement date unstated. Law firm: ‘late 2026’. Edition 01 read Q1 2027 from a PRA digest.","WATCH",L("https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/financial-services/modernising-the-uk-liquidity-framework/","Addleshaw Goddard")],
+["Bank capital review (O-SII buffer, mortgage IRB, leverage)","PRA / FPC","Direction set in the July FSiF","O-SII consultation ‘2026 H2’; mortgage IRB CP ‘Q4 2026 or Q1 2027’; more in the Q4 FSR","WINDOW",L("https://www.bankofengland.co.uk/financial-stability-in-focus/2026/fsif-the-bank-capital-framework","BoE FSiF")],
+["Ring-fencing reform","HMT / PRA","HMT consultation closed Tue 8 Sep; PRA CP10/26 published 14 Jul","HMT response undated; secondary legislation after Royal Assent","WATCH",L("https://www.gov.uk/government/consultations/safeguarding-stability-enabling-growth-consultation-on-ring-fencing-reform/safeguarding-stability-enabling-growth-consultation-on-ring-fencing-reform","gov.uk consultation")],
+["PSR CP26/3 (access to payment systems)","PSR","Published 15 Oct","Responses due 17:00 Thu 10 Dec","CONFIRMED",L(U.psrcp,"PSR CP26/3")],
+["APP fraud reimbursement review","PSR (moving to FCA)","Roadmap; cap stays £85,000","Formal consultation ‘December 2026’ (month only); decision May 2027 (secondary)","WINDOW",L("https://www.psr.org.uk/our-work/app-scams/app-scams-policy-roadmap/","PSR roadmap")],
+["FCA CP26/38 Financial Crime Guide updates","FCA","Published Fri 23 Oct","Closes Thu 24 Dec; policy statement undated","CONFIRMED",L(U.cp2638,"FCA CP26/38")],
+["FCA CP26/36 cryptoasset perimeter guidance","FCA","Opened 21 Oct","Closes Wed 18 Nov; final guidance January 2027","CONFIRMED",L(U.cp2636,"FCA CP26/36")],
+["Cryptoasset regime (PS26/18)","FCA / HMT","Perimeter guidance 16 Sep","Savings-provision window closes 28 Feb 2027; regime starts 25 Oct 2027","REPORTED",L("https://www.skadden.com/insights/publications/2026/10/uks-fca-finalises-cryptoasset-perimeter-guidance","Skadden")],
+["FCA Open Banking long-term framework: interface-rules CP","FCA / HMT","Planned ‘Q3 2026, subject to legislation’","No CP seen. Smart Data statutory instrument ‘Q4 2026’ and a Q4 open finance paper (secondary).","WATCH",L("https://www.fca.org.uk/publication/corporate/regulatory-initiatives-grid-may-2026.pdf","Grid May 2026")],
+["CMA strategic review of market remedies (retail banking order)","CMA","Provisional decision to vary the Retail Banking Order, keep Parts 5 and 8","Final decision timetabled ‘October 2026’; none seen by 29 Oct","WINDOW",L("https://www.gov.uk/cma-cases/strategic-review-of-cma-markets-remedies","CMA case page")],
+["Consumer Duty scope and proportionality CP26/23","FCA","Consultation closed 18 Sep","Policy statement Q1 2027 (law-firm summaries)","WINDOW",L("https://cms.law/en/gbr/regulatory-news/fca-cp26-23-consumer-duty-scope-and-proportionality","CMS")],
+["FOS 2027/28 plans and budget consultation","Financial Ombudsman Service","Trailed 22 Oct","‘Later this autumn’; an earlier FOS document said November","WINDOW",L("https://www.financial-ombudsman.org.uk/who-we-are/data-insight/news/financial-ombudsman-service-received-57000-cases-second-quarter-202627","FOS")],
+["Regulatory Initiatives Grid, next edition","FSRIF members","10th edition 19 May 2026; ‘published twice a year’","No date published; none inferred","WATCH",L("https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid","FCA Grid page")]
+]};
+var RESOLVED={cols:["Item","Edition 01 said","Class","What this run found","Source"],rows:[
+["Motor finance main hearing","14 to 18 Dec 2026 or 16 to 26 Feb 2027","Narrowed","FCA statement of 13 Oct fixes 16 to 26 Feb 2027 and drops December. No judgment or payment before spring 2027 at the earliest.",L(U.mfstmt,"FCA")],
+["Bank-specific Budget measure","WATCH; four scenarios","Published","Surcharge 3% to 6% for 15 months from 1 Jan 2027.",L(U.budget,"Budget document")],
+["IFS post-Budget analysis","WATCH; no dated 2026 page","Published","Initial response 28 Oct; online analysis event Thu 29 Oct, 10:30 to 12:00.",L(U.ifs,"IFS")],
+["Added Treasury Committee sessions","Only 13 and 14 Oct seen","Published","Budget session Tue 3 Nov 09:45; OBR Wed 4 Nov 14:15.",L(U.tsc,"Treasury Committee")],
+["High loan-to-income amendments (PRA CP6/26, FCA CP26/12)","Policy statement: no date","Published","Policy statement and FG26/11 on 14 Oct; interim measures ended 28 Oct.",L("https://www.fca.org.uk/publications/finalised-guidance/fg26-11-high-loan-income-lending","FCA")],
+["FCA Financial Crime Guide consultation","Passed or open, not seen","Published","CP26/38 published Fri 23 Oct; closes 24 Dec.",L(U.cp2638,"FCA")],
+["HMT ring-fencing Growth Allowance consultation","Summer 2026; no evidence of publication","Published","HMT consultation closed Tue 8 Sep; response undated.",L("https://www.gov.uk/government/consultations/safeguarding-stability-enabling-growth-consultation-on-ring-fencing-reform/safeguarding-stability-enabling-growth-consultation-on-ring-fencing-reform","gov.uk")],
+["FCA Open Banking interface-rules CP","Q3 2026","Slipped","Q3 has passed with no CP found.",L("https://www.fca.org.uk/publication/corporate/regulatory-initiatives-grid-may-2026.pdf","Grid PDF")],
+["CMA strategic review final decision","Date not found","Unknown","CMA page says October 2026; no decision seen by 29 Oct. Not verified whether published on 28 or 29 Oct.",L("https://www.gov.uk/cma-cases/strategic-review-of-cma-markets-remedies","CMA")],
+["PRA liquidity policy statement (CP5/26)","Q1 2027, from a PRA digest","Unknown","Law firm says ‘late 2026’; the PRA has not dated it. Not quoted as a date.",L("https://www.addleshawgoddard.com/en/insights/insights-briefings/2026/financial-services/modernising-the-uk-liquidity-framework/","Addleshaw Goddard")],
+["Bank of England quoted household interest rates, 6 Nov","CONFIRMED on BoE statistics","Downgraded","The quoted-rates page read was last updated 27 May and carried no release date. Now WATCH.",L("https://www.bankofengland.co.uk/statistics/visual-summaries/quoted-household-interest-rates","BoE")],
+["FCA Grid Edition 9 (Dec 2025)","Superseded by Edition 10","Held","Edition 10 (19 May 2026) remains the latest. The FCA's RIG page still lists ‘Edition 9: December 2026’, probably a typo for 2025.",L("https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid","FCA Grid page")]
+]};
+var WATCH={cols:["Item","Why it matters","Tripwire to a dated item","Status","Source"],rows:[
+["Finance Bill 2026-27: introduction and second reading","Carries the surcharge and its end date, so it is the first formal chance to amend the time limit.","Votes and Proceedings or a bills.parliament.uk entry after Tue 3 Nov; Commons business statement Thu 12 Nov.","WATCH",L(U.fsmbill,"bills.parliament.uk")],
+["Financial Services and Markets Bill: Commons second reading","Legislative gate for PSR abolition, ring-fencing reform and SM&CR timing. Must complete this session.","Business statement Thu 12 Nov or the Order Paper.","WATCH",L(U.fsmbill,"Bill stages")],
+["Time of the Tuesday 3 Nov division","Sets when the surcharge rise gets provisional statutory approval.","Order Paper for 3 Nov.","WATCH",L(U.hansard28,"Hansard")],
+["Replies on the 10:45 Bloomberg report; Healey before the Committee","Treasury Committee chair Meg Hillier asked the Treasury and the FCA whether this was an improper release of inside information. Healey is expected to be asked ‘next month’.","Replies published on the Committee site; a Committee announcement of a session date.","WATCH",L(U.tsccorr,"Committee correspondence")],
+["Upper Tribunal judgment date","Sets when motor finance uncertainty can end. MoneySavingExpert says ‘April’ and ‘payouts 2028 at earliest’; a law firm says six to eight weeks. All secondary and unconfirmed.","Hand-down notice or FCA statement after 26 Feb 2027.","WATCH",L(U.mfstmt,"FCA statement")],
+["Pressure to extend the surcharge","The Treasury says it will not be extended; the TUC wants it extended or raised; UK Finance and the CBI want the end date honoured.","Finance Bill amendments; Spending Review signals; ministerial remarks.","WATCH",L("https://www.cityam.com/uk-finance-chief-labour-must-keep-its-promise-that-the-bank-tax-is-temporary/","City AM")],
+["Spending Review 2027 and the 10-year plan","Deferred welfare, defence and public-service choices; the IFS expects renewed tax-rise speculation. Burnham ruled out an early election within 12 months.","Treasury announcement of a date. A Times report of autumn 2027 is reported only.","WATCH",L("https://commonslibrary.parliament.uk/research-briefings/cbp-12245/","Commons Library")],
+["Starter ISA design","Product design for platforms and banks.","Treasury or HMRC consultation, or an industry working-group announcement.","WATCH",L("https://www.gov.uk/government/news/budget-2026-breathing-space-for-today-hope-for-the-future","gov.uk news")],
+["Bank of England quoted household rates release","Mortgage and savings pricing after the MPC.","A dated entry on the Bank's statistics calendar. Do not state 6 Nov.","WATCH",L("https://www.bankofengland.co.uk/statistics/visual-summaries/quoted-household-interest-rates","BoE")],
+["Governor press conference and Treasury Committee sessions on the Bank","A press conference after 5 Nov is customary but not stated on the pages read. The Bank lists a CV and questionnaire for a Committee appointment dated 15 Oct, which suggests a pre-appointment hearing (an inference).","A Committee oral-evidence notice; the Bank's events page.","WATCH",L(U.boelatest,"Bank of England")],
+["Undated prints: Lloyds Business Barometer (October, November), Nationwide and Lloyds HPI (November), Rightmove, Zoopla, Moneyfacts Mortgage Trends, BoE Inflation Attitudes (December), FOS Q3, BCC Quarterly Survey, EY ITEM Club","Housing and sentiment inputs. The Barometer's last two came out on 28 Aug and 30 Sep; October had not appeared by 29 Oct.","Publisher calendar or press-release page. No dates inferred from 2025.","WATCH",L("https://www.lloydsbank.com/business/resource-centre/insight/business-barometer.html","Lloyds Business Barometer")],
+["Halifax brand retirement and branch closures","Halifax app stops 1 Nov (reported); 26 Halifax branches shut in October (reported). Expect scams and service load.","Lloyds statement; banking hub announcements.","REPORTED",L(U.halifax,"MoneySavingExpert")],
+["HSBC UK wealth job cuts","FT reported on 7 Oct: about half of management and specialist roles and up to about 70% of advisers. HSBC has issued no announcement.","HSBC statement.","REPORTED",L("https://www.itv.com/news/2026-10-07/hsbc-reportedly-planning-brutal-job-cuts-in-uk-wealth-management-arm","ITV")],
+["Google Cloud outage follow-up","The 20 Oct europe-west2 outage hit Revolut, Lloyds/Halifax and HSBC; the first big test of the critical third-party regime, 12 days after the CMORG exercise.","Published Committee reply; FCA or PRA statement.","WATCH",L(U.googleout,"Guardian")],
+["Santander UK and TSB integration","Part VII transfer expected Q1 2027; TSB brand future undecided.","Santander or court notices.","REPORTED",L("https://www.independent.co.uk/news/business/santander-uk-tsb-santander-b3074637.html","Independent")],
+["Metro Bank Q3 update and other undated lenders","No 2026 date found for Metro Bank, Coventry, Yorkshire, Co-op Bank, OSB, Starling, Monzo or Revolut.","The firm's own calendar or RNS. No dates inferred from 2025.","WATCH",L("https://www.investegate.co.uk/company/MTRO","Investegate")],
+["Bank of England private-markets stress test and other stress-test output","A scenario was reported on 19 Jun; no dated publication in the window.","FSR text on 26 Nov or a Bank news item.","WATCH",L("https://www.bankofengland.co.uk/stress-testing","BoE stress testing")],
+["ONS release-time change","The ONS and the Office for Statistics Regulation have material on release times from June 2026 that was not read.","An ONS notice. Every release page read still shows 07:00.","WATCH",L("https://osr.statisticsauthority.gov.uk/news/changes-to-the-code-of-practice-for-statistics-release-times-for-official-statistics/","OSR")]
+]};
+var PAT={cols:["Pattern (library row)","Library rule","This cycle","Outcome","Note"],rows:[
+["ONS CPI Inflation","Wednesday, monthly","Wed 18 Nov","HIT",""],
+["ONS Labour Market Statistics","Tuesday, monthly","Tue 17 Nov","HIT",""],
+["ONS UK House Price Index","Wednesday, monthly","Wed 18 Nov","HIT","Library week-of-month (week 4) is undefined."],
+["ONS Retail Sales","Friday, monthly","Fri 20 Nov","HIT",""],
+["ONS GDP Monthly Estimate","Wednesday, week 2","Thu 12 Nov and Fri 11 Dec","MISS","Day differs twice. The library needs Thursday and Friday options."],
+["Bank of England MPC Decision","Thursday","Thu 5 Nov","HIT",""],
+["Bank of England Financial Stability Report","June and December, week 2","Thu 26 Nov","MISS","Moved to November."],
+["Lloyds Banking Group quarterly results","October","Thu 29 Oct","HIT",""],
+["HSBC quarterly results","October","Tue 27 Oct","HIT",""],
+["Barclays quarterly results","October, ‘same week as NatWest’","Thu 22 Oct; NatWest Fri 30 Oct","PARTIAL","Month held; the same-week clash did not."],
+["NatWest quarterly results","October","Fri 30 Oct, tomorrow","PENDING","Score on the day."],
+["Halifax (now Lloyds) House Price Index","First Friday, monthly","November edition reported Fri 6 Nov","PENDING","Single secondary source. The September edition was Wed 7 Oct."],
+["Lloyds Business Barometer","First Tuesday, monthly","Aug 28 and Sep 30; October not out by 29 Oct","MISS","Month-end cadence, not a first Tuesday."],
+["MPC + ONS CPI in the same week (clash pattern)","Library: about three times a year, in February, May and November","MPC Thu 5 Nov; CPI Wed 18 Nov, two weeks apart","MISS","November did not clash this year; the Budget week and MPC week still carried the load."],
+["Year-End Regulatory Rush","December, weeks 1 to 3","PSR CP26/3 closes 10 Dec; PSR APP consultation ‘December’; most PRA and FCA items undated","PENDING","Score after 11 Dec."],
+["Budget Week (clash pattern)","Other announcements typically deferred","FCA publications search showed only small-firm cancellations on 26 to 27 Oct; PRA not checked","PENDING","Provisional on the FCA side only."],
+["UK Finance Mortgage Lending Data","Monthly, week 3","Not retrieved","PENDING","Expected range 16 to 20 Nov. Not added to the calendar from the library."],
+["PRA Stress Test Results","November and December","No 2026 bank test","N/A","Bank test runs in alternate years. A private-markets exploratory scenario is separate."],
+["Spending Review","Irregular","2027, no date","N/A",""]
+]};
+var REFN={cols:["Measure","Latest","Period and release","Status","Source"],rows:[
+["Bank Rate","3.75%. Cut on 18 Dec 2025; held at every meeting since.","Next decision 5 Nov, 12:00","CONFIRMED",L(U.boempc,"Bank of England")],
+["MPC vote","6 to 3 to hold; three for 4%. Dissenters named in secondary sources as Greene, Mann and Pill.","17 Sep","CONFIRMED",L("https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026","Bank of England")],
+["Market-implied 25bp rise on 5 Nov","About 94% (OIS).","28 Oct","REPORTED",L("https://www.bluegamma.io/central-banks/central-bank-interest-rate-forecasts/the-bank-of-england-interest-rate-forecast","BlueGamma")],
+["CPI inflation","3.5% (CPIH 3.6%, RPI 3.9%); core 2.8%, services 3.7%, goods 3.2%. Poll 3.4%.","September, released 21 Oct; next 18 Nov","CONFIRMED",L(U.onscpisep,"ONS")],
+["Unemployment","4.7% (1.712m); employment 75.3%; vacancies 691k; payrolls −37k on the quarter.","June to August, released 20 Oct; next 17 Nov","CONFIRMED",L("https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/employmentintheuk/october2026","ONS")],
+["Monthly GDP","+0.1% in August after +0.4% in July; three months +0.7%; +2.1% y/y.","Released 15 Oct; next 12 Nov","CONFIRMED",L("https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpmonthlyestimateuk/august2026","ONS")],
+["Public sector borrowing","£24.5bn in September; £97.8bn year to date (£6.0bn above the OBR); net debt £3,005.0bn, 94.0% of GDP.","Released 21 Oct; next 20 Nov","CONFIRMED",L("https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/september2026","ONS")],
+["Retail sales volumes","−0.4% m/m in September; +0.8% y/y.","Released 23 Oct; next 20 Nov","CONFIRMED",L("https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/september2026","ONS")],
+["ONS average house price","£273,000, +0.9% y/y; England +0.4%, Wales +3.1%, Scotland +2.9%. Private rent £1,406, +3.8%.","August data, released 21 Oct; next 18 Nov","CONFIRMED",L("https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/privaterentandhousepricesuk/october2026","ONS")],
+["Nationwide HPI","+0.8% y/y (from 1.6%), −0.2% m/m; the weakest since December 2025.","September, published 1 Oct","CONFIRMED",L("https://www.nationwide.co.uk/media/hpi","Nationwide")],
+["Lloyds (ex-Halifax) HPI","0.0% annual and monthly; average £298,441.","September, published 7 Oct","REPORTED",L("https://valuq.co.uk/insights/lloyds-september-2026-house-prices-flat-what-it-means-for-sellers","Valuq (secondary)")],
+["Rightmove asking prices","£371,015: +1.0% m/m, −0.1% y/y. 2026 forecast cut to 0% to −2% (secondary).","Published Mon 19 Oct","CONFIRMED",L("https://www.rightmove.co.uk/news/house-price-index/","Rightmove")],
+["Mortgage approvals and rates","Approvals 53,443; net lending £3.9bn; effective new mortgage rate 4.63%.","September, published 29 Oct","REPORTED",L("https://theintermediary.co.uk/2026/10/mortgage-approvals-and-borrowing-drop-as-remortgaging-rises-in-september-boe/","The Intermediary")],
+["Moneyfacts average fixed rates","Two-year 5.97%, five-year 5.99% (6.00% on 23 Oct). Peak 5 Oct: 5.98% and 6.00%.","28 Oct","REPORTED",L("https://hoa.org.uk/best-mortgage-rates/","HomeOwners Alliance")],
+["GfK consumer confidence","−24, down 11 points.","October, published 23 Oct","CONFIRMED",L(U.gfk,"NIQ")],
+["Lloyds Business Barometer","Confidence 41%, down 12 points; a 17-month low.","September, published 30 Sep","CONFIRMED",L("https://www.lloydsbankinggroup.com/media/press-releases/2026/lloyds/business-confidence-at-17-month-low-but-remains-above-average.html","Lloyds Banking Group")],
+["UK Finance mortgage arrears","77,940 homeowner mortgages in arrears (0.89%); possessions 1,150.","Q2, published 13 Aug; next 12 Nov","CONFIRMED",L("https://ukfinance-newsroom.prgloo.com/news/uk-finance-mortgage-arrears-and-possessions-q2-2026","UK Finance")],
+["Bank surcharge","6% from 1 Jan 2027 to 31 Mar 2028; 31% headline rate; about £1.5bn over three years.","Budget, 28 Oct","CONFIRMED",L(U.surch,"Policy paper")],
+["OBR forecast","Growth 1.0% in 2027; CPI 3.4% average in 2027, peak 3.8%; headroom £15bn.","28 Oct","CONFIRMED",L(U.obr,"OBR")],
+["Motor finance provisions","Lloyds: no new charge (about £1.95bn is a June trade-press figure). Barclays £430m. Santander UK £616m (press) or £633m (RNS text).","Q3 statements, 22 to 29 Oct","REPORTED",L(U.mfstmt,"FCA statement")],
+["FCA redress estimate","Edition 01 carried about £7.5bn (FCA) against headlines of £9bn to £9.1bn. Not re-checked in this run.","Scheme partly suspended","REPORTED",L(U.mfsusp,"FCA statement")]
+]};
+var LENS={cols:["Item","Retail and mortgage lender (e.g. LBG)","Universal and investment bank (e.g. Barclays, HSBC)","Wealth manager or insurer","Building society or challenger"],rows:[
+["Bank surcharge at 6%","High. About 85% of profits in scope (reported). CFO called it ‘unhelpful’.","Medium. Reported scope of 33% at Barclays and 20% at HSBC; HSBC's CFO says it stays UK-domiciled.","Low. Indirect, through deposit-funded partners.","Medium. Whether building societies are in scope is unverified; check before saying."],
+["Own and peer results","Own: 29 Oct (done). Peer: NatWest tomorrow.","Own: Barclays 22 Oct, HSBC 27 Oct (done). Peer: NatWest, Lloyds.","SJP, Quilter, Rathbones done. Prudential 5 Nov (reported), Aviva 13 Nov, L&G 16 Nov (reported), Standard Life 30 Nov.","Nationwide half-year 19 Nov (reported); Close Brothers AGM 19 Nov; Paragon 1 Dec (reported)."],
+["MPC 5 Nov","High. NII guidance and mortgage pricing.","High. Group NII guidance.","Medium. Markets and flows.","High. Savings and mortgage pricing."],
+["Budget savings and housing measures","Medium. Cash ISA stays; LISA charge change from 29 Oct; Your First Home.","Low to medium.","High. Starter ISA, First Time Buyer ISA, pensions stability.","High. Cash ISA reversal is positive for funding."],
+["Motor finance","High, if Black Horse exposure is confirmed by the account analyst. No new Q3 charge. Hearing 16 to 26 Feb 2027.","Medium. Barclays £430m; Santander UK £616m to £633m.","Low.","Medium for specialist lenders. Close Brothers' provision is unverified."],
+["Housing and mortgage data","High. 12 Nov RICS and arrears; 18 Nov HPI; 30 Nov approvals.","Medium.","Low.","High."],
+["Operations and customers","High. Halifax shutdown 1 Nov; Google outage follow-up; scam load.","Medium. HSBC was also hit by the 20 Oct outage.","Low.","Medium."],
+["Regulation and legislation","Finance Bill; ring-fencing; Basel 3.1 on 1 Jan 2027.","Basel 3.1, transaction reporting (CP26/34), crypto.","Consumer Duty scope; advice rules.","Mortgage rules; high-LTI limits lifted."]
+]};
+var SCORE={cols:["Edition 01 call","What happened","Outcome","Note"],rows:[
+["Budget on 28 Oct","Delivered Wed 28 Oct.","HIT",""],
+["Statement about 12:30 after PMQs (pattern claim)","Parliament page: statement at about 12:30 after PMQs.","HIT",""],
+["Scenario A: no bank-specific measure","A surcharge rise was announced.","MISS",""],
+["Scenario B: higher permanent surcharge","Higher (3% to 6%), but temporary for 15 months.","PARTIAL","Direction right, duration wrong."],
+["Scenario C: one-off windfall levy","No levy found in the Budget material read.","MISS","Full Table 6.1 not read line by line."],
+["Scenario D: change to the bank levy or combined rate, ‘possible 31%’","Combined headline rate moved 28% to 31%, through the surcharge rather than the levy.","PARTIAL","Number matched; route did not."],
+["Results dates: Barclays 22, HSBC 27, StanChart and Santander 28, Lloyds 29 Oct","All held.","HIT",""],
+["ONS dates: GDP 15, labour market 20, CPI and public finances 21, retail sales 23 Oct","All held on the ONS pages.","HIT",""],
+["Bank of England Money and Credit, 29 Oct","Published 29 Oct; the 09:30 time was not re-read.","HIT",""],
+["Motor finance hearing: 14 to 18 Dec or 16 to 26 Feb","16 to 26 Feb 2027 confirmed on 13 Oct.","HIT","The window held; the Tribunal chose the later option."],
+["FCA CP26/34 closes 6 Nov (REPORTED)","Confirmed on the FCA page.","HIT",""],
+["WATCH: IFS post-Budget analysis","Published 28 to 29 Oct.","HIT",""],
+["WATCH: added Treasury Committee sessions","3 and 4 Nov sessions appeared.","HIT",""],
+["BoE quoted rates 6 Nov, CONFIRMED","The page read has no release date and was last updated in May.","MISS","Over-confident; now WATCH."],
+["Prudential Q3 on 4 Nov evening (REPORTED)","A Citi preview now points to 5 Nov; still secondary.","MISS",""],
+["NatWest Q3, Fri 30 Oct 07:00","Tomorrow.","PENDING",""],
+["Commons and Lords rise 4 Nov; Commons returns 10 Nov","Parliament pages unchanged; the rise has not happened yet.","PENDING",""],
+["MPC 5 Nov","Tomorrow plus six days.","PENDING",""],
+["Nationwide HPI 30 Oct and Lloyds HPI 6 Nov (both REPORTED)","Still single-source.","PENDING",""]
+]};
+var CONF={cols:["Item","What the sources said","Used in this edition"],rows:[
+["Surcharge yield","Table 6.1 about £1.475bn (£305m, £950m, £220m); Reuters and OBR ‘around £1.5bn’; Accountancy Daily £1.4bn; Shore Capital £1.2bn; City AM £2.4bn (total receipts in 2027-28, not the increment).","Table 6.1 and the OBR: about £1.5bn."],
+["‘Will not be extended’","One research strand read it in the Budget document; another found it only quoted by the Guardian.","REPORTED."],
+["Allowance and number of groups","Policy-paper reading lists a £100m allowance and about 65 groups; another strand could not confirm the allowance on a publisher page.","REPORTED."],
+["Bank share moves, 28 Oct","Intraday +3.3% to +4% (Reuters, City AM, ITV) against closes of +1.6% to +2.0% (PA, Reuters, lse.co.uk).","Close first; intraday shown separately."],
+["Why Lloyds fell on 29 Oct","Slower 2027 NII and unchanged targets (Investing.com, Reuters, Market Reporter) against tax worries (Saxo). Fall of ‘more than 4%’ to ‘5% to 6%’.","Both reasons, with the range."],
+["Headroom","OBR £15bn; IFS £13bn before policy; Resolution Foundation £14.5bn; EY's pre-Budget £11.3bn.","OBR £15bn."],
+["Net debt","Library PSND 95.5% to 97.3% against a trade-press ‘below 83%’ (likely PSNFL, 82.7%).","Measure named every time."],
+["Inflation","OBR 3.4% (2027 average) against 3.3% (2026-27 average), ‘about 3½%’, and a peak of 3.8% or ‘close to 4%’.","3.4% and 3.8%, basis named."],
+["Santander UK motor finance provision","£633m in the RNS text against £616m in press and analyst reports.","‘£616m to £633m’."],
+["Close Brothers motor finance provision","£320m (RBC, 6 Jul) against £300m (older page).","Not quoted."],
+["MPC expectation","Investing.com says markets broadly expect a hold; OIS 94% to 96%, 16 of 17 houses and the Reuters poll say a rise.","Rise priced; Investing.com treated as an outlier."],
+["Treasury Committee Bank of England inquiry deadline","6 Nov on the launch release and inquiry list; 13 Nov on the Committee's summary page.","6 Nov as the planning date."],
+["Commons recess","Parliament FAQ and Hansard: rises 4 Nov, returns 10 Nov. The egg-timer API still lists 5 and 9 Nov as sitting days; a tour site says 5 to 8 Nov.","FAQ dates; the API is stale."],
+["Nationwide HPI release","September: 1 Oct (Nationwide, Trading Economics) against 2 Oct (intermediary page). October: 30 Oct (Trading Economics only); a 2 Nov date is unsupported.","1 Oct; 30 Oct as REPORTED."],
+["Talk Money Week","2 to 6 Nov (Awareness Days, 23 Oct) against 9 to 13 Nov (another listing).","2 to 6 Nov, flagged."],
+["Halifax app","Leaves the stores 31 Oct and stops 1 Nov (some outlets) against live until Sunday 1 Nov (MoneySavingExpert).","MoneySavingExpert."],
+["First Time Buyer ISA launch","April 2029 (Library, Barclays, Moneyfacts) against April 2028 ‘suggested’ (your-move.co.uk).","April 2029."],
+["Savings tax rise","‘A further two points’ against ‘four points’ (cumulative with Budget 2025).","A further 2 points from April 2027, flagged."],
+["TUC ask","‘At least 8%’ (Brit Brief/PA) against ‘16%, floated 35%’ (a retail-investor blog).","Brit Brief; the other unverified."]
+]};
+var ANCH={cols:["Anchor source","Result","Detail"],rows:[
+["gov.uk Budget document and surcharge policy paper","Read","Table 6.1 and the allowance were not checked line by line."],
+["OBR Economic and Fiscal Outlook, October 2026","Read",""],
+["Bank of England upcoming MPC dates and upcoming events","Read","MPC 5 Nov 12:00; Pill and Shortall 6 Nov 12:15. The ‘latest and upcoming’ footer is stale (March 2025)."],
+["Bank of England FSR and FPC dates pages","Read","26 Nov, 10:30."],
+["ONS release pages and calendar","Read","Every page read shows 07:00. Blue Book 30 Oct, 09:30."],
+["Parliament recess pages, Hansard and the Treasury Committee page","Read","The 3 Nov witness list is not shown."],
+["FCA motor finance statement of 13 Oct","Read","The Tribunal directions PDF was not opened."],
+["FCA and PRA consultation pages","Partial","Several PDFs could not be opened; some rows rest on law-firm summaries."],
+["Results: RNS mirrors of each firm's own announcement","Read","Investegate and ADVFN mirrors; Standard Chartered and Rathbones on their own pages."],
+["NatWest, Prudential, Legal & General, Nationwide, Wise and Paragon own pages","Failed","Dates are secondary. NatWest was read for Edition 01."],
+["Finance Bill timetable, FSM Bill second reading and the 29 Oct business statement","Failed","Nothing published or retrievable."],
+["Bank of England quoted household rates page","Failed","Last updated 27 May; no release date."],
+["Lloyds and Halifax own pages on the brand and app closure","Failed","MoneySavingExpert and press only."],
+["Pattern Library","Read","46 rows in the copy used."],
+["Edition 01","Read","Scored in section 13."]
+]};
+var BEYOND={cols:["Date","Item","Status","Why it matters now","Source"],rows:[
+["Thu 17 Dec","Next MPC decision (no Monetary Policy Report)","CONFIRMED","Time not stated in the text read; usually 12:00. Shapes the whole post-5 Nov debate.",L(U.boempc,"Bank of England")],
+["Thu 17 Dec","Parliament rises for Christmas; returns Tue 5 Jan 2027","CONFIRMED","Closes the legislative window for pre-Christmas business.",L(U.recess,"parliament.uk")],
+["Thu 17 Dec","HSBC third interim dividend paid","CONFIRMED","Follows the 5 Nov ex-dividend date.",L(U.hsbcdiv,"MarketScreener")],
+["Fri 18 Dec","GfK consumer confidence","CONFIRMED","Second post-Budget consumer read.",L(U.gfk,"NIQ")],
+["Thu 24 Dec","FCA CP26/38 closes","CONFIRMED","APP fraud and failure-to-prevent-fraud yardstick.",L(U.cp2638,"FCA")],
+["Fri 1 Jan 2027","Bank surcharge rises to 6%; Basel 3.1 takes effect","CONFIRMED","Both feed Q4 guidance questions.",L(U.surch,"Policy paper")],
+["Jan 2027","Household Energy Payment starts; first 12-month T-bill","CONFIRMED","Payment-fraud comms; bill demand.",L(U.cbp,"Commons Library")],
+["Tue 5 Jan 2027","BoE Money and Credit, November","CONFIRMED","No release between 1 and 11 Dec.",L("https://www.bankofengland.co.uk/statistics/money-and-credit/2026/november-2026","Bank of England")],
+["Wed 20 Jan 2027","Several Budget consultations close","CONFIRMED","E-invoicing and Machine Games Duty are CONFIRMED; others are law-firm summaries.",L(U.ootlar,"Overview of tax legislation")],
+["Fri 22 Jan 2027","SM&CR Phase 2 consultations close","CONFIRMED","Certification Regime removal; temporary cover 12 to 18 weeks.",L("https://www.bankofengland.co.uk/prudential-regulation/publication/2026/october/review-of-the-smcr-phase-two-consultation-paper","BoE")],
+["Q1 2027","Santander UK Part VII transfer; Consumer Duty scope policy statement","REPORTED","Integration and regulatory comms.",L("https://www.independent.co.uk/news/business/santander-uk-tsb-santander-b3074637.html","Independent")],
+["Tue 16 to Fri 26 Feb 2027","Upper Tribunal hearing on the motor finance scheme","CONFIRMED","Nothing on payments can be settled before the judgment.",L(U.mfstmt,"FCA")],
+["Sun 28 Feb 2027","Cryptoasset authorisation window closes for savings-provision firms","REPORTED","Gateway planning.",L("https://www.skadden.com/insights/publications/2026/10/uks-fca-finalises-cryptoasset-perimeter-guidance","Skadden")],
+["Tue 6 Apr 2027","Cash ISA limit stays £20,000; savings and property income tax rises; BADR cut","CONFIRMED","Sets the ISA-season and disposal-timing conversations.",L(U.budget,"Budget document")],
+["Fri 31 Mar 2028","Last day of the 6% surcharge; 3% from Sat 1 Apr 2028","CONFIRMED","The date to be held to, or not.",L(U.surch,"Policy paper")]
+]};
+
+(function(){
+var DN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function pd(s){var a=s.split("-");return new Date(Date.UTC(+a[0],+a[1]-1,+a[2]));}
+function dlabel(s){var d=pd(s);return DN[d.getUTCDay()]+" "+d.getUTCDate()+" "+MN[d.getUTCMonth()];}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function $(id){return document.getElementById(id);}
+var STAT=["CONFIRMED","REPORTED","EXPECTED","WINDOW","WATCH"];
+var ev=EV.map(function(r){return {id:r[0],date:r[1],time:r[2],lane:r[3],title:r[4],inst:r[5],status:r[6],w:r[7],url:r[8],src:r[9],note:r[10]};});
+
+/* KPIs */
+var conf=ev.filter(function(e){return e.status==="CONFIRMED";}).length;
+$("kpi-items").textContent=ev.length;
+$("kpi-conf").textContent=Math.round(100*conf/ev.length)+"%";
+
+/* generic tables */
+function plainTag(v){
+  if(typeof v==="string"&&STAT.indexOf(v)>-1){return "<span class='tag "+v+"'>"+v+"</span>";}
+  return v;
+}
+function outcome(v){
+  var c={HIT:"hit",MISS:"miss",PARTIAL:"part",PENDING:"pend","N/A":"pend"}[v]||"pend";
+  return "<span class='"+c+"'>"+v+"</span>";
+}
+function chk(v){
+  var c={Read:"ok",Failed:"no",Partial:"pt"}[v];
+  var sym={Read:"\u2713 ",Failed:"\u2717 ",Partial:"\u25D0 "}[v]||"";
+  return c?"<span class='chk "+c+"'>"+sym+v+"</span>":v;
+}
+function renderTable(id,spec,opts){
+  opts=opts||{};
+  var t=$(id),h="<thead><tr>";
+  spec.cols.forEach(function(c){h+="<th>"+c+"</th>";});
+  h+="</tr></thead><tbody>";
+  spec.rows.forEach(function(r){
+    h+="<tr>";
+    r.forEach(function(c,i){
+      var v=plainTag(c);
+      if(opts.outcomeCol===i)v=outcome(c);
+      if(opts.chkCol===i)v=chk(c);
+      h+="<td"+(opts.nw&&opts.nw.indexOf(i)>-1?" class='nw'":"")+">"+(i===0&&!opts.noBold?"<b>"+v+"</b>":v)+"</td>";
+    });
+    h+="</tr>";
+  });
+  t.innerHTML=h+"</tbody>";
+}
+renderTable("tbl-react",REACT);
+renderTable("tbl-fiscal",FISCAL);
+renderTable("tbl-themes",THEMES);
+renderTable("tbl-results",RESULTS,{nw:[0,1]});
+renderTable("tbl-mpc",MPC,{noBold:true});
+renderTable("tbl-fore",FORE);
+renderTable("tbl-data",DATA,{nw:[1]});
+renderTable("tbl-pipeline",PIPE);
+renderTable("tbl-resolved",RESOLVED);
+renderTable("tbl-watch",WATCH);
+renderTable("tbl-pattern",PAT,{outcomeCol:3});
+renderTable("tbl-refnums",REFN);
+renderTable("tbl-lens",LENS);
+renderTable("tbl-score",SCORE,{outcomeCol:2,noBold:true});
+renderTable("tbl-conflicts",CONF);
+renderTable("tbl-anchors",ANCH,{chkCol:1});
+renderTable("tbl-beyond",BEYOND,{nw:[0]});
+
+/* pattern score */
+function scoreLine(rows,col,note){
+  var c={HIT:0,PARTIAL:0,MISS:0,PENDING:0,"N/A":0};
+  rows.forEach(function(r){c[r[col]]++;});
+  var scored=c.HIT+c.PARTIAL+c.MISS;
+  return "<div><b class='hit'>"+c.HIT+"</b>HIT</div><div><b class='part'>"+c.PARTIAL+"</b>PARTIAL</div><div><b class='miss'>"+c.MISS+"</b>MISS</div><div><b class='pend'>"+c.PENDING+"</b>PENDING</div>"+(c["N/A"]?"<div><b class='pend'>"+c["N/A"]+"</b>NOT ACTIVE</div>":"")+"<div style='align-self:end'>"+scored+" scored rows. Hit rate on scored rows: "+Math.round(100*c.HIT/scored)+"%. "+note+"</div>";
+}
+$("patscore").innerHTML=scoreLine(PAT.rows,3,"Many hits are weekday-only rules, which are easy to meet.");
+$("scscore").innerHTML=scoreLine(SCORE.rows,2,"Several hits are dates that were already published; the scenario rows and the downgraded quoted-rates row are the informative ones.");
+
+/* load maths */
+var wkStarts=["2026-10-26","2026-11-02","2026-11-09","2026-11-16","2026-11-23","2026-11-30","2026-12-07"];
+var wkText=[["Last of the Budget run", "NatWest at 07:00, ONS Blue Book revisions, BoE Agents' summary and Decision Maker Panel, Nationwide HPI (reported). Weekend: Halifax switch deadline and app closure (reported)."], ["Votes and the rate decision", "Budget votes and the Treasury Committee session on the 3rd; OBR before the Committee and recess from the 4th; MPC and Monetary Policy Report on Thursday 5th at 12:00; Pill and Shortall on the 6th."], ["Return and first data", "Lords back on the 9th, Commons on the 10th with the NIESR Outlook; Q3 GDP, UK Finance arrears and RICS on Thursday 12th; Aviva on the 13th."], ["The data run", "Labour market on the 17th; CPI and house prices on the 18th, the day of the UK Finance dinner with the PRA CEO; TheCityUK conference on the 19th; public finances, retail sales and GfK on the 20th."], ["Stability report", "Financial Stability Report and FPC record on Thursday 26th; Black Friday on the 27th. Government reply on the OBR report due on the 23rd."], ["Month-end", "Money and Credit and the Standard Life update on the 30th; FT Global Banking Summit from 1 Dec; Economic Crime Congress on the 3rd."], ["Lead-in to December", "Mortgage dinner on the 9th; RICS and the PSR consultation close on the 10th; monthly GDP on Friday 11th. The next MPC is on 17 Dec."]];
+function addDays(s,n){var d=pd(s);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
+function wkRange(ws){var f=ws<WIN_START?WIN_START:ws,l=addDays(ws,4);if(l>WIN_END)l=WIN_END;return dlabel(f)+(f===l?"":" \u2013 "+dlabel(l));}
+var dayLoad={};
+ev.forEach(function(e){dayLoad[e.date]=(dayLoad[e.date]||0)+e.w;});
+var wkLoad=wkStarts.map(function(ws){var t=0,n=0;for(var i=0;i<7;i++){var d=addDays(ws,i);t+=dayLoad[d]||0;n+=ev.filter(function(e){return e.date===d;}).length;}return {load:t,n:n};});
+var mx=Math.max.apply(null,wkLoad.map(function(w){return w.load;}));
+var wh="";
+wkStarts.forEach(function(ws,i){
+  var r=wkLoad[i].load/mx,lv=r>0.85?"peak":r>0.6?"high":r>0.35?"med":"low";
+  wh+="<div class='wk'><div class='wd'>"+wkRange(ws)+"</div><div class='barwrap'><div class='bar lv-"+lv+"' style='width:"+Math.round(r*100)+"%'></div></div><div class='wl'>"+wkText[i][0]+" \u00b7 load "+wkLoad[i].load+" ("+wkLoad[i].n+" items)</div><p>"+wkText[i][1]+"</p></div>";
+});
+$("weeks").innerHTML=wh;
+var ds=Object.keys(dayLoad).sort(function(a,b){return dayLoad[b]-dayLoad[a]||(a<b?-1:1);}).slice(0,3);
+$("peakdays").textContent=ds.map(function(d){return dlabel(d)+" (load "+dayLoad[d]+")";}).join("; ")+".";
+
+/* calendar */
+var laneFilter="ALL";
+function lanePills(){
+  var h="<button type='button' class='pill' data-lane='ALL' aria-pressed='"+(laneFilter==="ALL")+"'>All lanes</button>";
+  Object.keys(LANES).forEach(function(k){h+="<button type='button' class='pill' data-lane='"+k+"' aria-pressed='"+(laneFilter===k)+"'>"+LANES[k]+"</button>";});
+  $("lanefilters").innerHTML=h;
+}
+function lvClass(n){return n>=7?"l4":n>=5?"l3":n>=3?"l2":n>=1?"l1":"";}
+function drawCal(){
+  var h="";
+  wkStarts.forEach(function(ws,i){
+    h+="<div class='cal-week'><h3>Week "+(i+1)+" \u00b7 "+wkRange(ws)+"</h3><div class='days'>";
+    for(var k=0;k<5;k++){
+      var d=addDays(ws,k);
+      if(d<WIN_START||d>WIN_END)continue;
+      var es=ev.filter(function(e){return e.date===d;}).sort(function(a,b){return b.w-a.w;});
+      h+="<div class='day "+lvClass(dayLoad[d]||0)+"'><div class='dh'><b>"+pd(d).getUTCDate()+"</b><span>"+DN[pd(d).getUTCDay()]+(dayLoad[d]?" \u00b7 "+dayLoad[d]:"")+"</span></div>";
+      es.forEach(function(e){
+        var dim=laneFilter!=="ALL"&&e.lane!==laneFilter;
+        h+="<button type='button' class='chip "+e.status+(e.w===3?" w3":"")+(dim?" dim":"")+"' data-id='"+e.id+"' title='"+esc(e.title+" ("+e.status+")")+"'>"+(e.time?"<span class='tm'>"+e.time+"</span>":"")+esc(e.title.length>58?e.title.slice(0,56)+"\u2026":e.title)+"</button>";
+      });
+      h+="</div>";
+    }
+    h+="</div>";
+    var wk=ev.filter(function(e){return e.date===addDays(ws,5)||e.date===addDays(ws,6);});
+    if(wk.length){h+="<div class='wknd'>Weekend: "+wk.map(function(e){return dlabel(e.date)+", "+esc(e.title)+" ("+e.status+")";}).join("; ")+"</div>";}
+    h+="</div>";
+  });
+  $("calendar").innerHTML=h;
+}
+lanePills();drawCal();
+$("lanefilters").addEventListener("click",function(x){var b=x.target.closest("button");if(!b)return;laneFilter=b.getAttribute("data-lane");lanePills();drawCal();});
+
+/* register */
+var regLane="ALL",regStat="ALL",regQ="",sortKey="date",sortDir=1;
+function regFilters(){
+  var h="<span class='small'>Lane</span> <select id='rl' class='search' style='min-width:180px'><option value='ALL'>All lanes</option>";
+  Object.keys(LANES).forEach(function(k){h+="<option value='"+k+"'"+(regLane===k?" selected":"")+">"+LANES[k]+"</option>";});
+  h+="</select> <span class='small'>Status</span> <select id='rs' class='search' style='min-width:140px'><option value='ALL'>All statuses</option>";
+  STAT.forEach(function(k){h+="<option value='"+k+"'"+(regStat===k?" selected":"")+">"+k+"</option>";});
+  h+="</select> <input id='rq' class='search' type='search' placeholder='Search items' value='"+esc(regQ)+"' aria-label='Search register'>";
+  $("regfilters").innerHTML=h;
+  $("rl").onchange=function(){regLane=this.value;drawReg();};
+  $("rs").onchange=function(){regStat=this.value;drawReg();};
+  $("rq").oninput=function(){regQ=this.value;drawReg();};
+}
+var cols=[["date","Date"],["time","Time"],["title","Item"],["lane","Lane"],["status","Status"],["w","Wt"],["src","Source"]];
+function drawReg(){
+  var rows=ev.filter(function(e){
+    if(regLane!=="ALL"&&e.lane!==regLane)return false;
+    if(regStat!=="ALL"&&e.status!==regStat)return false;
+    if(regQ){var q=regQ.toLowerCase();if((e.title+" "+e.inst+" "+e.note).toLowerCase().indexOf(q)<0)return false;}
+    return true;
+  });
+  rows.sort(function(a,b){
+    var x=a[sortKey],y=b[sortKey];
+    if(sortKey==="date"){x=a.date+(a.time||"99");y=b.date+(b.time||"99");}
+    return (x<y?-1:x>y?1:0)*sortDir;
+  });
+  var h="<thead><tr>";
+  cols.forEach(function(c){h+="<th class='sortable' data-k='"+c[0]+"' aria-sort='"+(sortKey===c[0]?(sortDir===1?"ascending":"descending"):"none")+"'>"+c[1]+"<span class='arr'>"+(sortKey===c[0]?(sortDir===1?"\u25B2":"\u25BC"):"")+"</span></th>";});
+  h+="</tr></thead><tbody>";
+  rows.forEach(function(e){
+    h+="<tr id='row-"+e.id+"'><td class='nw'>"+dlabel(e.date)+"</td><td class='nw num'>"+(e.time||"")+"</td><td><b>"+esc(e.title)+"</b><span class='sub'>"+esc(e.inst)+(e.note?" \u00b7 "+esc(e.note):"")+"</span></td><td class='nw'>"+LANES[e.lane]+"</td><td><span class='tag "+e.status+"'>"+e.status+"</span></td><td class='num'>"+e.w+"</td><td><a href='"+e.url+"' target='_blank' rel='noopener'>"+esc(e.src)+"</a></td></tr>";
+  });
+  if(!rows.length)h+="<tr><td colspan='7'>No items match.</td></tr>";
+  $("tbl-register").innerHTML=h+"</tbody>";
+  $("regcount").textContent=rows.length+" of "+ev.length+" dated items shown. Weight: 1 minor, 2 material, 3 decisive.";
+  Array.prototype.forEach.call(document.querySelectorAll("#tbl-register th.sortable"),function(th){
+    th.onclick=function(){var k=th.getAttribute("data-k");if(sortKey===k)sortDir=-sortDir;else{sortKey=k;sortDir=1;}drawReg();};
+  });
+}
+regFilters();drawReg();
+
+$("calendar").addEventListener("click",function(x){
+  var b=x.target.closest(".chip");if(!b)return;
+  var id=b.getAttribute("data-id");
+  if(regLane!=="ALL"||regStat!=="ALL"||regQ){regLane="ALL";regStat="ALL";regQ="";regFilters();drawReg();}
+  var r=$("row-"+id);if(!r)return;
+  r.scrollIntoView({block:"center"});
+  r.classList.add("flash");setTimeout(function(){r.classList.remove("flash");},1800);
+});
+
+/* CSV */
+function q(v){return "\""+String(v).replace(/"/g,"\"\"")+"\"";}
+var lines=["event_id,title,institution,lane,date,time,status,weight,source_url,verified_at,notes"];
+ev.slice().sort(function(a,b){return (a.date+a.time)<(b.date+b.time)?-1:1;}).forEach(function(e){
+  lines.push([e.id,q(e.title),q(e.inst),q(LANES[e.lane]),e.date,e.time,e.status,e.w,q(e.url),AS_AT,q(e.note)].join(","));
+});
+var csv=lines.join("\n");
+$("csvout").textContent=csv;
+$("copycsv").onclick=function(){
+  var ok=function(){$("copystate").textContent="Copied.";setTimeout(function(){$("copystate").textContent="";},2000);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(csv).then(ok,function(){fallback();});}else{fallback();}
+  function fallback(){var r=document.createRange();r.selectNodeContents($("csvout"));var s=window.getSelection();s.removeAllRanges();s.addRange(r);$("copystate").textContent="Selected; press Ctrl+C to copy.";}
+};
+
+/* scrollspy */
+var links=document.querySelectorAll("nav.toc a[data-sec]");
+function spy(){
+  var cur=null;
+  Array.prototype.forEach.call(links,function(a){var s=$(a.getAttribute("data-sec"));if(s&&s.getBoundingClientRect().top<160)cur=a;});
+  Array.prototype.forEach.call(links,function(a){a.classList.toggle("on",a===cur);});
+}
+window.addEventListener("scroll",spy,{passive:true});spy();
+})();
+
+</script>
+</body>
+</html>
